@@ -1,4 +1,4 @@
-const Data = async () => {
+const GetData = async () => {
   const beerData = await fetch(
     "https://more-beers-less-tears-data.herokuapp.com/beertypes"
   );
