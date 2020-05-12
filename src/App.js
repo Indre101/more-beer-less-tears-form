@@ -7,7 +7,7 @@ function App() {
 
   useEffect(() => {
     const getData = async () => {
-      const Beers = await DataBase();
+      const Beers = await DataBase.GetData();
       setBeers(Beers);
     };
 
