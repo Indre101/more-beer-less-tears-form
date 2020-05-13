@@ -12,13 +12,13 @@ function PostOrder(newOrder) {
     method: "post",
     headers: {
       Accept: "application/json",
-      "Content-type": "application/json",
-      "cache-control": "no-cache",
+      "Content-Type": "application/json; charset=utf-8",
     },
     body: JSON.stringify(newOrder),
-  }).then((res) => res.json());
+  })
+    .then((res) => res.json())
+    .then((data) => console.log(data));
 }
-
 const DataBase = { PostOrder, GetData };
 
 export default DataBase;
