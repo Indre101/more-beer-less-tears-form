@@ -10,9 +10,12 @@
     "gh-pages": "^2.2.0",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
+    "react-credit-card-input": "^1.1.5",
     "react-dom": "^16.13.1",
     "react-lottie": "^1.2.3",
-    "react-scripts": "3.4.1"
+    "react-payment-inputs": "^1.1.4",
+    "react-scripts": "3.4.1",
+    "styled-components": "^5.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
