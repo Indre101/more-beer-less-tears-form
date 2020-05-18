@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import DataBase from "./modules/DataBase";
+import CardDetails from "./components/CardDetails";
 import "./App.scss";
 
 function App() {
@@ -10,12 +11,14 @@ function App() {
 			const Beers = await DataBase.GetData();
 			setBeers(Beers);
 		};
-
 		getData();
 	}, []);
 
-	const test = beers.map((beer) => <div key={beer.name}>{beer.name}</div>);
-	return <div className="App">{test}</div>;
+	return (
+		<div className="App">
+			<CardDetails />
+		</div>
+	);
 }
 
 export default App;
