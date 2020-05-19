@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import DataBase from "./modules/DataBase";
-import CardDetails from "./components/CardDetails";
+// import CardDetails from "./components/CardDetails";
 import "./App.scss";
+import Nav from "./components/Nav";
+import About from "./components/About";
+import Shop from "./components/Shop";
+import Product from "./components/Product";
 
 function App() {
 	const [beers, setBeers] = useState([]);
@@ -15,10 +20,24 @@ function App() {
 	}, []);
 
 	return (
-		<div className="App">
-			<CardDetails />
-		</div>
+		<Router>
+			<div className="App">
+				<Nav />
+				<Switch>
+					<Route path="/" exact component={Home} />
+					<Route path="/about" component={About} />
+					<Route path="/shop" exact component={Shop} />
+					<Route path="/shop/:id" component={Product} />
+				</Switch>
+			</div>
+		</Router>
 	);
 }
+
+const Home = () => (
+	<div>
+		<h1>Home</h1>
+	</div>
+);
 
 export default App;
