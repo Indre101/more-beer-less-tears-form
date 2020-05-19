@@ -2,10 +2,14 @@
 // This file contains main grid styles
 // --------------------------------------------
 
+.App {
+	max-width: 1200px;
+}
+
 .main-wrapper {
 	margin: 0 auto;
 	display: grid;
-	background-color: green;
+	background-color: var(--color-2-normal);
 }
 
 .page-title {
@@ -18,5 +22,14 @@
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	gap: 2rem;
 	padding: 2rem;
-	background: khaki;
+}
+
+.promo-section {
+	height: 400px;
+	background: lightcoral;
+}
+
+.stats-section {
+	height: 400px;
+	background: lightseagreen;
 }

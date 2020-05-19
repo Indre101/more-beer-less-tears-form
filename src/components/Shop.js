@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import DataBase from "../modules/DataBase";
 import "../App.scss";
 import { Link } from "react-router-dom";
-import imageTest from "../static/githop.png";
+import imageTest from "../static/img/row26.png";
 
 function Shop() {
 	const [beers, setBeers] = useState([]);
@@ -27,7 +27,7 @@ function Shop() {
 				{beers.map((beer) => (
 					<div key={beer.name}>
 						<img src={imageTest} />
-						<h1 key={beer.name}>{beer.name}</h1>
+						<h2 key={beer.name}>{beer.name}</h2>
 						{/* <img src={`static/${beer.label}`} /> */}
 						<Link to={`/shop/${beer.name}`}>
 							<button>More Info</button>
@@ -35,6 +35,12 @@ function Shop() {
 						<button>Add to cart</button>
 					</div>
 				))}
+			</section>
+			<section className="promo-section">
+				<h1>Happy Hour</h1>
+			</section>
+			<section className="stats-section">
+				<h1>Stats</h1>
 			</section>
 		</div>
 	);

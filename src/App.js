@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import DataBase from "./modules/DataBase";
 // import CardDetails from "./components/CardDetails";
 import "./App.scss";
+import Header from "./components/Header";
 import Nav from "./components/Nav";
 import About from "./components/About";
 import Shop from "./components/Shop";
@@ -23,6 +24,7 @@ function App() {
 	return (
 		<Router>
 			<div className="App">
+				<Header />
 				<Nav />
 				<Switch>
 					<Route path="/" exact component={Home} />
