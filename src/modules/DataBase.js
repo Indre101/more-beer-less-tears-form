@@ -7,6 +7,13 @@ const GetData = async () => {
 	return response;
 };
 
+const GetBarData = async () => {
+	const barData = await fetch("https://more-beers-less-tears-data.herokuapp.com");
+	const response = await barData.json();
+	console.log(response.taps);
+	return response;
+};
+
 function PostOrder(newOrder) {
 	fetch(`https://more-beers-less-tears-data.herokuapp.com/order`, {
 		method: "post",
@@ -19,6 +26,6 @@ function PostOrder(newOrder) {
 		.then((res) => res.json())
 		.then((data) => console.log(data));
 }
-const DataBase = { PostOrder, GetData };
+const DataBase = { PostOrder, GetData, GetBarData };
 
 export default DataBase;

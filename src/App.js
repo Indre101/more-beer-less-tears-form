@@ -7,6 +7,7 @@ import Nav from "./components/Nav";
 import About from "./components/About";
 import Shop from "./components/Shop";
 import Product from "./components/Product";
+import Cart from "./components/Cart";
 
 function App() {
 	const [beers, setBeers] = useState([]);
@@ -26,6 +27,7 @@ function App() {
 				<Switch>
 					<Route path="/" exact component={Home} />
 					<Route path="/about" component={About} />
+					<Route path="/cart" component={Cart} />
 					<Route path="/shop" exact component={Shop} />
 					<Route path="/shop/:id" component={Product} />
 				</Switch>
