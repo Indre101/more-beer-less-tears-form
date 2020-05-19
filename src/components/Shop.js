@@ -21,9 +21,9 @@ function Shop() {
 	// }, []);
 
 	return (
-		<div>
-			<h1>Shop</h1>
-			<div>
+		<div className="main-wrapper">
+			<h1 className="page-title">Shop</h1>
+			<section className="beer-list">
 				{beers.map((beer) => (
 					<div key={beer.name}>
 						<img src={imageTest} />
@@ -35,7 +35,7 @@ function Shop() {
 						<button>Add to cart</button>
 					</div>
 				))}
-			</div>
+			</section>
 		</div>
 	);
 }

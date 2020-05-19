@@ -1,3 +1,22 @@
 // --------------------------------------------
 // This file contains main grid styles
 // --------------------------------------------
+
+.main-wrapper {
+	margin: 0 auto;
+	display: grid;
+	background-color: green;
+}
+
+.page-title {
+	background: hotpink;
+	grid-column: 1/-1;
+}
+
+.beer-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 2rem;
+	padding: 2rem;
+	background: khaki;
+}
