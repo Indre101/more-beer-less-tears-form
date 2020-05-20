@@ -34,3 +34,7 @@ h3 {
 	font-family: var(--primary-font);
 	color: var(--text-h3-color);
 }
+
+blockquote > p {
+	@include blockquote();
+}

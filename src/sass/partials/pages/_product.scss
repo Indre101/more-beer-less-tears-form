@@ -1,6 +1,7 @@
 // --------------------------------------------
 // This file contains product page styles
 // --------------------------------------------
+@import "sass/partials/abstracts/mixins";
 
 .product-info {
 	background-color: coral;
@@ -8,7 +9,8 @@
 	h2 {
 		color: var(--color-2-normal);
 	}
-	h3 {
-		font-style: italic;
-	}
+}
+
+.product-image {
+	@include dropShadow(var(--color-2-normal));
 }

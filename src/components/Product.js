@@ -29,7 +29,9 @@ function Product() {
 				<section className="product-info">
 					<h1>{beer.name}</h1>
 					<h2>{beer.category}</h2>
-					<h3>{description.overallImpression}</h3>
+					<blockquote>
+						<p>{description.overallImpression}</p>
+					</blockquote>
 					<h2>60 kr</h2>
 					<button onClick={() => setCount(count + 1)}>Increment</button>
 					<button onClick={() => setCount(count - 1)}>Decrement</button>
