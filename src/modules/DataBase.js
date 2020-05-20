@@ -12,7 +12,7 @@ const GetData = async () => {
 const GetBarData = async () => {
 	const barData = await fetch("https://more-beers-less-tears-data.herokuapp.com");
 	const response = await barData.json();
-	console.log(response.taps);
+	console.log(response);
 	return response;
 };
 

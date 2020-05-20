@@ -6,7 +6,9 @@ import imageTest from "../static/img/row26.png";
 
 function Shop() {
 	const [beers, setBeers] = useState([]);
+	const [beersOnTap, setBeersOnTap] = useState([]);
 
+	// get beer descriptions
 	useEffect(() => {
 		const getData = async () => {
 			const Beers = await DataBase.GetData();
@@ -16,24 +18,29 @@ function Shop() {
 		getData(beers);
 	}, []);
 
-	// useEffect(() => {
-	// 	DataBase.GetBarData();
-	// }, []);
+	// get all bar data - and filter taps
+	useEffect(() => {
+		const GetBarData = async () => {
+			const barData = await DataBase.GetBarData();
+			setBeersOnTap(barData.taps);
+			console.log(barData);
+		};
+		GetBarData(beersOnTap);
+	}, []);
 
 	return (
 		<div className="main-wrapper">
 			<div className="page-title">
 				<h1>Shop</h1>
 			</div>
-
 			<section className="beer-list">
-				{beers.map((beer) => (
-					<div className="single-beer" key={beer.name}>
+				{beersOnTap.map((beer) => (
+					<div className="single-beer" key={beer.id}>
 						<img src={imageTest} />
 						{/* <img src={`static/${beer.label}`} /> */}
-						<h2 key={beer.name}>{beer.name}</h2>
+						<h2 key={beer.beer}>{beer.beer}</h2>
 
-						<Link to={`/shop/${beer.name}`}>
+						<Link to={`/shop/${beer.id}`}>
 							<button>More Info</button>
 						</Link>
 						<button>Add to cart</button>
