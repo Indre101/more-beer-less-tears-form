@@ -3,8 +3,10 @@ import "../App.scss";
 
 function About() {
 	return (
-		<div>
-			<h1>About</h1>
+		<div className="main-wrapper">
+			<div className="page-title">
+				<h1>About</h1>
+			</div>
 		</div>
 	);
 }

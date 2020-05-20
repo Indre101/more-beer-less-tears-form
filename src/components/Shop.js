@@ -22,7 +22,10 @@ function Shop() {
 
 	return (
 		<div className="main-wrapper">
-			<h1 className="page-title">Shop</h1>
+			<div className="page-title">
+				<h1>Shop</h1>
+			</div>
+
 			<section className="beer-list">
 				{beers.map((beer) => (
 					<div className="single-beer" key={beer.name}>

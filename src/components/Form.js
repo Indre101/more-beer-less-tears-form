@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../App.scss";
+import Shop from "./Shop";
 
 function Form() {
 	const [name, setName] = useState("");
@@ -32,7 +34,10 @@ function Form() {
 	};
 
 	return (
-		<div>
+		<div className="main-wrapper">
+			<div className="page-title">
+				<h1>Form</h1>
+			</div>
 			<h1>Details</h1>
 			<form onSubmit={onSubmit}>
 				<label>
@@ -47,7 +52,9 @@ function Form() {
 					<h2>Telephone</h2>
 					<input type="text" onChange={phoneChanged} name="phone" value={phone} />
 				</label>
-				<input type="submit" value="Send" />
+				<Link to="/shop">
+					<input type="submit" value="Send" />
+				</Link>
 			</form>
 		</div>
 	);

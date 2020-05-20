@@ -1,0 +1,14 @@
+// --------------------------------------------
+// This file contains product page styles
+// --------------------------------------------
+
+.product-info {
+	background-color: coral;
+	text-align: center;
+	h2 {
+		color: var(--color-2-normal);
+	}
+	h3 {
+		font-style: italic;
+	}
+}

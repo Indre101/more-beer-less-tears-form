@@ -23,6 +23,13 @@
 	padding: 2rem;
 }
 
+.product-page-layout {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+	place-items: center;
+	padding: 2rem;
+}
+
 .single-beer {
 	padding: 3rem;
 	background-color: var(--color-2-normal);
