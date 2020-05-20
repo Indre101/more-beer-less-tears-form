@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from "react";
 import DataBase from "../modules/DataBase";
 import "../App.scss";
-import imageTest from "../static/githop.png";
+import imageTest from "../static//img/githop.png";
 
 function Product() {
 	const [beer, setBeer] = useState({});
 
 	useEffect(() => {
-		GetBarData();
+		const getData = async () => {
+			const Beer = await DataBase.GetData();
+			setBeer(Beer[3]);
+			console.log(Beer[3]);
+		};
+		getData(beer);
 	}, []);
 
 	const GetBarData = async () => {
@@ -19,8 +24,10 @@ function Product() {
 
 	return (
 		<div>
-			<h1>Product TEST</h1>
 			<img src={imageTest} alt=""></img>
+			<h2>{beer.name}</h2>
+			<h3>{beer.category}</h3>
+			<p>{beer.alc}</p>
 		</div>
 	);
 }

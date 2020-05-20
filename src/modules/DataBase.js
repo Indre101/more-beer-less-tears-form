@@ -1,3 +1,4 @@
+// get beer info
 const GetData = async () => {
 	const beerData = await fetch(
 		"https://more-beers-less-tears-data.herokuapp.com/beertypes"
@@ -7,6 +8,7 @@ const GetData = async () => {
 	return response;
 };
 
+// get all bar data
 const GetBarData = async () => {
 	const barData = await fetch("https://more-beers-less-tears-data.herokuapp.com");
 	const response = await barData.json();
@@ -14,6 +16,7 @@ const GetBarData = async () => {
 	return response;
 };
 
+// post order
 function PostOrder(newOrder) {
 	fetch(`https://more-beers-less-tears-data.herokuapp.com/order`, {
 		method: "post",

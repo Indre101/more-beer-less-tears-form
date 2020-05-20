@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 function Nav() {
 	return (
 		<nav>
-			<h1>Nav</h1>
 			<h3>Logo</h3>
 			<ul className="nav-links">
 				<Link to="/about">
@@ -16,6 +15,9 @@ function Nav() {
 				</Link>
 				<Link to="/cart">
 					<li>Cart</li>
+				</Link>
+				<Link to="/form">
+					<li>Form</li>
 				</Link>
 			</ul>
 		</nav>

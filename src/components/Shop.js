@@ -25,10 +25,11 @@ function Shop() {
 			<h1 className="page-title">Shop</h1>
 			<section className="beer-list">
 				{beers.map((beer) => (
-					<div key={beer.name}>
+					<div className="single-beer" key={beer.name}>
 						<img src={imageTest} />
-						<h2 key={beer.name}>{beer.name}</h2>
 						{/* <img src={`static/${beer.label}`} /> */}
+						<h2 key={beer.name}>{beer.name}</h2>
+
 						<Link to={`/shop/${beer.name}`}>
 							<button>More Info</button>
 						</Link>

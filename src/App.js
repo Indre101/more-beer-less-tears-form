@@ -9,6 +9,7 @@ import About from "./components/About";
 import Shop from "./components/Shop";
 import Product from "./components/Product";
 import Cart from "./components/Cart";
+import Form from "./components/Form";
 
 function App() {
 	const [beers, setBeers] = useState([]);
@@ -32,6 +33,7 @@ function App() {
 					<Route path="/cart" component={Cart} />
 					<Route path="/shop" exact component={Shop} />
 					<Route path="/shop/:id" component={Product} />
+					<Route path="/form" component={Form} />
 				</Switch>
 			</div>
 		</Router>

@@ -3,7 +3,7 @@ import "../App.scss";
 
 function Header() {
 	return (
-		<div>
+		<div className="site-header">
 			<h1>Header</h1>
 		</div>
 	);
