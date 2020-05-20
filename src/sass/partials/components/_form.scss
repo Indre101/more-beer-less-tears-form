@@ -1,3 +1,10 @@
 // --------------------------------------------
 // This file contains form styles
 // --------------------------------------------
+
+form {
+	background: yellow;
+	input {
+		padding: 1rem;
+	}
+}

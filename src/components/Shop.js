@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import DataBase from "../modules/DataBase";
 import "../App.scss";
 import { Link } from "react-router-dom";
-import imageTest from "../static/img/row26.png";
+import imageTest from "../assets/images/row26.png";
 
 function Shop() {
 	const [beers, setBeers] = useState([]);
@@ -20,12 +20,12 @@ function Shop() {
 
 	// get all bar data - and filter taps
 	useEffect(() => {
-		const GetBarData = async () => {
-			const barData = await DataBase.GetBarData();
+		const getData = async () => {
+			const barData = await DataBase.GetData();
 			setBeersOnTap(barData.taps);
 			console.log(barData);
 		};
-		GetBarData(beersOnTap);
+		getData(beersOnTap);
 	}, []);
 
 	return (

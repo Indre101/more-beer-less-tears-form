@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import DataBase from "../modules/DataBase";
 import "../App.scss";
-import imageTest from "../static//img/githop.png";
+import imageTest from "../assets/images/row26.png";
 
 function Product() {
 	const [count, setCount] = useState(0);
@@ -10,7 +10,7 @@ function Product() {
 
 	useEffect(() => {
 		const getData = async () => {
-			const Beer = await DataBase.GetData();
+			const Beer = await DataBase.GetBeerTypes();
 			setDescription(Beer[5].description);
 			setBeer(Beer[5]);
 		};

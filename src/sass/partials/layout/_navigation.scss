@@ -2,153 +2,16 @@
 // This file contains navigation styles
 // --------------------------------------------
 
-// mobile navigation
-nav {
-	position: absolute;
-	text-align: right;
-	top: 100%;
-	width: 100%;
-	left: 0;
-	background: var(--color-4-normal);
-	transform: scale(1, 0);
-	transform-origin: top;
-	transition: transform 400ms ease-in-out;
-}
-
-.nav-toggle {
-	display: none;
-}
-
-.nav-toggle-label {
-	position: absolute;
-	top: 0;
-	right: 2rem;
-	margin-left: 1em;
-	height: 100%;
-	display: flex;
-	align-items: center;
-}
-
-.nav-toggle-label span,
-.nav-toggle-label span::before,
-.nav-toggle-label span::after {
-	display: block;
-	background: white;
-	height: 2px;
-	width: 2em;
-	border-radius: 2px;
-	position: relative;
-}
-
-.nav-toggle-label span::before,
-.nav-toggle-label span::after {
-	content: "";
-	position: absolute;
-}
-
-.nav-toggle-label span::before {
-	bottom: 7px;
-}
-
-.nav-toggle-label span::after {
-	top: 7px;
-}
-
 nav ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
+	display: flex;
+	justify-content: flex-end;
 }
 
 nav li {
-	margin-bottom: 1em;
-	margin-right: 1em;
+	padding: var(--padding);
+	list-style: none;
 }
 
 nav a {
-	color: white;
-	text-decoration: none;
-	text-transform: uppercase;
-	font-family: var(--secondary-font);
-	opacity: 0;
-	transition: opacity 150ms ease-in-out;
-}
-
-.active {
-	color: var(--color-3-normal);
-}
-
-nav a:hover {
-	color: var(--color-3-normal);
-	transition: 250ms all ease-in-out;
-}
-
-.nav-toggle:checked ~ nav {
-	transform: scale(1, 1);
-}
-
-.nav-toggle:checked ~ nav a {
-	opacity: 1;
-	transition: opacity 250ms ease-in-out 250ms;
-}
-
-// desktop navigation media query
-@media screen and (min-width: 800px) {
-	.nav-toggle-label {
-		display: none;
-	}
-
-	.site-header {
-		display: grid;
-		grid-template-columns: 1fr auto minmax(900px, 3fr) 1fr;
-		background: mediumaquamarine;
-	}
-
-	.logo-container {
-		grid-column: 2 / 3;
-	}
-
-	nav {
-		all: unset;
-		grid-column: 3 / 4;
-		display: flex;
-		justify-content: flex-end;
-		align-items: center;
-	}
-
-	nav ul {
-		display: flex;
-		justify-content: flex-end;
-	}
-
-	nav li {
-		margin-bottom: 0;
-		padding: 0.9rem;
-	}
-
-	nav a {
-		opacity: 1;
-		position: relative;
-		letter-spacing: 0.2rem;
-		font-size: 0.8rem;
-	}
-
-	nav a::before {
-		content: "";
-		display: block;
-		background: var(--color-2-normal);
-		height: 5px;
-		position: absolute;
-		bottom: -0.75em;
-		left: 0;
-		right: 0;
-		transform: scale(0, 1);
-		transform-origin: left;
-		transition: transform ease-in-out 250ms;
-	}
-
-	nav a:hover::before {
-		transform: scale(1, 1);
-		background: var(--color-2-normal);
-	}
+	letter-spacing: var(--letter-spacing);
 }

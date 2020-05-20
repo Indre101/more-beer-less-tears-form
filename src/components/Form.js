@@ -11,11 +11,9 @@ function Form() {
 	const nameChanged = (e) => {
 		setName(e.target.value);
 	};
-
 	const emailChanged = (e) => {
 		setEmail(e.target.value);
 	};
-
 	const phoneChanged = (e) => {
 		setPhone(e.target.value);
 	};
@@ -34,11 +32,7 @@ function Form() {
 	};
 
 	return (
-		<div className="main-wrapper">
-			<div className="page-title">
-				<h1>Form</h1>
-			</div>
-			<h1>Details</h1>
+		<>
 			<form onSubmit={onSubmit}>
 				<label>
 					<h2>Name</h2>
@@ -53,7 +47,7 @@ function Form() {
 				<label>
 					<h2>Email</h2>
 					<input
-						type="text"
+						type="email"
 						onChange={emailChanged}
 						autocomplete="email"
 						name="email"
@@ -63,18 +57,20 @@ function Form() {
 				<label>
 					<h2>Telephone</h2>
 					<input
-						type="text"
+						type="number"
 						onChange={phoneChanged}
 						autocomplete="tel"
 						name="phone"
 						value={phone}
 					/>
 				</label>
-				<Link to="/shop">
-					<input type="submit" value="Send" />
-				</Link>
+				<div>
+					<Link to="/shop">
+						<input type="submit" value="Send" />
+					</Link>
+				</div>
 			</form>
-		</div>
+		</>
 	);
 }
 

@@ -4,7 +4,7 @@ import "../App.scss";
 function Header() {
 	return (
 		<div className="site-header">
-			<h1>Header</h1>
+			<h1>Foobar</h1>
 		</div>
 	);
 }
