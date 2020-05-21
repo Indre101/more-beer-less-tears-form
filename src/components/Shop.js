@@ -3,7 +3,7 @@ import DataBase from "../modules/DataBase";
 import "../App.scss";
 import { Link } from "react-router-dom";
 
-function Shop() {
+function Shop(props) {
 	const [beers, setBeers] = useState([]);
 	const [beersOnTap, setBeersOnTap] = useState([]);
 	const [beersAvailableTobuy, setbeersAvailableTobuy] = useState([]);
@@ -48,11 +48,10 @@ function Shop() {
 		setbeersAvailableTobuy(beersAvailableToBuyFiltered);
 	}, [beers, beersOnTap]);
 
-	console.log(beersAvailableTobuy);
 	const beersAvailableTobuyElement = beersAvailableTobuy.map((beer) => (
 		<div className="single-beer" key={beer.id}>
 			<img
-				src={require(`../assets/images/${beer ? beer.label : "elhefe.png"}`)}
+				src={require(`../assets/images/${beer.label ? beer.label : "elhefe.png"}`)}
 				alt="Beer"
 			/>
 			<h2>{beer ? beer.name : " "}</h2>
