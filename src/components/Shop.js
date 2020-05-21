@@ -29,11 +29,15 @@ function Shop() {
     return;
   }, []); // eslint-disable-line
 
+  //get the beer data that is only on the taps and unique
   useEffect(() => {
+    //gets the beer names that would not repeat
     const uniqueBeerNamesOnTap = [
       ...new Set(beersOnTap.map((beerName) => beerName.beer)),
     ];
+
     let i = 0;
+    //filters by the beer name throught the beertypes data and  return array with  objects containing beer info
     const beersAvailableToBuyFiltered = uniqueBeerNamesOnTap.map((beerName) => {
       i++;
       const beerObj = beers.find((type) => {

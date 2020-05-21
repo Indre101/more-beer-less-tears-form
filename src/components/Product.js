@@ -2,10 +2,9 @@ import React, { useState, useEffect } from "react";
 import "../App.scss";
 
 function Product(props) {
-  console.log(props);
-
   const [count, setCount] = useState(0);
 
+  //deconstruct the props that get passed along from route
   const { category, name, description, label } = props.location.state.beer;
   return (
     <div className="main-wrapper">
