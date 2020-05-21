@@ -2,12 +2,18 @@ import React, { useState, useEffect } from "react";
 import DataBase from "../modules/DataBase";
 import "../App.scss";
 import { Link } from "react-router-dom";
-import imageTest from "../assets/images/row26.png";
 
+<<<<<<< HEAD
 function Shop() {
 	const [beers, setBeers] = useState([]);
 	const [beersOnTap, setBeersOnTap] = useState([]);
 	const [beersAvailableTobuy, setbeersAvailableTobuy] = useState([]);
+=======
+function Shop(props) {
+  const [beers, setBeers] = useState([]);
+  const [beersOnTap, setBeersOnTap] = useState([]);
+  const [beersAvailableTobuy, setbeersAvailableTobuy] = useState([]);
+>>>>>>> a194ccb88fa6d6985c0dbd598b2f25f6c05d8375
 
 	// get beers on tap
 	useEffect(() => {
@@ -49,6 +55,7 @@ function Shop() {
 		setbeersAvailableTobuy(beersAvailableToBuyFiltered);
 	}, [beers, beersOnTap]);
 
+<<<<<<< HEAD
 	console.log(beersAvailableTobuy);
 	const beersAvailableTobuyElement = beersAvailableTobuy.map((beer) => (
 		<div className="single-beer" key={beer.id}>
@@ -63,6 +70,23 @@ function Shop() {
 			<button>Add to cart</button>
 		</div>
 	));
+=======
+  const beersAvailableTobuyElement = beersAvailableTobuy.map((beer) => (
+    <div className="single-beer" key={beer.id}>
+      <img
+        src={require(`../assets/images/${
+          beer.label ? beer.label : "elhefe.png"
+        }`)}
+        alt="Beer"
+      />
+      <h2>{beer ? beer.name : " "}</h2>
+      <Link to={{ pathname: `/shop/product`, state: { beer: beer } }}>
+        <button>More Info</button>
+      </Link>
+      <button>Add to cart</button>
+    </div>
+  ));
+>>>>>>> a194ccb88fa6d6985c0dbd598b2f25f6c05d8375
 
 	return (
 		<div className="main-wrapper">
