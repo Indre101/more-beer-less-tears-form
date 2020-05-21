@@ -36,14 +36,17 @@ function Shop() {
 			<section className="beer-list">
 				{beersOnTap.map((beer) => (
 					<div className="single-beer" key={beer.id}>
-						<img src={imageTest} />
-						{/* <img src={`static/${beer.label}`} /> */}
-						<h2 key={beer.beer}>{beer.beer}</h2>
-
-						<Link to={`/shop/${beer.id}`}>
-							<button>More Info</button>
-						</Link>
-						<button>Add to cart</button>
+						<div className="single-beer-image">
+							<img src={imageTest} />
+							{/* <img src={`static/${beer.label}`} /> */}
+						</div>
+						<div class="single-beer-info">
+							<h2 key={beer.beer}>{beer.beer}</h2>
+							<Link to={`/shop/${beer.id}`}>
+								<button>More Info</button>
+							</Link>
+							<button>Add to cart</button>
+						</div>
 					</div>
 				))}
 			</section>
