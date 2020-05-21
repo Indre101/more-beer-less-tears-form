@@ -5,79 +5,79 @@ import { Link } from "react-router-dom";
 import imageTest from "../assets/images/row26.png";
 
 function Shop() {
-  const [beers, setBeers] = useState([]);
-  const [beersOnTap, setBeersOnTap] = useState([]);
-  const [beersAvailableTobuy, setbeersAvailableTobuy] = useState([]);
+	const [beers, setBeers] = useState([]);
+	const [beersOnTap, setBeersOnTap] = useState([]);
+	const [beersAvailableTobuy, setbeersAvailableTobuy] = useState([]);
 
-  // get beers on tap
-  useEffect(() => {
-    const getData = async () => {
-      const Beers = await DataBase.GetData();
-      setBeersOnTap(Beers.taps);
-    };
-    getData(beers);
-    return;
-  }, []); // eslint-disable-line
+	// get beers on tap
+	useEffect(() => {
+		const getData = async () => {
+			const Beers = await DataBase.GetData();
+			setBeersOnTap(Beers.taps);
+		};
+		getData(beers);
+		return;
+	}, []); // eslint-disable-line
 
-  // get all beer data
-  useEffect(() => {
-    const getData = async () => {
-      const barData = await DataBase.GetBeerTypes();
-      setBeers(barData);
-    };
-    getData(beersOnTap);
-    return;
-  }, []); // eslint-disable-line
+	// get all beer data
+	useEffect(() => {
+		const getData = async () => {
+			const barData = await DataBase.GetBeerTypes();
+			setBeers(barData);
+		};
+		getData(beersOnTap);
+		return;
+	}, []); // eslint-disable-line
 
-  //get the beer data that is only on the taps and unique
-  useEffect(() => {
-    //gets the beer names that would not repeat
-    const uniqueBeerNamesOnTap = [
-      ...new Set(beersOnTap.map((beerName) => beerName.beer)),
-    ];
+	//get the beer data that is only on the taps and unique
+	useEffect(() => {
+		//gets the beer names that would not repeat
+		const uniqueBeerNamesOnTap = [
+			...new Set(beersOnTap.map((beerName) => beerName.beer)),
+		];
 
-    let i = 0;
-    //filters by the beer name throught the beertypes data and  return array with  objects containing beer info
-    const beersAvailableToBuyFiltered = uniqueBeerNamesOnTap.map((beerName) => {
-      i++;
-      const beerObj = beers.find((type) => {
-        return type.name === beerName;
-      });
+		let i = 0;
+		//filters by the beer name throught the beertypes data and  return array with  objects containing beer info
+		const beersAvailableToBuyFiltered = uniqueBeerNamesOnTap.map((beerName) => {
+			i++;
+			const beerObj = beers.find((type) => {
+				return type.name === beerName;
+			});
 
-      return { ...beerObj, id: i };
-    });
-    setbeersAvailableTobuy(beersAvailableToBuyFiltered);
-  }, [beers, beersOnTap]);
+			return { ...beerObj, id: i };
+		});
+		setbeersAvailableTobuy(beersAvailableToBuyFiltered);
+	}, [beers, beersOnTap]);
 
-  console.log(beersAvailableTobuy);
-  const beersAvailableTobuyElement = beersAvailableTobuy.map((beer) => (
-    <div className="single-beer" key={beer.id}>
-      <img
-        src={require(`../assets/images/${beer ? beer.label : "elhefe.png"}`)}
-        alt="Beer"
-      />
-      <h2>{beer ? beer.name : " "}</h2>
-      <Link to={{ pathname: `/shop/product`, state: { beer: beer } }}>
-        <button>More Info</button>
-      </Link>
-      <button>Add to cart</button>
-    </div>
-  ));
+	console.log(beersAvailableTobuy);
+	const beersAvailableTobuyElement = beersAvailableTobuy.map((beer) => (
+		<div className="single-beer" key={beer.id}>
+			<img
+				src={require(`../assets/images/${beer ? beer.label : "elhefe.png"}`)}
+				alt="Beer"
+			/>
+			<h2>{beer ? beer.name : " "}</h2>
+			<Link to={{ pathname: `/shop/product`, state: { beer: beer } }}>
+				<button>More Info</button>
+			</Link>
+			<button>Add to cart</button>
+		</div>
+	));
 
-  return (
-    <div className="main-wrapper">
-      <div className="page-title">
-        <h1>Shop</h1>
-      </div>
-      <section className="beer-list">{beersAvailableTobuyElement}</section>
-      <section className="promo-section">
-        <h1>Happy Hour</h1>
-      </section>
-      <section className="stats-section">
-        <h1>Stats</h1>
-      </section>
-    </div>
-  );
+	return (
+		<div className="main-wrapper">
+			<div className="page-title">
+				<h1>Shop</h1>
+			</div>
+			<section className="beer-list">{beersAvailableTobuyElement}</section>
+			<section className="promo-section">
+				<h1>Happy Hour</h1>
+			</section>
+			<section className="stats-section">
+				<h1>Stats</h1>
+			</section>
+		</div>
+	);
 }
 
 export default Shop;
