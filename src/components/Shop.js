@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import DataBase from "../modules/DataBase";
 import "../App.scss";
 import { Link } from "react-router-dom";
-import imageTest from "../assets/images/row26.png";
+import imageTest from "../assets/images/hoppily.png";
 
 function Shop() {
 	const [beers, setBeers] = useState([]);
@@ -49,18 +49,23 @@ function Shop() {
 		setbeersAvailableTobuy(beersAvailableToBuyFiltered);
 	}, [beers, beersOnTap]);
 
-	console.log(beersAvailableTobuy);
+	// console.log(beersAvailableTobuy);
 	const beersAvailableTobuyElement = beersAvailableTobuy.map((beer) => (
 		<div className="single-beer" key={beer.id}>
-			<img
+			{/* <img
 				src={require(`../assets/images/${beer ? beer.label : "elhefe.png"}`)}
 				alt="Beer"
-			/>
-			<h2>{beer ? beer.name : " "}</h2>
-			<Link to={{ pathname: `/shop/product`, state: { beer: beer } }}>
-				<button>More Info</button>
-			</Link>
-			<button>Add to cart</button>
+			/> */}
+			<div className="single-beer-image">
+				<img src={imageTest} alt="beer"></img>
+			</div>
+			<div className="single-beer-info">
+				<h2>{beer ? beer.name : " "}</h2>
+				<Link to={{ pathname: `/shop/product`, state: { beer: beer } }}>
+					<button>More Info</button>
+				</Link>
+				<button>Add to cart</button>
+			</div>
 		</div>
 	));
 
