@@ -12,8 +12,6 @@ function Shop(props) {
   useEffect(() => {
     const getData = async () => {
       const Beers = await DataBase.GetData();
-      console.log(Beers);
-
       setBeersOnTap(Beers.taps);
     };
     getData(beers);
@@ -50,7 +48,6 @@ function Shop(props) {
     setbeersAvailableTobuy(beersAvailableToBuyFiltered);
   }, [beers, beersOnTap]);
 
-  console.log(beersAvailableTobuy);
   const beersAvailableTobuyElement = beersAvailableTobuy.map((beer) => (
     <div className="single-beer" key={beer.id}>
       <img
