@@ -33,25 +33,27 @@ function Shop() {
     const uniqueBeerNamesOnTap = [
       ...new Set(beersOnTap.map((beerName) => beerName.beer)),
     ];
-
+    let i = 0;
     const beersAvailableToBuyFiltered = uniqueBeerNamesOnTap.map((beerName) => {
+      i++;
       const beerObj = beers.find((type) => {
         return type.name === beerName;
       });
-      return beerObj;
+
+      return { ...beerObj, id: i };
     });
     setbeersAvailableTobuy(beersAvailableToBuyFiltered);
   }, [beers, beersOnTap]);
 
   console.log(beersAvailableTobuy);
-
   const beersAvailableTobuyElement = beersAvailableTobuy.map((beer) => (
-    <div className="single-beer" key={beer && beer.name}>
-      <img src={require(`../assets/images/${beer.label}`)} alt="Beer" />
-      {/* <img src={`static/${beer.label}`} /> */}
-      <h2 key={beer.beer}>{beer.beer}</h2>
-
-      <Link to={`/shop/${beer.id}`}>
+    <div className="single-beer" key={beer.id}>
+      <img
+        src={require(`../assets/images/${beer ? beer.label : "elhefe.png"}`)}
+        alt="Beer"
+      />
+      <h2>{beer ? beer.name : " "}</h2>
+      <Link to={{ pathname: `/shop/product`, state: { beer: beer } }}>
         <button>More Info</button>
       </Link>
       <button>Add to cart</button>
