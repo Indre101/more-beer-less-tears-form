@@ -1,3 +1,22 @@
 // --------------------------------------------
 // This file contains header styles
 // --------------------------------------------
+
+.site-header {
+	background: var(--color-2-normal);
+	height: 20vh;
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
+	.cloud {
+		// height: 100px;
+		background-color: white;
+		grid-column: 1 / 8;
+		grid-row: 4 / 7;
+		clip-path: polygon(3.2% 53px, 16.57% 39.65%, 100% 102.06%, 0% 103.92%, 2px 55.51%);
+	}
+	.title {
+		grid-column: 1 / -1;
+		grid-row: 4 / 7;
+	}
+}
