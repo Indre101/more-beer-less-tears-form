@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import DataBase from "../modules/DataBase";
 import "../App.scss";
-import { Link } from "react-router-dom";
+import BeerCardShop from "./BeerCardShop";
 
 function Shop(props) {
   const [beers, setBeers] = useState([]);
@@ -49,19 +49,7 @@ function Shop(props) {
   }, [beers, beersOnTap]);
 
   const beersAvailableTobuyElement = beersAvailableTobuy.map((beer) => (
-    <div className="single-beer" key={beer.id}>
-      <img
-        src={require(`../assets/images/${
-          beer.label ? beer.label : "elhefe.png"
-        }`)}
-        alt="Beer"
-      />
-      <h2>{beer ? beer.name : " "}</h2>
-      <Link to={{ pathname: `/shop/product`, state: { beer: beer } }}>
-        <button>More Info</button>
-      </Link>
-      <button>Add to cart</button>
-    </div>
+    <BeerCardShop key={beer.id} beer={beer} />
   ));
 
   return (
