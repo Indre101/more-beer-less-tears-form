@@ -10,43 +10,24 @@ import Cart from "./components/Cart";
 import Details from "./components/Details";
 
 function App() {
-  const [orders, setorder] = useState([]);
-
-  // function placeOrdersInState(beerOrder) {
-  //   setorder((prevState) => {
-  //     if (prevState.length === 0) {
-  //       return [beerOrder];
-  //     } else {
-  //       return prevState.map((prevBeer) => {
-  //         if (prevBeer.name === beerOrder.name) {
-  //           console.log("ADDED", prevBeer);
-  //           return { prevBeer, amount: prevBeer.amount + 1 };
-  //         } else {
-  //           return beerOrder;
-  //         }
-  //       });
-  //     }
-  //   });
-  // }
-
+  const [orders, setorder] = useState([{ amount: 1, name: "Steampunk" }]);
   return (
     <Router>
       <div className="App">
         <Header />
-        <Nav />
+        <Nav amountOfOrders={orders.length} />
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/cart" component={Cart} />
+          <Route
+            path="/cart"
+            exact
+            render={(...routeProps) => <Cart {...routeProps} orders={orders} />}
+          />
           <Route
             path="/shop"
             exact
             render={(routeProps) => (
-              <Shop
-                {...routeProps}
-                // placeOrdersInState={placeOrdersInState}
-                setorder={setorder}
-                orders={orders}
-              />
+              <Shop {...routeProps} setorder={setorder} orders={orders} />
             )}
           />
           <Route path="/shop/:id" component={Product} />

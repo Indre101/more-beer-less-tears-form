@@ -32,7 +32,6 @@ export default function BeerCardShop(props) {
         return [newBeerOrder, ...prevOrders];
       }
     });
-    console.log(props.orders);
   }
 
   return (

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../App.scss";
 import { Link } from "react-router-dom";
 
-function Nav() {
+function Nav(props) {
   return (
     <nav>
       <ul className="nav-links">
@@ -17,7 +17,7 @@ function Nav() {
               alt="Cart"
             />
             <div className="item-count">
-              <h4>1</h4>
+              <h4>{props.amountOfOrders}</h4>
             </div>
           </li>
         </Link>
