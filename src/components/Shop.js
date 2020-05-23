@@ -49,7 +49,13 @@ function Shop(props) {
   }, [beers, beersOnTap]);
 
   const beersAvailableTobuyElement = beersAvailableTobuy.map((beer) => (
-    <BeerCardShop key={beer.id} beer={beer} />
+    <BeerCardShop
+      key={beer.id}
+      beer={beer}
+      // placeOrdersInState={props.placeOrdersInState}
+      setorder={props.setorder}
+      orders={props.orders}
+    />
   ));
 
   return (
