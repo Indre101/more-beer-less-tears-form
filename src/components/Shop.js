@@ -58,7 +58,8 @@ function Shop(props) {
 				/>
 			</div>
 			<div className="single-beer-info">
-				<h2>{beer ? beer.name : " "}</h2>
+				<h2 className="single-beer-title">{beer ? beer.name : " "}</h2>
+				<h3 className="single-beer-category">{beer ? beer.category : " "}</h3>
 				<Link to={{ pathname: `/shop/product`, state: { beer: beer } }}>
 					<button>More Info</button>
 				</Link>

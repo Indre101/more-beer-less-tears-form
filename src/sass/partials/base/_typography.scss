@@ -8,7 +8,6 @@
 
 // text styles
 body {
-	@include flexCenter(center, column);
 	font-family: var(--primary-font);
 }
 
@@ -37,4 +36,5 @@ h3 {
 
 blockquote > p {
 	@include blockquote();
+	color: var(--color-5-normal);
 }

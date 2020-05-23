@@ -31,6 +31,14 @@ function Product(props) {
 					<h2>{count}</h2>
 					<button>Add to cart</button>
 				</section>
+				<section className="product-main-description">
+					<h2>Appearance</h2>
+					<p>{description.appearance}</p>
+					<h2>Flavor</h2>
+					<p>{description.flavor}</p>
+					<h2>Aroma</h2>
+					<p>{description.aroma}</p>
+				</section>
 			</div>
 		</div>
 	);
