@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 export default function BeerCardShop(props) {
   const { id, label, name } = props.beer;
+  console.log(label);
+
   return (
     <div className="single-beer" key={id}>
       <img

@@ -5,8 +5,6 @@ const GetBeerTypes = async () => {
   );
 
   const response = await beerData.json();
-  console.log(response);
-
   return response;
 };
 
