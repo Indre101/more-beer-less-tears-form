@@ -7,8 +7,6 @@ function Nav(props) {
     .map((item) => item.amount)
     .reduce((prev, next) => prev + next, 0);
 
-  console.log(amountOfitems);
-
   return (
     <nav>
       <ul className="nav-links">

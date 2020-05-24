@@ -1,15 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function BeerCardShop(props) {
   const { id, label, name } = props.beer;
-  const [beerAmount, setbeerAmount] = useState(1);
+
+  function getorderedBeeramount() {
+    let amount;
+    if (
+      props.orders.length > 0 &&
+      props.orders.filter((order) => order.name === name).length > 0
+    ) {
+      amount = props.orders
+        .filter((order) => order.name === name)
+        .map((order) => order.amount)
+        .flat();
+      return amount[0];
+    } else {
+      amount = 0;
+    }
+    return amount;
+  }
 
   function createOrder() {
-    setbeerAmount((prevState) => prevState + 1);
+    const orderedBeeramount = getorderedBeeramount();
+
     const newBeerOrder = {
       name: props.beer.name,
-      amount: beerAmount,
+      amount: orderedBeeramount + 1,
     };
 
     props.setorder((prevOrders) => {
@@ -26,8 +43,12 @@ export default function BeerCardShop(props) {
         //Change the old order with the new
         prevOrders.splice(indexOfBeeWithTheSameName, 1, newBeerOrder);
         //return the changed order list
+        console.log(props.orders);
+
         return [...prevOrders];
       } else {
+        console.log("addds");
+
         //If there is no beer with the same name add it to the previous orders
         return [newBeerOrder, ...prevOrders];
       }
@@ -48,3 +69,7 @@ export default function BeerCardShop(props) {
     </div>
   );
 }
+
+BeerCardShop.defaultProps = {
+  orders: [],
+};

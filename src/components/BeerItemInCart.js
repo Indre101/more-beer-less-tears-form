@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 export default function BeerItemInCart(props) {
   const [orderDetail, setorderDetail] = useState({
@@ -12,14 +12,16 @@ export default function BeerItemInCart(props) {
     });
     updateOrder(orderDetail);
   }
+
   function minusBeer() {
+    console.log("called");
+
     setorderDetail((prevOrder) => {
       return {
         ...prevOrder,
         amount: prevOrder.amount - 1,
       };
     });
-    console.log(orderDetail);
 
     updateOrder(orderDetail);
   }
@@ -37,6 +39,7 @@ export default function BeerItemInCart(props) {
       const indexOfBeeWithTheSameName = prevOrders.findIndex(
         (prevBeerOrd) => prevBeerOrd.name === orderDetail.name
       );
+      console.log(indexOfBeeWithTheSameName);
 
       //Change the old order with the new
       prevOrders.splice(indexOfBeeWithTheSameName, 1, updatedOrder);

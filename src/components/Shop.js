@@ -7,7 +7,6 @@ function Shop(props) {
   const [beers, setBeers] = useState([]);
   const [beersOnTap, setBeersOnTap] = useState([]);
   const [beersAvailableTobuy, setbeersAvailableTobuy] = useState([]);
-
   // get beers on tap
   useEffect(() => {
     const getData = async () => {
@@ -49,7 +48,12 @@ function Shop(props) {
   }, [beers, beersOnTap]);
 
   const beersAvailableTobuyElement = beersAvailableTobuy.map((beer) => (
-    <BeerCardShop key={beer.id} beer={beer} setorder={props.setorder} />
+    <BeerCardShop
+      key={beer.id}
+      beer={beer}
+      setorder={props.setorder}
+      orders={props.orders}
+    />
   ));
 
   return (
