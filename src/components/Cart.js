@@ -3,9 +3,15 @@ import "../App.scss";
 import BeerItemInCart from "./BeerItemInCart";
 
 function Cart(props) {
-  const beerOrders = props.orders.map((order) => (
-    <BeerItemInCart order={order} />
-  ));
+  const beerOrders = props.orders
+    .filter((order) => order.amount !== 0)
+    .map((order) => (
+      <BeerItemInCart
+        key={order.name}
+        order={order}
+        setorder={props.setorder}
+      />
+    ));
 
   return (
     <div className="main-wrapper">

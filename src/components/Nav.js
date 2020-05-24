@@ -1,8 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../App.scss";
 import { Link } from "react-router-dom";
 
 function Nav(props) {
+  const amountOfitems = props.orders
+    .map((item) => item.amount)
+    .reduce((prev, next) => prev + next, 0);
+
+  console.log(amountOfitems);
+
   return (
     <nav>
       <ul className="nav-links">
@@ -17,7 +23,7 @@ function Nav(props) {
               alt="Cart"
             />
             <div className="item-count">
-              <h4>{props.amountOfOrders}</h4>
+              <h4>{amountOfitems}</h4>
             </div>
           </li>
         </Link>
@@ -28,5 +34,9 @@ function Nav(props) {
     </nav>
   );
 }
+
+Nav.defaultProps = {
+  orders: [0, 0],
+};
 
 export default Nav;

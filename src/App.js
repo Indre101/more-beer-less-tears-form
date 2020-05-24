@@ -10,18 +10,20 @@ import Cart from "./components/Cart";
 import Details from "./components/Details";
 
 function App() {
-  const [orders, setorder] = useState([{ amount: 1, name: "Steampunk" }]);
+  const [orders, setorder] = useState([]);
   return (
     <Router>
       <div className="App">
         <Header />
-        <Nav amountOfOrders={orders.length} />
+        <Nav orders={orders} />
         <Switch>
           <Route path="/" exact component={Home} />
           <Route
             path="/cart"
             exact
-            render={(...routeProps) => <Cart {...routeProps} orders={orders} />}
+            render={(...routeProps) => (
+              <Cart {...routeProps} orders={orders} setorder={setorder} />
+            )}
           />
           <Route
             path="/shop"
