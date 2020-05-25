@@ -4,15 +4,15 @@ import "../App.scss";
 function Header() {
 	return (
 		<div className="site-header">
-			<div className="title">
-				<h1>Foobar</h1>
-			</div>
-			{/* <div className="header-cloud">
+			<div className="logo-container">
 				<img
-					className="cloud"
-					src={require("../../src/assets/svg/cloud.svg")}
-					alt="cloud"
+					className="foobar-logo"
+					src={require("../../src/assets/svg/foobar_logo.svg")}
+					alt="Foobar logo"
 				/>
+			</div>
+			{/* <div className="title">
+				<h1>Remote Bar</h1>
 			</div> */}
 		</div>
 	);

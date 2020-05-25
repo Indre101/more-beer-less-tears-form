@@ -3,6 +3,26 @@
 // --------------------------------------------
 
 .site-header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
 	background: var(--color-2-normal);
-	height: 20vh;
+	height: 30vh;
+}
+
+.logo-container {
+	width: 200px;
+	padding: 2rem;
+}
+
+.title > h1 {
+	font-size: 2rem;
+	padding: 1rem;
+}
+
+.foobar-logo {
+	stroke: white;
+	stroke-width: 20px;
+	stroke-opacity: 1;
 }
