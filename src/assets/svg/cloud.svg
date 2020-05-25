@@ -3,7 +3,7 @@
     <filter id="Path_50" x="0" y="0" width="421.875" height="198.377" filterUnits="userSpaceOnUse">
       <feOffset dx="10" dy="10" input="SourceAlpha"/>
       <feGaussianBlur stdDeviation="10" result="blur"/>
-      <feFlood flood-opacity="0.161"/>
+      <feFlood flood-opacity="0"/>
       <feComposite operator="in" in2="blur"/>
       <feComposite in="SourceGraphic"/>
     </filter>
