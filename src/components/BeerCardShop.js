@@ -42,7 +42,7 @@ export default function BeerCardShop(props) {
               pathname: `/shop/product`,
               state: { beer: beer },
             }}>
-            <button onClick={() => props.setActiveBeer(beer)}>More Info</button>
+            <button>More Info</button>
           </Link>
         </div>
       )}

@@ -4,6 +4,8 @@ import OrderControl from "./OrderControl";
 
 function Product(props) {
   //render props
+  console.log(props);
+
   return (
     <OrderControl
       beer={props.location.state.beer}

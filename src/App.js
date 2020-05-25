@@ -12,7 +12,6 @@ import Product from "./components/Product";
 function App() {
   const [orders, setorder] = useState([]);
   //sets the beer to pass to the Product page
-  const [activeBeer, setActiveBeer] = useState({});
   return (
     <Router>
       <div className="App">
@@ -31,24 +30,14 @@ function App() {
             path="/shop"
             exact
             render={(routeProps) => (
-              <Shop
-                {...routeProps}
-                setorder={setorder}
-                orders={orders}
-                setActiveBeer={setActiveBeer}
-              />
+              <Shop {...routeProps} setorder={setorder} orders={orders} />
             )}
           />
           <Route path="/details" component={Details} />
           <Route
             path="/shop/:id"
             render={(routeProps) => (
-              <Product
-                {...routeProps}
-                setorder={setorder}
-                orders={orders}
-                beer={activeBeer}
-              />
+              <Product {...routeProps} setorder={setorder} orders={orders} />
             )}
           />
 
