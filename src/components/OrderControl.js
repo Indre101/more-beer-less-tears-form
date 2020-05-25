@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 
 export default function OrderControl(props) {
-  console.log(props);
-
   const { name } = props.beer;
   const { orders, setorder } = props.props;
   const [beerCount, setbeerCount] = useState(1);

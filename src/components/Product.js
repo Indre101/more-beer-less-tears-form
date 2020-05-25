@@ -3,8 +3,7 @@ import "../App.scss";
 import OrderControl from "./OrderControl";
 
 function Product(props) {
-  console.log(props);
-
+  //render props
   return (
     <OrderControl
       beer={props.location.state.beer}

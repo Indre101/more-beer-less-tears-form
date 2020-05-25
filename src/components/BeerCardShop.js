@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import OrderControl from "./OrderControl";
 
 export default function BeerCardShop(props) {
+  //render props
   return (
     <OrderControl
       beer={props.beer}

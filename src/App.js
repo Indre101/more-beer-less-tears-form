@@ -11,6 +11,7 @@ import Product from "./components/Product";
 
 function App() {
   const [orders, setorder] = useState([]);
+  //sets the beer to pass to the Product page
   const [activeBeer, setActiveBeer] = useState({});
   return (
     <Router>
