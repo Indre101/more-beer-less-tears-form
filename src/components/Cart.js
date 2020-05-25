@@ -10,6 +10,7 @@ function Cart(props) {
         key={order.name}
         order={order}
         setorder={props.setorder}
+        orders={props.orders}
       />
     ));
 

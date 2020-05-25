@@ -1,48 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function BeerItemInCart(props) {
-  const [orderDetail, setorderDetail] = useState({
-    name: props.order.name,
-    amount: props.order.amount,
-  });
+  const [orderInediting, setOrderInEditing] = useState(props.order);
+  const [indexOfOrder, setindexOfOrder] = useState(0);
 
-  function deleteItemForCart(params) {
-    setorderDetail((prevOrder) => {
-      return { ...prevOrder, amount: prevOrder.amount - prevOrder.amount };
-    });
-    updateOrder(orderDetail);
-  }
+  //finds and sets intial order between all the orders and it's index
+  useEffect(() => {
+    const indexOfBeeWithTheSameName = props.orders.findIndex(
+      (prevBeerOrd) => prevBeerOrd.name === props.order.name
+    );
+    setindexOfOrder(indexOfBeeWithTheSameName);
+    const orderInediting = props.orders[indexOfBeeWithTheSameName];
+    setOrderInEditing(orderInediting);
+  }, [props.order.name, props.orders]);
 
-  function minusBeer() {
-    console.log("called");
-
-    setorderDetail((prevOrder) => {
-      return {
-        ...prevOrder,
-        amount: prevOrder.amount - 1,
-      };
-    });
-
-    updateOrder(orderDetail);
-  }
-
-  function addBeer() {
-    setorderDetail((prevOrder) => ({
-      ...prevOrder,
-      amount: prevOrder.amount + 1,
-    }));
-    updateOrder(orderDetail);
-  }
-
-  function updateOrder(updatedOrder) {
+  function updateOrder(newOrder, indexOfBeeWithTheSameName) {
     props.setorder((prevOrders) => {
-      const indexOfBeeWithTheSameName = prevOrders.findIndex(
-        (prevBeerOrd) => prevBeerOrd.name === orderDetail.name
-      );
-      console.log(indexOfBeeWithTheSameName);
-
-      //Change the old order with the new
-      prevOrders.splice(indexOfBeeWithTheSameName, 1, updatedOrder);
+      prevOrders.splice(indexOfBeeWithTheSameName, 1, newOrder);
       //return the changed order list
       return [...prevOrders];
     });
@@ -63,15 +37,35 @@ export default function BeerItemInCart(props) {
         <h4>40kr</h4>
       </div>
       <div className="orderControl">
-        <button className="plus math" onClick={addBeer}>
+        <button
+          className="plus math"
+          onClick={() =>
+            updateOrder(
+              { ...orderInediting, amount: orderInediting.amount + 1 },
+              indexOfOrder
+            )
+          }>
           +
         </button>
 
         <div className="amount">{props.order.amount}</div>
-        <button className="minus math" onClick={minusBeer}>
+
+        <button
+          className="minus math"
+          onClick={(event) =>
+            updateOrder(
+              { ...orderInediting, amount: orderInediting.amount - 1 },
+              indexOfOrder
+            )
+          }>
           -
         </button>
-        <button onClick={deleteItemForCart}>Delete</button>
+        <button
+          onClick={(event) =>
+            updateOrder({ ...orderInediting, amount: 0 }, indexOfOrder)
+          }>
+          Delete
+        </button>
       </div>
     </div>
   );
