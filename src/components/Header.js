@@ -7,7 +7,13 @@ function Header() {
 			<div className="title">
 				<h1>Foobar</h1>
 			</div>
-			<div className="cloud">Cloud</div>
+			{/* <div className="header-cloud">
+				<img
+					className="cloud"
+					src={require("../../src/assets/svg/cloud.svg")}
+					alt="cloud"
+				/>
+			</div> */}
 		</div>
 	);
 }

@@ -88,10 +88,14 @@ function Shop(props) {
 
 	return (
 		<div className="main-wrapper">
-			<h1 className="animUp"></h1>
-			<div className="page-title">
-				<h1>Shop</h1>
+			<div className="cloud-top">
+				<img
+					className="cloud"
+					src={require("../../src/assets/svg/cloud.svg")}
+					alt="cloud"
+				/>
 			</div>
+			<h1 className="animUp"></h1>
 			<section className="beer-list">{beersAvailableTobuyElement}</section>
 			<section className="promo-section">
 				<h1>Happy Hour</h1>
