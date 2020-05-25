@@ -6,17 +6,19 @@ export default function BeerItemInCart(props) {
 
   //finds and sets intial order between all the orders and it's index
   useEffect(() => {
-    const indexOfBeeWithTheSameName = props.orders.findIndex(
+    const filteredIndexOftheorder = props.orders.findIndex(
       (prevBeerOrd) => prevBeerOrd.name === props.order.name
     );
-    setindexOfOrder(indexOfBeeWithTheSameName);
-    const orderInediting = props.orders[indexOfBeeWithTheSameName];
+    setindexOfOrder(filteredIndexOftheorder);
+    //the order at that index
+    const orderInediting = props.orders[filteredIndexOftheorder];
     setOrderInEditing(orderInediting);
   }, [props.order.name, props.orders]);
 
-  function updateOrder(newOrder, indexOfBeeWithTheSameName) {
+  //takes parameters of orderInediting and changes the amount in the onclick events
+  function updateOrder(newOrder, filteredIndexOftheorder) {
     props.setorder((prevOrders) => {
-      prevOrders.splice(indexOfBeeWithTheSameName, 1, newOrder);
+      prevOrders.splice(filteredIndexOftheorder, 1, newOrder);
       //return the changed order list
       return [...prevOrders];
     });
