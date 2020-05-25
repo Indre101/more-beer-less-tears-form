@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import DataBase from "../modules/DataBase";
 import "../App.scss";
 import { Link } from "react-router-dom";
+import gsap from "gsap";
 
 function Shop(props) {
 	const [beers, setBeers] = useState([]);
 	const [beersOnTap, setBeersOnTap] = useState([]);
 	const [beersAvailableTobuy, setbeersAvailableTobuy] = useState([]);
+	const [count, setCount] = useState(0);
 
 	// get beers on tap
 	useEffect(() => {
@@ -60,6 +62,11 @@ function Shop(props) {
 			<div className="single-beer-info">
 				<h2 className="single-beer-title">{beer ? beer.name : " "}</h2>
 				<h3 className="single-beer-category">{beer ? beer.category : " "}</h3>
+				<div className="single-beer-counter">
+					<button onClick={() => setCount(count - 1)}>Decrement</button>
+					<h2>{count}</h2>
+					<button onClick={() => setCount(count + 1)}>Increment</button>
+				</div>
 				<Link to={{ pathname: `/shop/product`, state: { beer: beer } }}>
 					<button>More Info</button>
 				</Link>
@@ -68,8 +75,13 @@ function Shop(props) {
 		</div>
 	));
 
+	useEffect(() => {
+		gsap.from(".animUp", { duration: 1, y: 50, opacity: 0, stagger: 0.5 });
+	});
+
 	return (
 		<div className="main-wrapper">
+			<h1 className="animUp"></h1>
 			<div className="page-title">
 				<h1>Shop</h1>
 			</div>

@@ -10,11 +10,11 @@
 .main-wrapper {
 	margin: 0 auto;
 	display: grid;
-	place-content: center;
+	background: green;
+	z-index: -100;
 }
 
 .page-title {
-	background: hotpink;
 	grid-column: 1/-1;
 }
 
@@ -23,6 +23,7 @@
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 	gap: 2rem;
 	padding: 2rem;
+	z-index: 1;
 }
 
 .product-page-layout {

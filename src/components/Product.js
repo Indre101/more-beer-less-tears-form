@@ -25,7 +25,7 @@ function Product(props) {
 						alt="beer"
 					></img>
 				</div>
-				<section className="product-info animUp" id="animUp">
+				<section className="product-info animUp">
 					<h1>{name}</h1>
 					<h2>{category}</h2>
 					<blockquote>

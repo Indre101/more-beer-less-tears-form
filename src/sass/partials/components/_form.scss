@@ -5,6 +5,7 @@
 form {
 	background: yellow;
 	width: 500px;
+	padding: 2rem;
 }
 
 input {
@@ -13,9 +14,9 @@ input {
 	border: var(--border);
 	border-radius: var(--border-radius);
 	&:valid {
-		border: 10px solid green;
+		border: 5px solid green;
 	}
 	&:invalid {
-		border: 10px solid red;
+		border: 5px solid red;
 	}
 }
