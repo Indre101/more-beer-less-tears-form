@@ -53,6 +53,7 @@ function Shop(props) {
       beer={beer}
       setorder={props.setorder}
       orders={props.orders}
+      setActiveBeer={props.setActiveBeer}
     />
   ));
 
