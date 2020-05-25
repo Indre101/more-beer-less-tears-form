@@ -59,13 +59,20 @@ function Shop(props) {
 					alt="Beer"
 				/>
 			</div>
+			<div className="single-beer-cloud">
+				<img
+					className="cloud"
+					src={require("../../src/assets/svg/cloud.svg")}
+					alt="cloud"
+				/>
+			</div>
 			<div className="single-beer-info">
 				<h2 className="single-beer-title">{beer ? beer.name : " "}</h2>
 				<h3 className="single-beer-category">{beer ? beer.category : " "}</h3>
 				<div className="single-beer-counter">
-					<button onClick={() => setCount(count - 1)}>Decrement</button>
+					<button onClick={() => setCount(count - 1)}>-</button>
 					<h2>{count}</h2>
-					<button onClick={() => setCount(count + 1)}>Increment</button>
+					<button onClick={() => setCount(count + 1)}>+</button>
 				</div>
 				<Link to={{ pathname: `/shop/product`, state: { beer: beer } }}>
 					<button>More Info</button>

@@ -13,11 +13,11 @@
 		background-color: white;
 		grid-column: 1 / 8;
 		grid-row: 4 / 7;
-		clip-path: polygon(3.2% 53px, 16.57% 39.65%, 100% 102.06%, 0% 103.92%, 2px 55.51%);
+		// clip-path: polygon(3.2% 53px, 16.57% 39.65%, 100% 102.06%, 0% 103.92%, 2px 55.51%);
 		transform: translateY(0vh);
 	}
 	.title {
 		grid-column: 1 / -1;
-		grid-row: 4 / 7;
+		grid-row: 1 / 7;
 	}
 }
