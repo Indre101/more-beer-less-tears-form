@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function BeerCardShop(props) {
   const { id, label, name } = props.beer;
-  const [amount, setamount] = useState(1);
+  const [beerCount, setbeerCount] = useState(1);
 
   function getorderedBeeramount() {
     let amount;
@@ -27,7 +27,7 @@ export default function BeerCardShop(props) {
 
     const newBeerOrder = {
       name: props.beer.name,
-      amount: orderedBeeramount + 1,
+      amount: orderedBeeramount + beerCount,
     };
 
     props.setorder((prevOrders) => {
@@ -67,14 +67,14 @@ export default function BeerCardShop(props) {
       <div className="actions">
         <button
           className="plus item-count"
-          onClick={() => setamount((prevAmount) => prevAmount + 1)}>
+          onClick={() => setbeerCount((prevCount) => prevCount + 1)}>
           +
         </button>
-        <div className="amountOfBeer">{amount}</div>
+        <div className="amountOfBeer">{beerCount}</div>
         <button
           className="minus item-count"
           onClick={() =>
-            setamount((prevAmount) => (prevAmount === 0 ? 0 : prevAmount - 1))
+            setbeerCount((prevCount) => (prevCount === 0 ? 0 : prevCount - 1))
           }>
           -
         </button>
