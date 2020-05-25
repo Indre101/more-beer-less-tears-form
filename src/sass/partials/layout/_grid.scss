@@ -3,12 +3,14 @@
 // --------------------------------------------
 
 .App {
-	// max-width: 1200px;
+	max-width: 1200px;
+	margin: 0 auto;
 }
 
 .main-wrapper {
 	margin: 0 auto;
 	display: grid;
+	place-content: center;
 }
 
 .page-title {
@@ -25,10 +27,14 @@
 
 .product-page-layout {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 	// grid-template-columns: 1fr 1fr;
 	place-items: center;
 	padding: 2rem;
+}
+
+.product-main-description {
+	grid-column: 1 / -1;
 }
 
 .promo-section {

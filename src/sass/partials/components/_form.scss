@@ -4,7 +4,18 @@
 
 form {
 	background: yellow;
-	input {
-		padding: 1rem;
+	width: 500px;
+}
+
+input {
+	padding: 1rem;
+	width: 100%;
+	border: var(--border);
+	border-radius: var(--border-radius);
+	&:valid {
+		border: 10px solid green;
+	}
+	&:invalid {
+		border: 10px solid red;
 	}
 }
