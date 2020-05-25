@@ -26,7 +26,35 @@
   object-fit: contain;
 }
 
+.beerItemInCart {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+
+  img {
+    width: 100px;
+  }
+  .orderControl {
+    @include flexCenter(center, column);
+  }
+
+  .plus {
+    background-color: green;
+    margin-bottom: 2rem;
+  }
+  .minus {
+    background-color: red;
+    margin-top: 2rem;
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .item-count {
+  border: none !important;
   width: 40px;
   height: 40px;
   font-size: 1.2rem;
@@ -39,34 +67,20 @@
   margin: 0;
 }
 
-.beerItemInCart {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+.math {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: white;
+  @include flexCenter(center, column);
+}
+.plus {
+  background-color: green;
+}
+.minus {
+  background-color: red;
+}
 
-  img {
-    width: 100px;
-  }
-  .orderControl {
-    @include flexCenter(center, column);
-  }
-
-  .math {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    color: white;
-    @include flexCenter(center, column);
-  }
-  .plus {
-    background-color: green;
-    margin-bottom: 2rem;
-  }
-  .minus {
-    background-color: red;
-    margin-top: 2rem;
-  }
-
-  .amount {
-    font-size: 1.5rem;
-  }
+.amount {
+  font-size: 1.5rem;
 }
