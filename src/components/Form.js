@@ -50,10 +50,6 @@ function Form(props) {
           <Link
             to={{
               pathname: `/payment`,
-              state: {
-                orders: orders,
-                user: userInfo,
-              },
             }}>
             <input type="submit" value="Next" />
           </Link>

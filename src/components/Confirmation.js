@@ -40,6 +40,13 @@ export default function Confirmation(props) {
         }}>
         <button onClick={placeOrder}>Place Order</button>
       </Link>
+
+      <Link
+        to={{
+          pathname: `/payment`,
+        }}>
+        <button onClick={placeOrder}>Go back</button>
+      </Link>
     </div>
   );
 }

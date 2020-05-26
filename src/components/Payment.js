@@ -4,7 +4,9 @@ import MobilePay from "./MobilePay";
 import CardPayment from "./CardPayment";
 
 export default function Payment(props) {
-  const { orders, user } = props.location.state;
+  console.log(props);
+
+  const { orders, user } = props;
 
   const [paymentMethod, setpaymentMethod] = useState();
 
@@ -65,8 +67,8 @@ export default function Payment(props) {
         to={{
           pathname: `/details`,
           state: {
-            orders: props.location.state.orders,
-            user: props.userInfo,
+            orders: orders,
+            user: user,
           },
         }}>
         <input type="submit" value="go back" />

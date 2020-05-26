@@ -53,8 +53,14 @@ function App() {
               />
             )}
           />
-          {/* <Route path="/details" component={Details} /> */}
-          <Route path="/payment" component={Payment} />
+          <Route
+            path="/payment"
+            exact
+            render={(routeProps) => (
+              <Payment {...routeProps} user={userInfo} orders={orders} />
+            )}
+          />
+
           <Route path="/orderMessage" component={OrderMessage} />
           <Route path="/confirmation" component={Confirmation} />
           <Route
