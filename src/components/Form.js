@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import "../App.scss";
 
 function Form(props) {
-  console.log(props.userInfo);
+  const { orders, setuserInfo, userInfo } = props;
 
   function handleChange(event) {
     const { name, value } = event.target;
-    props.setuserInfo((prevInputData) => ({ ...prevInputData, [name]: value }));
+    setuserInfo((prevInputData) => ({ ...prevInputData, [name]: value }));
   }
 
   function handleSubmit(event) {
@@ -51,8 +51,8 @@ function Form(props) {
             to={{
               pathname: `/payment`,
               state: {
-                orders: props.orders,
-                user: props.userInfo,
+                orders: orders,
+                user: userInfo,
               },
             }}>
             <input type="submit" value="Next" />
@@ -62,8 +62,8 @@ function Form(props) {
             to={{
               pathname: `/cart`,
               state: {
-                orders: props.orders,
-                user: props.userInfo,
+                orders: orders,
+                user: userInfo,
               },
             }}>
             <input type="submit" value="go back" />

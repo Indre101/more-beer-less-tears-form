@@ -4,13 +4,6 @@ import "../App.scss";
 
 function Details(props) {
   const { orders, setuserInfo, userInfo } = props;
-
-  // const [userInfo, setuserInfo] = useState({
-  //   name: " ",
-  //   email: " ",
-  //   phone: " ",
-  // });
-
   return (
     <div className="main-wrapper">
       <div className="page-title">

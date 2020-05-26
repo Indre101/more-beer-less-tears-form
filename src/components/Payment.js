@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import MobilePay from "./MobilePay";
-import CarPayment from "./CarPayment";
+import CardPayment from "./CardPayment";
 
 export default function Payment(props) {
+  const { orders, user } = props.location.state;
+
   const [paymentMethod, setpaymentMethod] = useState();
 
   function handleChange(event) {
@@ -15,6 +17,7 @@ export default function Payment(props) {
   }
   return (
     <div>
+      <h3>Choose payment method</h3>
       <form className="optionsForPayment">
         <label htmlFor="mobpay">Mobile Pay</label>
         <input
@@ -44,10 +47,18 @@ export default function Payment(props) {
       <div
         className="carPayment"
         data-show={setPaymentOptionDisplay("Card payment")}>
-        <CarPayment />
+        <CardPayment />
       </div>
 
-      <Link to="/confirmation">
+      <Link
+        to={{
+          pathname: `/confirmation`,
+          state: {
+            orders: orders,
+            user: user,
+            paymentMethod: paymentMethod,
+          },
+        }}>
         <input type="button" value="Next" />
       </Link>
       <Link

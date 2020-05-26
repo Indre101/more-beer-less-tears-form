@@ -42,8 +42,7 @@ function Shop(props) {
       const beerObj = beers.find((type) => {
         return type.name === beerName;
       });
-
-      return { ...beerObj, id: i };
+      return { ...beerObj, id: i, price: 50 };
     });
     setbeersAvailableTobuy(beersAvailableToBuyFiltered);
   }, [beers, beersOnTap]);

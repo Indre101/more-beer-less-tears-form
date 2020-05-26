@@ -30,7 +30,10 @@ function Cart(props) {
       </div>
 
       <Link to={{ pathname: `/details` }}>
-        <button>Checkout</button>
+        <button
+          style={{ display: props.orders.length !== 0 ? "block" : "none" }}>
+          Checkout
+        </button>
       </Link>
     </div>
   );
