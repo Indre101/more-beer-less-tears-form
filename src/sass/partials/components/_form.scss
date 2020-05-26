@@ -4,7 +4,19 @@
 
 form {
 	background: yellow;
-	input {
-		padding: 1rem;
+	width: 500px;
+	padding: 2rem;
+}
+
+input {
+	padding: 1rem;
+	width: 100%;
+	border: var(--border);
+	border-radius: var(--border-radius);
+	&:valid {
+		border: 5px solid green;
+	}
+	&:invalid {
+		border: 5px solid red;
 	}
 }

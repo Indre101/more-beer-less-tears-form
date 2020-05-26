@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import DataBase from "../modules/DataBase";
 import "../App.scss";
 import BeerCardShop from "./BeerCardShop";
+import gsap from "gsap";
 
 function Shop(props) {
   const [beers, setBeers] = useState([]);
@@ -56,11 +57,20 @@ function Shop(props) {
     />
   ));
 
+  useEffect(() => {
+    gsap.from(".animUp", { duration: 1, y: 50, opacity: 0, stagger: 0.5 });
+  });
+
   return (
     <div className="main-wrapper">
-      <div className="page-title">
-        <h1>Shop</h1>
+      <div className="cloud-top">
+        <img
+          className="cloud"
+          src={require("../../src/assets/svg/cloud.svg")}
+          alt="cloud"
+        />
       </div>
+      <h1 className="animUp"></h1>
       <section className="beer-list">{beersAvailableTobuyElement}</section>
       <section className="promo-section">
         <h1>Happy Hour</h1>
