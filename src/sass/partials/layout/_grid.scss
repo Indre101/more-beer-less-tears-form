@@ -12,6 +12,7 @@
 	display: grid;
 	// grid-template-columns: 20px 1fr 20px;
 	position: relative;
+	// overflow: hidden;
 }
 
 // .beer-list {
@@ -40,8 +41,7 @@
 	scroll-snap-type: x proximity;
 	display: flex;
 	overflow-x: auto;
-	// background: yellow;
-	z-index: 0;
+	z-index: 1;
 	// &::-webkit-scrollbar {
 	// 	display: none;
 	// }
