@@ -36,7 +36,7 @@ export default function BeerItemInCart(props) {
       <div className="beer-details">
         <h3>{props.order.name}</h3>
 
-        <h4>40kr</h4>
+        <h4>{props.order.amount * props.order.price}</h4>
       </div>
       <div className="orderControl">
         <button

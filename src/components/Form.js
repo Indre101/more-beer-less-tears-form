@@ -1,72 +1,78 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+
 import "../App.scss";
-import Shop from "./Shop";
 
-function Form() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+function Form(props) {
+  const { orders, setuserInfo, userInfo, totalAmount } = props;
 
-  const nameChanged = (e) => {
-    setName(e.target.value);
-  };
-  const emailChanged = (e) => {
-    setEmail(e.target.value);
-  };
-  const phoneChanged = (e) => {
-    setPhone(e.target.value);
-  };
+  const nextBtn = useRef();
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    // postForm({
-    // 	name: name,
-    // 	email: email,
-    // 	phone: phone,
-    // });
-    setName("");
-    setEmail("");
-    setPhone("");
-    console.log({ name, email, phone });
-  };
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setuserInfo((prevInputData) => ({ ...prevInputData, [name]: value }));
+  }
+
+  function handleSubmit(event) {
+    event.prevetnDefault();
+  }
+  useEffect(() => {
+    nextBtn.current.disabled = userInfo.name && userInfo.email ? false : true;
+  }, [userInfo.email, userInfo.name]);
 
   return (
     <>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={(event) => handleSubmit(event)}>
         <label>
           <h2>Name</h2>
           <input
             type="text"
-            onChange={nameChanged}
+            onChange={handleChange}
             autoComplete="name"
             name="name"
-            value={name}
+            value={props.userInfo.name}
+            required
           />
         </label>
         <label>
           <h2>Email</h2>
           <input
             type="email"
-            onChange={emailChanged}
+            onChange={handleChange}
             autoComplete="email"
             name="email"
-            value={email}
+            value={props.userInfo.email}
+            required
           />
         </label>
         <label>
           <h2>Telephone</h2>
+
           <input
             type="number"
-            onChange={phoneChanged}
+            onChange={handleChange}
             autoComplete="tel"
             name="phone"
-            value={phone}
+            value={props.userInfo.phone}
           />
         </label>
-        <div>
-          <Link to="/shop">
-            <input type="submit" value="Send" />
+        <div style={{ display: "flex" }}>
+          <Link
+            to={{
+              pathname: `/cart`,
+              state: {
+                orders: orders,
+                user: userInfo,
+              },
+            }}>
+            <input type="submit" value="go back" />
+          </Link>
+          <Link
+            to={{
+              pathname: `/payment`,
+              state: { totalAmount: totalAmount },
+            }}>
+            <input type="submit" value="Next" ref={nextBtn} />
           </Link>
         </div>
       </form>

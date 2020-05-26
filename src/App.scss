@@ -84,3 +84,11 @@
 .amount {
   font-size: 1.5rem;
 }
+
+[data-show="show"] {
+  display: block;
+}
+
+[data-show="hide"] {
+  display: none;
+}
