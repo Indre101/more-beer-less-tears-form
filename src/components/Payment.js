@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import MobilePay from "./MobilePay";
+import CarPayment from "./CarPayment";
 
 export default function Payment(props) {
   const [paymentMethod, setpaymentMethod] = useState();
@@ -8,7 +10,9 @@ export default function Payment(props) {
     const { value } = event.target;
     setpaymentMethod(value);
   }
-
+  function setPaymentOptionDisplay(paymentOption) {
+    return paymentMethod === paymentOption ? "show" : "hide";
+  }
   return (
     <div>
       <form className="optionsForPayment">
@@ -31,6 +35,17 @@ export default function Payment(props) {
           onChange={handleChange}
         />
       </form>
+      <div
+        className={"mobile"}
+        data-show={setPaymentOptionDisplay("Mobile Pay")}>
+        <MobilePay />
+      </div>
+
+      <div
+        className="carPayment"
+        data-show={setPaymentOptionDisplay("Card payment")}>
+        <CarPayment />
+      </div>
 
       <Link to="/confirmation">
         <input type="button" value="Next" />
