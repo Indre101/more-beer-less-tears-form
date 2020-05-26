@@ -14,7 +14,7 @@ function App() {
 		<Router>
 			<div className="App">
 				<Header />
-				{/* <Nav /> */}
+				<Nav />
 				<Switch>
 					<Route path="/" exact component={Home} />
 					<Route path="/cart" component={Cart} />
