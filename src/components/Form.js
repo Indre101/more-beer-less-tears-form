@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+
 import "../App.scss";
 
 function Form(props) {
@@ -46,6 +47,7 @@ function Form(props) {
         </label>
         <label>
           <h2>Telephone</h2>
+
           <input
             type="number"
             onChange={handleChange}
