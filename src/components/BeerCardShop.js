@@ -10,40 +10,47 @@ export default function BeerCardShop(props) {
       props={props}
       render={(beerCount, setbeerCount, createOrder, beer) => (
         <div className="single-beer" key={beer.id}>
-          <img
-            src={require(`../assets/images/${
-              beer.label ? beer.label : "elhefe.png"
-            }`)}
-            alt="Beer"
-          />
-          <h2>{beer ? beer.name : " "}</h2>
-
-          <div className="actions">
-            <button
-              className="plus item-count"
-              onClick={() => setbeerCount((prevCount) => prevCount + 1)}>
-              +
-            </button>
-            <div className="amountOfBeer">{beerCount}</div>
-            <button
-              className="minus item-count"
-              onClick={() =>
-                setbeerCount((prevCount) =>
-                  prevCount === 0 ? 0 : beerCount - 1
-                )
-              }>
-              -
-            </button>
+          <div className="single-beer-image-container">
+            <img
+              className="single-beer-image"
+              src={require(`../assets/images/${
+                beer.label ? beer.label : "elhefe.png"
+              }`)}
+              alt="Beer"
+            />
           </div>
-          <button onClick={createOrder}>Add to the cart</button>
-          {/* <button onClick={() => props.setActiveBeer(props.beer)}>Testhjkk</button> */}
-          <Link
-            to={{
-              pathname: `/shop/product`,
-              state: { beer: beer },
-            }}>
-            <button>More Info</button>
-          </Link>
+          <div className="single-beer-cloud">
+            <img
+              className="cloud"
+              src={require("../../src/assets/svg/cloud.svg")}
+              alt="cloud"
+            />
+          </div>
+          <div className="single-beer-info">
+            <h2 className="single-beer-title">{beer ? beer.name : " "}</h2>
+            <h3 className="single-beer-category">
+              {beer ? beer.category : " "}
+            </h3>
+            <div className="single-beer-counter">
+              <button
+                onClick={() =>
+                  setbeerCount((prevBeeerCount) =>
+                    prevBeeerCount === 0 ? 0 : prevBeeerCount - 1
+                  )
+                }>
+                -
+              </button>
+              <h2>{beerCount}</h2>
+              <button
+                onClick={() => setbeerCount((prevCount) => prevCount + 1)}>
+                +
+              </button>
+            </div>
+            <Link to={{ pathname: `/shop/product`, state: { beer: beer } }}>
+              <button>More Info</button>
+            </Link>
+            <button onClick={createOrder}>Add to cart</button>
+          </div>
         </div>
       )}
     />
