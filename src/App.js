@@ -10,6 +10,7 @@ import Details from "./components/Details";
 import Product from "./components/Product";
 import Payment from "./components/Payment";
 import Confirmation from "./components/Confirmation";
+import OrderMessage from "./components/OrderMessage";
 
 function App() {
   const [orders, setorder] = useState([]);
@@ -54,6 +55,7 @@ function App() {
           />
           {/* <Route path="/details" component={Details} /> */}
           <Route path="/payment" component={Payment} />
+          <Route path="/orderMessage" component={OrderMessage} />
           <Route path="/confirmation" component={Confirmation} />
           <Route
             path="/shop/:id"
