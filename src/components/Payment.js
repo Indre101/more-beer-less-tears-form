@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import MobilePay from "./MobilePay";
 import CardPayment from "./CardPayment";
@@ -7,8 +7,8 @@ export default function Payment(props) {
   console.log(props);
 
   const { orders, user } = props;
-
   const [paymentMethod, setpaymentMethod] = useState();
+  const nextBtnPayment = useRef();
 
   function handleChange(event) {
     const { value } = event.target;
@@ -17,6 +17,10 @@ export default function Payment(props) {
   function setPaymentOptionDisplay(paymentOption) {
     return paymentMethod === paymentOption ? "show" : "hide";
   }
+
+  useEffect(() => {
+    nextBtnPayment.current.disabled = paymentMethod ? false : true;
+  }, [paymentMethod]);
   return (
     <div>
       <h3>Choose payment method</h3>
@@ -52,27 +56,29 @@ export default function Payment(props) {
         <CardPayment />
       </div>
 
-      <Link
-        to={{
-          pathname: `/confirmation`,
-          state: {
-            orders: orders,
-            user: user,
-            paymentMethod: paymentMethod,
-          },
-        }}>
-        <input type="button" value="Next" />
-      </Link>
-      <Link
-        to={{
-          pathname: `/details`,
-          state: {
-            orders: orders,
-            user: user,
-          },
-        }}>
-        <input type="submit" value="go back" />
-      </Link>
+      <div style={{ display: "flex" }}>
+        <Link
+          to={{
+            pathname: `/details`,
+            state: {
+              orders: orders,
+              user: user,
+            },
+          }}>
+          <input type="submit" value="go back" />
+        </Link>
+        <Link
+          to={{
+            pathname: `/confirmation`,
+            state: {
+              orders: orders,
+              user: user,
+              paymentMethod: paymentMethod,
+            },
+          }}>
+          <input type="button" value="Next" ref={nextBtnPayment} />
+        </Link>
+      </div>
     </div>
   );
 }

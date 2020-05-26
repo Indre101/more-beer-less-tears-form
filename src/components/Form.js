@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "../App.scss";
 
 function Form(props) {
   const { orders, setuserInfo, userInfo } = props;
+  const nextBtn = useRef();
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -13,6 +14,10 @@ function Form(props) {
   function handleSubmit(event) {
     event.prevetnDefault();
   }
+  useEffect(() => {
+    nextBtn.current.disabled = userInfo.name && userInfo.email ? false : true;
+  }, [userInfo.email, userInfo.name]);
+
   return (
     <>
       <form onSubmit={(event) => handleSubmit(event)}>
@@ -24,6 +29,7 @@ function Form(props) {
             autoComplete="name"
             name="name"
             value={props.userInfo.name}
+            required
           />
         </label>
         <label>
@@ -34,6 +40,7 @@ function Form(props) {
             autoComplete="email"
             name="email"
             value={props.userInfo.email}
+            required
           />
         </label>
         <label>
@@ -46,14 +53,7 @@ function Form(props) {
             value={props.userInfo.phone}
           />
         </label>
-        <div>
-          <Link
-            to={{
-              pathname: `/payment`,
-            }}>
-            <input type="submit" value="Next" />
-          </Link>
-
+        <div style={{ display: "flex" }}>
           <Link
             to={{
               pathname: `/cart`,
@@ -63,6 +63,12 @@ function Form(props) {
               },
             }}>
             <input type="submit" value="go back" />
+          </Link>
+          <Link
+            to={{
+              pathname: `/payment`,
+            }}>
+            <input type="submit" value="Next" ref={nextBtn} />
           </Link>
         </div>
       </form>

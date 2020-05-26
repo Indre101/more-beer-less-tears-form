@@ -29,24 +29,25 @@ export default function Confirmation(props) {
       <h3>payment method: {paymentMethod}</h3>
       <div className="ordersumary">{orderSummary}</div>
 
-      <Link
-        to={{
-          pathname: `/orderMessage`,
-          state: {
-            orders: orders,
-            user: user,
-            paymentMethod: paymentMethod,
-          },
-        }}>
-        <button onClick={placeOrder}>Place Order</button>
-      </Link>
-
-      <Link
-        to={{
-          pathname: `/payment`,
-        }}>
-        <button onClick={placeOrder}>Go back</button>
-      </Link>
+      <div style={{ display: "flex" }}>
+        <Link
+          to={{
+            pathname: `/payment`,
+          }}>
+          <button onClick={placeOrder}>Go back</button>
+        </Link>
+        <Link
+          to={{
+            pathname: `/orderMessage`,
+            state: {
+              orders: orders,
+              user: user,
+              paymentMethod: paymentMethod,
+            },
+          }}>
+          <button onClick={placeOrder}>Place Order</button>
+        </Link>
+      </div>
     </div>
   );
 }

@@ -15,9 +15,9 @@ import OrderMessage from "./components/OrderMessage";
 function App() {
   const [orders, setorder] = useState([]);
   const [userInfo, setuserInfo] = useState({
-    name: " ",
-    email: " ",
-    phone: " ",
+    name: "",
+    email: "",
+    phone: "",
   });
   //sets the beer to pass to the Product page
   return (
