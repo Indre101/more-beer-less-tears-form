@@ -25,9 +25,6 @@ function Nav(props) {
             </div>
           </li>
         </Link>
-        <Link to="/details">
-          <li>Details</li>
-        </Link>
       </ul>
     </nav>
   );

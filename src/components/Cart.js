@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../App.scss";
 import BeerItemInCart from "./BeerItemInCart";
+import { Link } from "react-router-dom";
 
 function Cart(props) {
   const beerOrders = props.orders
@@ -27,6 +28,10 @@ function Cart(props) {
         style={{ display: props.orders.length !== 0 ? "block" : "none" }}>
         {beerOrders}
       </div>
+
+      <Link to={{ pathname: `/details` }}>
+        <button>Checkout</button>
+      </Link>
     </div>
   );
 }

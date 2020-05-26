@@ -1,72 +1,72 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../App.scss";
-import Shop from "./Shop";
 
-function Form() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+function Form(props) {
+  console.log(props.userInfo);
 
-  const nameChanged = (e) => {
-    setName(e.target.value);
-  };
-  const emailChanged = (e) => {
-    setEmail(e.target.value);
-  };
-  const phoneChanged = (e) => {
-    setPhone(e.target.value);
-  };
+  function handleChange(event) {
+    const { name, value } = event.target;
+    props.setuserInfo((prevInputData) => ({ ...prevInputData, [name]: value }));
+  }
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    // postForm({
-    // 	name: name,
-    // 	email: email,
-    // 	phone: phone,
-    // });
-    setName("");
-    setEmail("");
-    setPhone("");
-    console.log({ name, email, phone });
-  };
-
+  function handleSubmit(event) {
+    event.prevetnDefault();
+  }
   return (
     <>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={(event) => handleSubmit(event)}>
         <label>
           <h2>Name</h2>
           <input
             type="text"
-            onChange={nameChanged}
+            onChange={handleChange}
             autoComplete="name"
             name="name"
-            value={name}
+            value={props.userInfo.name}
           />
         </label>
         <label>
           <h2>Email</h2>
           <input
             type="email"
-            onChange={emailChanged}
+            onChange={handleChange}
             autoComplete="email"
             name="email"
-            value={email}
+            value={props.userInfo.email}
           />
         </label>
         <label>
           <h2>Telephone</h2>
           <input
             type="number"
-            onChange={phoneChanged}
+            onChange={handleChange}
             autoComplete="tel"
             name="phone"
-            value={phone}
+            value={props.userInfo.phone}
           />
         </label>
         <div>
-          <Link to="/shop">
-            <input type="submit" value="Send" />
+          <Link
+            to={{
+              pathname: `/payment`,
+              state: {
+                orders: props.orders,
+                user: props.userInfo,
+              },
+            }}>
+            <input type="submit" value="Next" />
+          </Link>
+
+          <Link
+            to={{
+              pathname: `/cart`,
+              state: {
+                orders: props.orders,
+                user: props.userInfo,
+              },
+            }}>
+            <input type="submit" value="go back" />
           </Link>
         </div>
       </form>
