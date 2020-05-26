@@ -32,7 +32,7 @@ function Product(props) {
               <blockquote>
                 <p>{beer.description.overallImpression}</p>
               </blockquote>
-              <h2>60 kr</h2>
+              <h2>{beer.price}kr</h2>
               <button onClick={() => setbeerCount(beerCount + 1)}>
                 Increment
               </button>

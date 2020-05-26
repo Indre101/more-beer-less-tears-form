@@ -31,6 +31,7 @@ export default function BeerCardShop(props) {
             <h3 className="single-beer-category">
               {beer ? beer.category : " "}
             </h3>
+            <h3>{beer.price}Kr</h3>
             <div className="single-beer-counter">
               <button
                 onClick={() =>

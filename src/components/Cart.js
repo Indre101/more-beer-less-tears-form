@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../App.scss";
 import BeerItemInCart from "./BeerItemInCart";
+import { Link } from "react-router-dom";
 
 function Cart(props) {
   const beerOrders = props.orders
@@ -13,6 +14,16 @@ function Cart(props) {
         orders={props.orders}
       />
     ));
+
+  const [totalAmount, settotalAmount] = useState(0);
+
+  //sets total order amount
+  useEffect(() => {
+    const orderSum = props.orders
+      .map((order) => order.amount * order.price)
+      .reduce((a, b) => a + b, 0);
+    settotalAmount(orderSum);
+  }, [props.orders]);
 
   return (
     <div className="main-wrapper">
@@ -27,6 +38,15 @@ function Cart(props) {
         style={{ display: props.orders.length !== 0 ? "block" : "none" }}>
         {beerOrders}
       </div>
+
+      <h2>Total amount:{totalAmount} </h2>
+
+      <Link to={{ pathname: `/details`, state: { totalAmount: totalAmount } }}>
+        <button
+          style={{ display: props.orders.length !== 0 ? "block" : "none" }}>
+          Checkout
+        </button>
+      </Link>
     </div>
   );
 }

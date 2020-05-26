@@ -28,6 +28,7 @@ export default function OrderControl(props) {
     const newBeerOrder = {
       name: props.beer.name,
       amount: orderedBeeramount + beerCount,
+      price: props.beer.price,
     };
 
     setorder((prevOrders) => {

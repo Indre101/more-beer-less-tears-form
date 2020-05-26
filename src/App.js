@@ -8,9 +8,18 @@ import Shop from "./components/Shop";
 import Cart from "./components/Cart";
 import Details from "./components/Details";
 import Product from "./components/Product";
+import Payment from "./components/Payment";
+import Confirmation from "./components/Confirmation";
+import OrderMessage from "./components/OrderMessage";
 
 function App() {
   const [orders, setorder] = useState([]);
+
+  const [userInfo, setuserInfo] = useState({
+    name: "",
+    email: "",
+    phone: "",
+  });
   //sets the beer to pass to the Product page
   return (
     <Router>
@@ -33,15 +42,34 @@ function App() {
               <Shop {...routeProps} setorder={setorder} orders={orders} />
             )}
           />
-          <Route path="/details" component={Details} />
+          <Route
+            path="/details"
+            exact
+            render={(routeProps) => (
+              <Details
+                {...routeProps}
+                userInfo={userInfo}
+                setuserInfo={setuserInfo}
+                orders={orders}
+              />
+            )}
+          />
+          <Route
+            path="/payment"
+            exact
+            render={(routeProps) => (
+              <Payment {...routeProps} user={userInfo} orders={orders} />
+            )}
+          />
+
+          <Route path="/orderMessage" component={OrderMessage} />
+          <Route path="/confirmation" component={Confirmation} />
           <Route
             path="/shop/:id"
             render={(routeProps) => (
               <Product {...routeProps} setorder={setorder} orders={orders} />
             )}
           />
-
-          {/* <Route path="/shop/:id" component={Product} /> */}
         </Switch>
       </div>
     </Router>
