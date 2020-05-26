@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import DataBase from "../modules/DataBase";
 import { Link } from "react-router-dom";
 
 export default function Confirmation(props) {
   const { orders, user, paymentMethod, totalAmount } = props.location.state;
-
-  console.log(props);
+  // const [ordderNumber, setordderNumber] = useState(0);
 
   const orderSummary = orders.map((order) => (
     <div key={Math.random() * 4000}>
@@ -14,15 +13,20 @@ export default function Confirmation(props) {
     </div>
   ));
 
-  function placeOrder() {
+  async function placeOrder() {
     const ordersTopost = orders.map((order) => ({
       name: order.name,
       amount: order.amount,
     }));
-    console.log(ordersTopost);
-
-    DataBase.PostOrder(ordersTopost);
+    const response = await DataBase.PostOrder(ordersTopost);
+    props.history.push({
+      pathname: `/orderMessage`,
+      state: {
+        orderNumber: response.id,
+      },
+    });
   }
+
   return (
     <div>
       <h3>Name:{user.name} </h3>
@@ -39,18 +43,8 @@ export default function Confirmation(props) {
           }}>
           <button onClick={placeOrder}>Go back</button>
         </Link>
-        <Link
-          to={{
-            pathname: `/orderMessage`,
-            state: {
-              orders: orders,
-              user: user,
-              paymentMethod: paymentMethod,
-              totalAmount: totalAmount,
-            },
-          }}>
-          <button onClick={placeOrder}>Place Order</button>
-        </Link>
+
+        <button onClick={placeOrder}>Place Order</button>
       </div>
     </div>
   );
