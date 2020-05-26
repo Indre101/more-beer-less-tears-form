@@ -3,7 +3,9 @@ import DataBase from "../modules/DataBase";
 import { Link } from "react-router-dom";
 
 export default function Confirmation(props) {
-  const { orders, user, paymentMethod } = props.location.state;
+  const { orders, user, paymentMethod, totalAmount } = props.location.state;
+
+  console.log(props);
 
   const orderSummary = orders.map((order) => (
     <div key={Math.random() * 4000}>
@@ -28,6 +30,7 @@ export default function Confirmation(props) {
       <h3>phone:{user.phone} </h3>
       <h3>payment method: {paymentMethod}</h3>
       <div className="ordersumary">{orderSummary}</div>
+      <h3>total:{totalAmount}</h3>
 
       <div style={{ display: "flex" }}>
         <Link
@@ -43,6 +46,7 @@ export default function Confirmation(props) {
               orders: orders,
               user: user,
               paymentMethod: paymentMethod,
+              totalAmount: totalAmount,
             },
           }}>
           <button onClick={placeOrder}>Place Order</button>

@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import "../App.scss";
 
 function Form(props) {
-  const { orders, setuserInfo, userInfo } = props;
+  const { orders, setuserInfo, userInfo, totalAmount } = props;
+
   const nextBtn = useRef();
 
   function handleChange(event) {
@@ -67,6 +68,7 @@ function Form(props) {
           <Link
             to={{
               pathname: `/payment`,
+              state: { totalAmount: totalAmount },
             }}>
             <input type="submit" value="Next" ref={nextBtn} />
           </Link>
