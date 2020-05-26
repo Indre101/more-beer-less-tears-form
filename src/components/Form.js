@@ -39,7 +39,7 @@ function Form() {
 					<input
 						type="text"
 						onChange={nameChanged}
-						autocomplete="name"
+						autoComplete="name"
 						name="name"
 						value={name}
 					/>
@@ -49,7 +49,7 @@ function Form() {
 					<input
 						type="email"
 						onChange={emailChanged}
-						autocomplete="email"
+						autoComplete="email"
 						name="email"
 						value={email}
 					/>
@@ -59,7 +59,7 @@ function Form() {
 					<input
 						type="number"
 						onChange={phoneChanged}
-						autocomplete="tel"
+						autoComplete="tel"
 						name="phone"
 						value={phone}
 					/>

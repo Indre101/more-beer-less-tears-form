@@ -4,35 +4,47 @@
 
 .App {
 	max-width: 1200px;
+	margin: 0 auto;
 }
 
 .main-wrapper {
 	margin: 0 auto;
 	display: grid;
+	position: relative;
+}
+
+.cloud-top {
+	position: absolute;
+	width: 150vw;
+	place-self: center;
+	align-self: flex-start;
+	opacity: 1;
+	transform: translateY(-100px);
+	z-index: 1;
 }
 
 .page-title {
-	background: hotpink;
 	grid-column: 1/-1;
 }
 
 .beer-list {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 	gap: 2rem;
 	padding: 2rem;
+	z-index: 2;
 }
 
 .product-page-layout {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+	// grid-template-columns: 1fr 1fr;
 	place-items: center;
 	padding: 2rem;
 }
 
-.single-beer {
-	padding: 3rem;
-	background-color: var(--color-2-normal);
+.product-main-description {
+	grid-column: 1 / -1;
 }
 
 .promo-section {
