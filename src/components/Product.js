@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../App.scss";
 import OrderControl from "./OrderControl";
 import gsap from "gsap";
+import { Button } from "./Buttons";
 
 function Product(props) {
 	//render props
@@ -34,18 +35,26 @@ function Product(props) {
 								<p>{beer.description.overallImpression}</p>
 							</blockquote>
 							<h2>{beer.price}kr</h2>
-							<button onClick={() => setbeerCount(beerCount + 1)}>Increment</button>
-							<button
+							<Button
+								onClick={() => setbeerCount(beerCount + 1)}
+								type="button"
+								buttonStyle="btn--counter--outline"
+							>
+								Increment
+							</Button>
+							<Button
 								onClick={() =>
 									setbeerCount((prevBeeerCount) =>
 										prevBeeerCount === 0 ? 0 : prevBeeerCount - 1
 									)
 								}
+								type="button"
+								buttonStyle="btn--counter--outline"
 							>
 								Decrement
-							</button>
+							</Button>
 							<h2>{beerCount}</h2>
-							<button onClick={createOrder}>Add to cart</button>
+							<Button onClick={createOrder}>Add to cart</Button>
 						</section>
 						<section className="product-main-description animUp">
 							<h2>Appearance</h2>

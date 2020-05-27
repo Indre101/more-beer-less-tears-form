@@ -2,15 +2,46 @@
 // This file contains button styles
 // --------------------------------------------
 
-button {
-	cursor: pointer;
-	color: white;
+.btn {
+	border: 0;
 	font-family: var(--primary-font);
-	text-transform: uppercase;
-	background: var(--color-5-normal);
 	padding: var(--padding-button);
 	border-radius: var(--border-radius);
-	border: 0px;
-	// margin: var(--margin-button);
 	// width: 100%;
+	// height: auto;
+	transition: 250ms all;
+}
+
+.btn:hover {
+	opacity: 0.5;
+}
+
+.btn:active {
+	background-color: greenyellow;
+	transform: translateY(5px);
+}
+
+.btn--primary--solid {
+	background-color: var(--color-2-normal);
+}
+
+.btn--secondary--solid {
+	background-color: var(--color-4-normal);
+}
+
+.btn--success--solid {
+	background-color: green;
+}
+
+.btn--primary--outline {
+	background-color: transparent;
+	border: 2px solid var(--btn-outline);
+	color: var(--outline);
+}
+
+.btn--counter--outline {
+	background-color: transparent;
+	border: 2px solid var(--btn-outline);
+	color: var(--outline);
+	border-radius: 50%;
 }
