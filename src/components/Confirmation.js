@@ -19,6 +19,7 @@ export default function Confirmation(props) {
       amount: order.amount,
     }));
     const response = await DataBase.PostOrder(ordersTopost);
+    props.setorder([]);
     props.history.push({
       pathname: `/orderMessage`,
       state: {

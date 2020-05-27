@@ -13,9 +13,7 @@ import Confirmation from "./components/Confirmation";
 import OrderMessage from "./components/OrderMessage";
 
 function App() {
-  const [orders, setorder] = useState([
-    { name: "El Hefe", amount: 3, price: 50 },
-  ]);
+  const [orders, setorder] = useState([]);
   const [totalAmount, settotalAmount] = useState(0);
 
   const [userInfo, setuserInfo] = useState({
@@ -85,11 +83,17 @@ function App() {
           />
 
           <Route path="/orderMessage" component={OrderMessage} />
-          <Route path="/confirmation" component={Confirmation} />
+          {/* <Route path="/confirmation" component={Confirmation} /> */}
           <Route
             path="/shop/:id"
             render={(routeProps) => (
               <Product {...routeProps} setorder={setorder} orders={orders} />
+            )}
+          />
+          <Route
+            path="/confirmation"
+            render={(routeProps) => (
+              <Confirmation {...routeProps} setorder={setorder} />
             )}
           />
         </Switch>
