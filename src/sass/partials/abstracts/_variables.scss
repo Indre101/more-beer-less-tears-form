@@ -19,11 +19,11 @@
 	--margin-button: 0.2rem;
 
 	// borders
-	--border: 0.2rem solid var(--color-2-normal);
+	--border: 0.2rem solid var(--color-3-normal);
 	--border-radius: 0.5rem;
 
 	// buttons
-	--btn-outline: var(--color-3-normal);
+	--btn-outline: var(--color-2-normal);
 
 	// animation
 	--transition: 0.3s ease-in-out;
@@ -51,6 +51,7 @@
 	// Dark blue #34344D
 	--base-color-1: 240;
 	--color-1-normal: hsla(var(--base-color-1) 19% 25% / 100%);
+	--color-1-dark: hsla(var(--base-color-1) 19% 10% / 100%);
 
 	// Purple #504ECC
 	--base-color-2: 241;

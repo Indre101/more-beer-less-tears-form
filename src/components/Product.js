@@ -35,25 +35,27 @@ function Product(props) {
 								<p>{beer.description.overallImpression}</p>
 							</blockquote>
 							<h2>{beer.price}kr</h2>
-							<Button
-								onClick={() => setbeerCount(beerCount + 1)}
-								type="button"
-								buttonStyle="btn--counter--outline"
-							>
-								Increment
-							</Button>
-							<Button
-								onClick={() =>
-									setbeerCount((prevBeeerCount) =>
-										prevBeeerCount === 0 ? 0 : prevBeeerCount - 1
-									)
-								}
-								type="button"
-								buttonStyle="btn--counter--outline"
-							>
-								Decrement
-							</Button>
-							<h2>{beerCount}</h2>
+							<div className="single-beer-counter">
+								<Button
+									onClick={() =>
+										setbeerCount((prevBeeerCount) =>
+											prevBeeerCount === 0 ? 0 : prevBeeerCount - 1
+										)
+									}
+									type="button"
+									buttonStyle="btn--counter--outline"
+								>
+									-
+								</Button>
+								<h2>{beerCount}</h2>
+								<Button
+									onClick={() => setbeerCount(beerCount + 1)}
+									type="button"
+									buttonStyle="btn--counter--outline"
+								>
+									+
+								</Button>
+							</div>
 							<Button onClick={createOrder}>Add to cart</Button>
 						</section>
 						<section className="product-main-description animUp">

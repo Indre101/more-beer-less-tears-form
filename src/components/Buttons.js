@@ -6,7 +6,7 @@ const styles = [
 	"btn--primary--solid",
 	"btn--primary--outline",
 	"btn--secondary--solid",
-	"btn--success-solid",
+	"btn--success--solid",
 	"btn--counter--outline",
 ];
 
