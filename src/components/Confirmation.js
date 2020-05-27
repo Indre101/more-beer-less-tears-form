@@ -41,7 +41,7 @@ export default function Confirmation(props) {
           to={{
             pathname: `/payment`,
           }}>
-          <button onClick={placeOrder}>Go back</button>
+          <button>Go back</button>
         </Link>
 
         <button onClick={placeOrder}>Place Order</button>

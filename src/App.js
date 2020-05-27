@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import CardDetails from "./components/CardDetails";
 import "./App.scss";
@@ -16,12 +16,22 @@ function App() {
   const [orders, setorder] = useState([
     { name: "El Hefe", amount: 3, price: 50 },
   ]);
+  const [totalAmount, settotalAmount] = useState(0);
 
   const [userInfo, setuserInfo] = useState({
     name: "",
     email: "",
     phone: "",
   });
+
+  //sets total order amount
+  useEffect(() => {
+    const orderSum = orders
+      .map((order) => order.amount * order.price)
+      .reduce((a, b) => a + b, 0);
+    settotalAmount(orderSum);
+  }, [orders]);
+
   //sets the beer to pass to the Product page
   return (
     <Router>
@@ -34,7 +44,12 @@ function App() {
             path="/cart"
             exact
             render={(...routeProps) => (
-              <Cart {...routeProps} orders={orders} setorder={setorder} />
+              <Cart
+                {...routeProps}
+                orders={orders}
+                setorder={setorder}
+                totalAmount={totalAmount}
+              />
             )}
           />
           <Route
@@ -60,7 +75,12 @@ function App() {
             path="/payment"
             exact
             render={(routeProps) => (
-              <Payment {...routeProps} user={userInfo} orders={orders} />
+              <Payment
+                {...routeProps}
+                user={userInfo}
+                orders={orders}
+                totalAmount={totalAmount}
+              />
             )}
           />
 

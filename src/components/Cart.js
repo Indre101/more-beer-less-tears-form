@@ -16,16 +16,6 @@ function Cart(props) {
       />
     ));
 
-  const [totalAmount, settotalAmount] = useState(0);
-
-  //sets total order amount
-  useEffect(() => {
-    const orderSum = props.orders
-      .map((order) => order.amount * order.price)
-      .reduce((a, b) => a + b, 0);
-    settotalAmount(orderSum);
-  }, [props.orders]);
-
   useEffect(() => {
     gsap.to(".cartBeerSinlge", {
       duration: 1,
@@ -50,10 +40,14 @@ function Cart(props) {
 
       <div className="totalToPAy">
         <h2>TOTAL </h2>
-        <h2>{totalAmount}kr </h2>
+        <h2>{props.totalAmount}kr </h2>
       </div>
 
-      <Link to={{ pathname: `/details`, state: { totalAmount: totalAmount } }}>
+      <Link
+        to={{
+          pathname: `/details`,
+          state: { totalAmount: props.totalAmount },
+        }}>
         <button
           style={{ display: props.orders.length !== 0 ? "block" : "none" }}>
           Checkout
