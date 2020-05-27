@@ -10,8 +10,10 @@
 	grid-template-rows: repeat(auto-fit, minmax(2fr, 1fr));
 	position: relative;
 	.single-beer-image-container {
-		background-color: royalblue;
+		background-color: var(--color-5-normal);
 		padding: 1rem;
+		gap: 2rem;
+		border-radius: var(--border-radius);
 		grid-column: 1 / -1;
 		grid-row: 1 / 4;
 		z-index: -1;
@@ -49,12 +51,12 @@
 	.single-beer-info {
 		background-color: white;
 		padding: 1rem;
-		gap: 1rem;
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-end;
 		grid-column: 1 / -1;
 		grid-row: 4 / 8;
+		border-radius: var(--border-radius);
 	}
 	.single-beer-category {
 		color: var(--color-2-normal);

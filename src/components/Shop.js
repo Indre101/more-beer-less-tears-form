@@ -62,13 +62,13 @@ function Shop(props) {
 
 	return (
 		<div className="main-wrapper">
-			<div className="cloud-top">
+			{/* <div className="cloud-top">
 				<img
 					className="cloud"
 					src={require("../../src/assets/svg/cloud.svg")}
 					alt="cloud"
 				/>
-			</div>
+			</div> */}
 			<h1 className="animUp"></h1>
 			<section className="beer-list">{beersAvailableTobuyElement}</section>
 			<section className="promo-section">
