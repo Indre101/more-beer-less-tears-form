@@ -20,75 +20,33 @@
 // page specific layout
 @import "sass/partials/pages/product";
 
-.cart-img {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-}
-
-.beerItemInCart {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-
-  img {
-    width: 100px;
-  }
-  .orderControl {
-    @include flexCenter(center, column);
-  }
-
-  .plus {
-    background-color: green;
-    margin-bottom: 2rem;
-  }
-  .minus {
-    background-color: red;
-    margin-top: 2rem;
-  }
-}
-
-.actions {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.item-count {
-  border: none !important;
-  width: 40px;
-  height: 40px;
-  font-size: 1.2rem;
-  border-radius: 50%;
-  border: 1px solid;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  margin: 0;
-}
-
-.math {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  color: white;
-  @include flexCenter(center, column);
-}
-.plus {
-  background-color: green;
-}
-.minus {
-  background-color: red;
-}
-
-.amount {
-  font-size: 1.5rem;
-}
-
 [data-show="show"] {
   display: block;
 }
 
 [data-show="hide"] {
   display: none;
+}
+
+.single-beer.cartBeerSinlge {
+  display: grid;
+  width: 360px;
+  grid-template-columns: repeat(3, 1fr);
+  border: var(--border);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+
+  div.single-beer-image-container {
+    padding: 0;
+    gap: 0;
+    grid-area: 1;
+    background: none;
+  }
+  .cartBeerImg {
+    width: 100px;
+  }
+
+  .single-beer-counter {
+    border: none;
+  }
 }

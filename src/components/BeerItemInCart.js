@@ -25,22 +25,24 @@ export default function BeerItemInCart(props) {
   }
 
   return (
-    <div className="beerItemInCart">
-      <img
-        src={require(`../assets/images/${props.order.name
-          .split(" ")
-          .join("")
-          .toLowerCase()}.png`)}
-        alt=""
-      />
+    <div className="single-beer cartBeerSinlge">
+      <div className="single-beer-image-container">
+        <img
+          className="single-beer-image cartBeerImg"
+          src={require(`../assets/images/${props.order.name
+            .split(" ")
+            .join("")
+            .toLowerCase()}.png`)}
+          alt=""
+        />
+      </div>
       <div className="beer-details">
         <h3>{props.order.name}</h3>
 
         <h4>{props.order.amount * props.order.price}</h4>
       </div>
-      <div className="orderControl">
+      <div className="single-beer-counter">
         <button
-          className="plus math"
           onClick={() =>
             updateOrder(
               { ...orderInediting, amount: orderInediting.amount + 1 },
@@ -53,7 +55,6 @@ export default function BeerItemInCart(props) {
         <div className="amount">{props.order.amount}</div>
 
         <button
-          className="minus math"
           onClick={(event) =>
             updateOrder(
               { ...orderInediting, amount: orderInediting.amount - 1 },

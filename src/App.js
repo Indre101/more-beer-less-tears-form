@@ -13,7 +13,9 @@ import Confirmation from "./components/Confirmation";
 import OrderMessage from "./components/OrderMessage";
 
 function App() {
-  const [orders, setorder] = useState([]);
+  const [orders, setorder] = useState([
+    { name: "El Hefe", amount: 3, price: 50 },
+  ]);
 
   const [userInfo, setuserInfo] = useState({
     name: "",
