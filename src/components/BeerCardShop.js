@@ -10,13 +10,17 @@ export default function BeerCardShop(props) {
 			props={props}
 			render={(beerCount, setbeerCount, createOrder, beer) => (
 				<div className="single-beer" key={beer.id}>
-					<div className="single-beer-image-container">
-						<img
-							className="single-beer-image"
-							src={require(`../assets/images/${beer.label ? beer.label : "elhefe.png"}`)}
-							alt="Beer"
-						/>
-					</div>
+					<Link to={{ pathname: `/shop/product`, state: { beer: beer } }}>
+						<div className="single-beer-image-container">
+							<img
+								className="single-beer-image"
+								src={require(`../assets/images/${
+									beer.label ? beer.label : "elhefe.png"
+								}`)}
+								alt="Beer"
+							/>
+						</div>
+					</Link>
 					<div className="single-beer-cloud">
 						<img
 							className="cloud"
@@ -43,9 +47,9 @@ export default function BeerCardShop(props) {
 								+
 							</button>
 						</div>
-						<Link to={{ pathname: `/shop/product`, state: { beer: beer } }}>
+						{/* <Link to={{ pathname: `/shop/product`, state: { beer: beer } }}>
 							<button>More Info</button>
-						</Link>
+						</Link> */}
 						<button onClick={createOrder}>Add to cart</button>
 					</div>
 				</div>

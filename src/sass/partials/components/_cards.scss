@@ -11,8 +11,7 @@
 	position: relative;
 	.single-beer-image-container {
 		background-color: var(--color-5-normal);
-		padding: 1rem;
-		gap: 2rem;
+		padding: var(--padding);
 		border-radius: var(--border-radius);
 		grid-column: 1 / -1;
 		grid-row: 1 / 4;
@@ -50,7 +49,6 @@
 	}
 	.single-beer-info {
 		background-color: white;
-		padding: 1rem;
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-end;
@@ -68,6 +66,7 @@
 		border: var(--border);
 		border-radius: var(--border-radius);
 		padding: 0.5rem;
+		margin: 1rem 0;
 	}
 	.single-beer-cloud {
 		position: absolute;

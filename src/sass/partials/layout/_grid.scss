@@ -18,7 +18,6 @@
 .beer-list {
 	scroll-behavior: smooth;
 	overflow-x: scroll;
-	background: burlywood;
 	scroll-snap-type: x proximity;
 	z-index: 0;
 	display: grid;
