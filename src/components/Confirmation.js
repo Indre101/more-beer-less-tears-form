@@ -19,6 +19,7 @@ export default function Confirmation(props) {
       amount: order.amount,
     }));
     const response = await DataBase.PostOrder(ordersTopost);
+    props.setorder([]);
     props.history.push({
       pathname: `/orderMessage`,
       state: {
@@ -41,7 +42,7 @@ export default function Confirmation(props) {
           to={{
             pathname: `/payment`,
           }}>
-          <button onClick={placeOrder}>Go back</button>
+          <button>Go back</button>
         </Link>
 
         <button onClick={placeOrder}>Place Order</button>
