@@ -20,7 +20,9 @@ function Nav(props) {
               src={require("../assets/graphics/icon-shopping-cart-empty.png")}
               alt="Cart"
             />
-            <div className="item-count">
+            <div
+              className="item-count"
+              style={{ display: amountOfitems === 0 ? "none" : "flex" }}>
               <h4>{amountOfitems}</h4>
             </div>
           </li>
