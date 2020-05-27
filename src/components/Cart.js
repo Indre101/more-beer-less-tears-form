@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../App.scss";
 import BeerItemInCart from "./BeerItemInCart";
 import { Link } from "react-router-dom";
+import gsap from "gsap";
 
 function Cart(props) {
   const beerOrders = props.orders
@@ -25,21 +26,32 @@ function Cart(props) {
     settotalAmount(orderSum);
   }, [props.orders]);
 
+  useEffect(() => {
+    gsap.to(".cartBeerSinlge", {
+      duration: 1,
+      y: 0,
+      opacity: 1,
+      stagger: 0.5,
+    });
+  });
   return (
-    <div className="main-wrapper">
+    <div className="main-wrapper cart">
       <div
         className="no-order-message"
-        style={{ display: props.orders.length === 0 ? "block" : "none" }}>
+        style={{ display: props.orders.length === 0 ? "flex" : "none" }}>
         Order some beers to see the cart
       </div>
 
       <div
         className="orders"
-        style={{ display: props.orders.length !== 0 ? "block" : "none" }}>
+        style={{ display: props.orders.length !== 0 ? "flex" : "none" }}>
         {beerOrders}
       </div>
 
-      <h2>Total amount:{totalAmount} </h2>
+      <div className="totalToPAy">
+        <h2>TOTAL </h2>
+        <h2>{totalAmount}kr </h2>
+      </div>
 
       <Link to={{ pathname: `/details`, state: { totalAmount: totalAmount } }}>
         <button

@@ -28,13 +28,23 @@
   display: none;
 }
 
+.orders {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .single-beer.cartBeerSinlge {
+  opacity: 0;
+  transform: translateY(20px);
   display: grid;
   width: 360px;
   grid-template-columns: repeat(3, 1fr);
   border: var(--border);
   border-radius: var(--border-radius);
-  padding: 1rem;
+  padding: 0.5rem;
+  align-items: center;
+  margin: 1rem 0;
 
   div.single-beer-image-container {
     padding: 0;
@@ -47,6 +57,46 @@
   }
 
   .single-beer-counter {
+    display: flex;
+    flex-direction: row;
     border: none;
+  }
+
+  .actions {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  h2 {
+    color: var(--color-5-normal);
+  }
+  h3 {
+    color: var(--color-3-grey);
+
+    font-family: var(--primary-font);
+    margin-bottom: var(--margin);
+  }
+}
+
+.totalToPAy {
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+
+  h2 {
+    color: var(--text-h2-color);
+  }
+}
+
+.cart {
+  a {
+    margin-right: 3rem;
+    margin-top: 2rem;
+    justify-self: flex-end;
+    margin-bottom: 2rem;
   }
 }
