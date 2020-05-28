@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
+import gsap from "gsap";
 
-export default function MobilePay() {
+export default function MobilePay(props) {
   return (
     <div className="mobilePay">
       <div className="amount">

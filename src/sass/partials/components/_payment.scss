@@ -63,6 +63,9 @@ label.card {
   padding: 30px;
   border: 1px solid rgba(0, 0, 0, 0.15);
   margin: 1.5rem;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: showPayment 0.5s linear forwards 1;
   h2 {
     text-align: center;
     width: 85vw;
@@ -80,6 +83,13 @@ label.card {
   }
   h4 {
     margin-bottom: 1rem;
+  }
+}
+
+@keyframes showPayment {
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
