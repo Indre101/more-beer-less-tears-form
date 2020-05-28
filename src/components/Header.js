@@ -8,7 +8,7 @@ function Header() {
 		// tl.from(".animFoam", { opacity: 0, y: 40, duration: 3 });
 		// tl.to(".animFoam", { opacity: 1, y: 0 });
 		gsap.from(".animFoam", { duration: 1, y: 30, opacity: 0, stagger: 0.8 });
-	});
+	}, []);
 	return (
 		<div className="site-header">
 			<div className="header-background animFoam">

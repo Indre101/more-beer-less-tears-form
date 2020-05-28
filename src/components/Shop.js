@@ -9,7 +9,7 @@ function Shop(props) {
 		const tl = gsap.timeline({ delay: 1 });
 		tl.from(".animList", { opacity: 0, x: 50 });
 		tl.to(".animList", { opacity: 1, x: 0, duration: 1 });
-	});
+	}, [props.beer]);
 
 	const [beers, setBeers] = useState([]);
 	const [beersOnTap, setBeersOnTap] = useState([]);
