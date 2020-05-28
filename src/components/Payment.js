@@ -4,8 +4,7 @@ import MobilePay from "./MobilePay";
 import CardPayment from "./CardPayment";
 
 export default function Payment(props) {
-  const { orders, user } = props;
-  const { totalAmount } = props.location.state;
+  const { orders, user, totalAmount } = props;
   const [paymentMethod, setpaymentMethod] = useState();
   const nextBtnPayment = useRef();
 

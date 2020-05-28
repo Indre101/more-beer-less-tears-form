@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import "../App.scss";
 import OrderControl from "./OrderControl";
 import gsap from "gsap";
+import { Button } from "./Buttons";
 
 function Product(props) {
 	//render props
 	// animate gsap elements in
 	useEffect(() => {
-		gsap.from(".animUp", { duration: 1, y: 50, opacity: 0, stagger: 0.5 });
+		gsap.from(".animUp", { duration: 1, y: 50, opacity: 1, stagger: 0.5 });
 	});
 
 	return (
@@ -34,18 +35,28 @@ function Product(props) {
 								<p>{beer.description.overallImpression}</p>
 							</blockquote>
 							<h2>{beer.price}kr</h2>
-							<button onClick={() => setbeerCount(beerCount + 1)}>Increment</button>
-							<button
-								onClick={() =>
-									setbeerCount((prevBeeerCount) =>
-										prevBeeerCount === 0 ? 0 : prevBeeerCount - 1
-									)
-								}
-							>
-								Decrement
-							</button>
-							<h2>{beerCount}</h2>
-							<button onClick={createOrder}>Add to cart</button>
+							<div className="single-beer-counter">
+								<Button
+									onClick={() =>
+										setbeerCount((prevBeeerCount) =>
+											prevBeeerCount === 0 ? 0 : prevBeeerCount - 1
+										)
+									}
+									type="button"
+									buttonStyle="btn--counter--outline"
+								>
+									-
+								</Button>
+								<h2>{beerCount}</h2>
+								<Button
+									onClick={() => setbeerCount(beerCount + 1)}
+									type="button"
+									buttonStyle="btn--counter--outline"
+								>
+									+
+								</Button>
+							</div>
+							<Button onClick={createOrder}>Add to cart</Button>
 						</section>
 						<section className="product-main-description animUp">
 							<h2>Appearance</h2>

@@ -25,51 +25,54 @@ export default function BeerItemInCart(props) {
   }
 
   return (
-    <div className="beerItemInCart">
-      <img
-        src={require(`../assets/images/${props.order.name
-          .split(" ")
-          .join("")
-          .toLowerCase()}.png`)}
-        alt=""
-      />
+    <div className="single-beer cartBeerSinlge">
+      <div className="single-beer-image-container">
+        <img
+          className="single-beer-image cartBeerImg"
+          src={require(`../assets/images/${props.order.name
+            .split(" ")
+            .join("")
+            .toLowerCase()}.png`)}
+          alt=""
+        />
+      </div>
       <div className="beer-details">
         <h3>{props.order.name}</h3>
 
-        <h4>{props.order.amount * props.order.price}</h4>
+        <h2>{props.order.amount * props.order.price}kr</h2>
       </div>
-      <div className="orderControl">
-        <button
-          className="plus math"
-          onClick={() =>
-            updateOrder(
-              { ...orderInediting, amount: orderInediting.amount + 1 },
-              indexOfOrder
-            )
-          }
-        >
-          +
-        </button>
+      <div className="single-beer-counter">
+        <div className="actions">
+          <button
+            onClick={() =>
+              updateOrder(
+                { ...orderInediting, amount: orderInediting.amount + 1 },
+                indexOfOrder
+              )
+            }
+          >
+            +
+          </button>
 
-        <div className="amount">{props.order.amount}</div>
+          <div className="amount">{props.order.amount}</div>
 
-        <button
-          className="minus math"
-          onClick={(event) =>
-            updateOrder(
-              { ...orderInediting, amount: orderInediting.amount - 1 },
-              indexOfOrder
-            )
-          }
-        >
-          -
-        </button>
+          <button
+            onClick={(event) =>
+              updateOrder(
+                { ...orderInediting, amount: orderInediting.amount - 1 },
+                indexOfOrder
+              )
+            }
+          >
+            -
+          </button>
+        </div>
         <button
           onClick={(event) =>
             updateOrder({ ...orderInediting, amount: 0 }, indexOfOrder)
           }
         >
-          Delete
+          x
         </button>
       </div>
     </div>

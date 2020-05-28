@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import OrderControl from "./OrderControl";
+import gsap from "gsap";
+import { Button } from "./Buttons";
 
 export default function BeerCardShop(props) {
+  // animation for single beers
+  useEffect(() => {
+    var tl = gsap.timeline({ delay: 1 });
+    tl.from(".animBeer", { opacity: 0, y: 50 });
+    tl.to(".animBeer", { opacity: 1, y: 0, duration: 1 });
+    // gsap.from(".animBeer", { duration: 1, y: -50, opacity: 1, stagger: 0.5 });
+  });
   //render props
   return (
     <OrderControl
@@ -12,7 +21,7 @@ export default function BeerCardShop(props) {
         <div className="single-beer" key={beer.id}>
           <div className="single-beer-image-container">
             <img
-              className="single-beer-image"
+              className="single-beer-image animBeer"
               src={require(`../assets/images/${
                 beer.label ? beer.label : "elhefe.png"
               }`)}
@@ -33,26 +42,38 @@ export default function BeerCardShop(props) {
             </h3>
             <h3>{beer.price}Kr</h3>
             <div className="single-beer-counter">
-              <button
+              <Button
                 onClick={() =>
                   setbeerCount((prevBeeerCount) =>
                     prevBeeerCount === 0 ? 0 : prevBeeerCount - 1
                   )
                 }
+                type="button"
+                buttonStyle="btn--counter--outline"
               >
                 -
-              </button>
+              </Button>
               <h2>{beerCount}</h2>
-              <button
+              <Button
                 onClick={() => setbeerCount((prevCount) => prevCount + 1)}
+                type="button"
+                buttonStyle="btn--counter--outline"
               >
                 +
-              </button>
+              </Button>
             </div>
             <Link to={{ pathname: `/shop/product`, state: { beer: beer } }}>
-              <button>More Info</button>
+              <Button type="button" buttonStyle="btn--primary--outline">
+                More Info
+              </Button>
             </Link>
-            <button onClick={createOrder}>Add to cart</button>
+            <Button
+              onClick={createOrder}
+              type="button"
+              buttonStyle="btn--primary--solid"
+            >
+              Add to cart
+            </Button>
           </div>
         </div>
       )}

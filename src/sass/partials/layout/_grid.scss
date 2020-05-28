@@ -15,10 +15,19 @@
 	// overflow: hidden;
 }
 
+// .cloud-top {
+// 	position: absolute;
+// 	width: 150vw;
+// 	place-self: center;
+// 	align-self: flex-start;
+// 	opacity: 1;
+// 	transform: translateY(-300px);
+// 	z-index: 2;
+// }
+
 .beer-list {
 	scroll-behavior: smooth;
 	overflow-x: scroll;
-	background: burlywood;
 	scroll-snap-type: x proximity;
 	z-index: 0;
 	display: grid;
@@ -55,16 +64,6 @@
 // 	&::-webkit-scrollbar {
 // 		display: none;
 // 	}
-// }
-
-// .cloud-top {
-// 	position: absolute;
-// 	width: 150vw;
-// 	place-self: center;
-// 	align-self: flex-start;
-// 	opacity: 1;
-// 	transform: translateY(-300px);
-// 	z-index: 2;
 // }
 
 .page-title {
