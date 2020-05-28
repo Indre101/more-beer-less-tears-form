@@ -16,12 +16,9 @@ export default function Payment(props) {
     return paymentMethod === paymentOption ? "show" : "hide";
   }
 
-  useEffect(() => {
-    nextBtnPayment.current.disabled = paymentMethod ? false : true;
-  }, [paymentMethod]);
   return (
     <div>
-      <h3>Choose payment method</h3>
+      <h2>Choose payment method</h2>
       <form className="optionsForPayment">
         <input
           id="mobpay"
@@ -58,16 +55,22 @@ export default function Payment(props) {
       <div
         className={"mobile"}
         data-show={setPaymentOptionDisplay("Mobile Pay")}>
-        <MobilePay />
+        <MobilePay totalAmount={totalAmount} />
       </div>
 
       <div
         className="carPayment"
         data-show={setPaymentOptionDisplay("Card payment")}>
-        <CardPayment />
+        <CardPayment
+          orders={orders}
+          user={user}
+          paymentMethod={paymentMethod}
+          totalAmount={totalAmount}
+        />
       </div>
 
-      <div style={{ display: "flex" }}>
+      <div
+        style={{ display: paymentMethod === "Card payment" ? "none" : "flex" }}>
         <Link
           to={{
             pathname: `/details`,
@@ -76,8 +79,9 @@ export default function Payment(props) {
               user: user,
             },
           }}>
-          <input type="submit" value="go back" />
+          <input type="button" value="go back" />
         </Link>
+
         <Link
           to={{
             pathname: `/confirmation`,
@@ -88,7 +92,14 @@ export default function Payment(props) {
               totalAmount: totalAmount,
             },
           }}>
-          <input type="button" value="Next" ref={nextBtnPayment} />
+          <input
+            type="button"
+            value="Next"
+            ref={nextBtnPayment}
+            style={{
+              display: paymentMethod === "Mobile Pay" ? "block" : "none",
+            }}
+          />
         </Link>
       </div>
     </div>

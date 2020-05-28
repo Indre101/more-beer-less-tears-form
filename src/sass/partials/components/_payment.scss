@@ -4,6 +4,11 @@
 
 @import "sass/partials/abstracts/mixins";
 
+.carPayment {
+  width: 100%;
+  justify-content: center;
+}
+
 .optionsForPayment {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -93,48 +98,55 @@ label.card {
   }
 }
 
-.single-beer {
-  display: grid;
-  // grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(auto-fit, minmax(2fr, 1fr));
-  position: relative;
-  .single-beer-image-container {
-    background-color: var(--color-2-normal);
-    padding: var(--padding);
-    border-radius: var(--border-radius);
-    grid-column: 1 / -1;
-    grid-row: 1 / 4;
+#PaymentForm {
+  animation: showPayment 0.5s linear forwards 1;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.cardForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  input {
+    margin: 0.5rem 0;
   }
-  .single-beer-image {
-    @include dropShadow(var(--color-1-dark));
+
+  label {
+    display: none;
+    background-color: var(--color-5-normal);
+    width: 100%;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0 0 15px 15px;
+    transform: translateY(-25px);
+    animation: showerror 0.3s ease 1 forwards;
   }
-  .single-beer-info {
-    background-color: white;
+
+  .yearcvc {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    grid-column: 1 / -1;
-    grid-row: 4 / 8;
-    border-radius: var(--border-radius);
-    z-index: 1;
-  }
-  .single-beer-category {
-    color: var(--color-2-normal);
-  }
-  .single-beer-cloud {
-    position: absolute;
-    bottom: 180px;
-    transform: scale(1.5);
-    z-index: 1;
+    input {
+      margin: 0.5rem 0.5rem 0 0;
+    }
+    .cvc {
+      margin-right: 0;
+    }
   }
 }
 
-.single-beer-counter {
+@keyframes showerror {
+  0% {
+    transform: translateY(-30px);
+  }
+}
+
+[data-show="show"] {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: var(--border);
-  border-radius: var(--border-radius);
-  padding: 0.5rem;
-  margin: 1rem 0;
+}
+
+[data-show="hide"] {
+  display: none;
 }

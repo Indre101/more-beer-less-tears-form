@@ -21,14 +21,6 @@
 // page specific layout
 @import "sass/partials/pages/product";
 
-[data-show="show"] {
-  display: block;
-}
-
-[data-show="hide"] {
-  display: none;
-}
-
 .orders {
   display: flex;
   flex-direction: column;

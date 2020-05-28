@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
-import gsap from "gsap";
+import React from "react";
 
 export default function MobilePay(props) {
   return (
     <div className="mobilePay">
       <div className="amount">
-        <h2>Total amount: 74</h2>
+        <h2>{props.totalAmount}kr</h2>
       </div>
       <img src={require("../assets/svg/foobar_logo.svg")} alt="Logo" />
       <h4>Mobile-pay user</h4>

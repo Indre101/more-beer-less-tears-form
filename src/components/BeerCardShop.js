@@ -11,7 +11,7 @@ export default function BeerCardShop(props) {
     tl.from(".animBeer", { opacity: 0, y: 50 });
     tl.to(".animBeer", { opacity: 1, y: 0, duration: 1 });
     // gsap.from(".animBeer", { duration: 1, y: -50, opacity: 1, stagger: 0.5 });
-  });
+  }, [props.beer]);
   //render props
   return (
     <OrderControl
@@ -49,16 +49,14 @@ export default function BeerCardShop(props) {
                   )
                 }
                 type="button"
-                buttonStyle="btn--counter--outline"
-              >
+                buttonStyle="btn--counter--outline">
                 -
               </Button>
               <h2>{beerCount}</h2>
               <Button
                 onClick={() => setbeerCount((prevCount) => prevCount + 1)}
                 type="button"
-                buttonStyle="btn--counter--outline"
-              >
+                buttonStyle="btn--counter--outline">
                 +
               </Button>
             </div>
@@ -70,8 +68,7 @@ export default function BeerCardShop(props) {
             <Button
               onClick={createOrder}
               type="button"
-              buttonStyle="btn--primary--solid"
-            >
+              buttonStyle="btn--primary--solid">
               Add to cart
             </Button>
           </div>
