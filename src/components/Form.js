@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 import "../App.scss";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 function Form(props) {
   const { orders, setuserInfo, userInfo, totalAmount } = props;
@@ -12,7 +14,9 @@ function Form(props) {
     const { name, value } = event.target;
     setuserInfo((prevInputData) => ({ ...prevInputData, [name]: value }));
   }
-
+  function handlePhoneInput(event) {
+    setuserInfo((prevInputData) => ({ ...prevInputData, phone: event }));
+  }
   function handleSubmit(event) {
     event.prevetnDefault();
   }
@@ -45,17 +49,12 @@ function Form(props) {
             required
           />
         </label>
-        <label>
-          <h2>Telephone</h2>
+        <PhoneInput
+          country={"us"}
+          value={props.userInfo.phone}
+          onChange={handlePhoneInput}
+        />
 
-          <input
-            type="number"
-            onChange={handleChange}
-            autoComplete="tel"
-            name="phone"
-            value={props.userInfo.phone}
-          />
-        </label>
         <div style={{ display: "flex" }}>
           <Link
             to={{
@@ -64,14 +63,16 @@ function Form(props) {
                 orders: orders,
                 user: userInfo,
               },
-            }}>
+            }}
+          >
             <input type="submit" value="go back" />
           </Link>
           <Link
             to={{
               pathname: `/payment`,
               state: { totalAmount: totalAmount },
-            }}>
+            }}
+          >
             <input type="submit" value="Next" ref={nextBtn} />
           </Link>
         </div>
@@ -79,5 +80,4 @@ function Form(props) {
     </>
   );
 }
-
 export default Form;
