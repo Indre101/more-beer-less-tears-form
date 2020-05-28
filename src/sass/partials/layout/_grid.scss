@@ -15,28 +15,16 @@
 	// overflow: hidden;
 }
 
-// .cloud-top {
-// 	position: absolute;
-// 	width: 150vw;
-// 	place-self: center;
-// 	align-self: flex-start;
-// 	opacity: 1;
-// 	transform: translateY(-300px);
-// 	z-index: 2;
-// }
-
 .beer-list {
 	scroll-behavior: smooth;
 	overflow-x: scroll;
 	scroll-snap-type: x proximity;
-	z-index: 0;
 	display: grid;
 	gap: 2rem;
 	grid-template-columns: 10px;
 	grid-auto-flow: column;
 	// grid-auto-columns: calc(50% - var(--gutter) * 2);
 	grid-auto-columns: 60vw;
-	padding: 2rem 0;
 }
 
 @media (min-width: 800px) {
