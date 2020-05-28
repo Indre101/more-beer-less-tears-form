@@ -35,7 +35,7 @@ function App() {
 		<Router>
 			<div className="App">
 				<Header />
-				{/* <Nav orders={orders} /> */}
+				<Nav orders={orders} />
 				<Switch>
 					<Route path="/" exact component={Home} />
 					<Route
