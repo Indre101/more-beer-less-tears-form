@@ -69,7 +69,7 @@ function Shop(props) {
 					alt="cloud"
 				/>
 			</div> */}
-			<h1 className="animUp"></h1>
+			<h1 className="animUp">Beers</h1>
 			<section className="beer-list">{beersAvailableTobuyElement}</section>
 			<section className="promo-section">
 				<h1>Happy Hour</h1>
