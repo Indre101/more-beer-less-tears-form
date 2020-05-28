@@ -13,32 +13,35 @@
 
 label.mobpay {
   grid-area: 1/1;
-  width: 100%;
-  object-fit: contain;
-  border-radius: var(--border-radius);
-  border: var(--border);
-  border-color: var(--color-2-normal);
-  @include flexCenter(center, row);
 
-  height: 80px;
   img {
     width: 100%;
   }
+}
+
+[type="radio"]:checked + label {
+  filter: grayscale(0);
 }
 
 [type="radio"] {
   visibility: hidden;
 }
 
-label.card {
-  grid-area: 1/2;
-
+[type="radio"] + label {
   width: 100%;
-  @include flexCenter(center, row);
+  object-fit: contain;
   border-radius: var(--border-radius);
   border: var(--border);
   border-color: var(--color-2-normal);
+  transition: filter 0.3s linear;
+  @include flexCenter(center, row);
+  filter: grayscale(1);
+
   height: 80px;
+}
+
+label.card {
+  grid-area: 1/2;
 
   img {
     width: 40%;

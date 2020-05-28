@@ -23,6 +23,14 @@ export default function Payment(props) {
     <div>
       <h3>Choose payment method</h3>
       <form className="optionsForPayment">
+        <input
+          id="mobpay"
+          type="radio"
+          name="payment"
+          value="Mobile Pay"
+          checked={paymentMethod === "Mobile Pay"}
+          onChange={handleChange}
+        />
         <label htmlFor="mobpay" className=" mobpay">
           <img
             className="mobPay"
@@ -30,12 +38,13 @@ export default function Payment(props) {
             alt="Mobilepay"
           />
         </label>
+
         <input
-          id="mobpay"
+          id="card"
           type="radio"
           name="payment"
-          value="Mobile Pay"
-          checked={paymentMethod === "Mobile Pay"}
+          value="Card payment"
+          checked={paymentMethod === "Card payment"}
           onChange={handleChange}
         />
         <label htmlFor="card" className="card">
@@ -45,14 +54,6 @@ export default function Payment(props) {
           />{" "}
           <img src={require("../assets/payment/visa.svg")} alt="Visa" />
         </label>
-        <input
-          id="card"
-          type="radio"
-          name="payment"
-          value="Card payment"
-          checked={paymentMethod === "Card payment"}
-          onChange={handleChange}
-        />
       </form>
       <div
         className={"mobile"}
