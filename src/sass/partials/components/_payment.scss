@@ -1,0 +1,92 @@
+// --------------------------------------------
+// This file contains card styles
+// --------------------------------------------
+
+@import "sass/partials/abstracts/mixins";
+
+.optionsForPayment {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0 1rem;
+  width: 100%;
+}
+
+label.mobpay {
+  grid-area: 1/1;
+  width: 100%;
+  object-fit: contain;
+  border-radius: var(--border-radius);
+  border: var(--border);
+  border-color: var(--color-2-normal);
+  @include flexCenter(center, row);
+
+  height: 80px;
+  img {
+    width: 100%;
+  }
+}
+
+[type="radio"] {
+  visibility: hidden;
+}
+
+label.card {
+  grid-area: 1/2;
+
+  width: 100%;
+  @include flexCenter(center, row);
+  border-radius: var(--border-radius);
+  border: var(--border);
+  border-color: var(--color-2-normal);
+  height: 80px;
+
+  img {
+    width: 40%;
+  }
+}
+
+.single-beer {
+  display: grid;
+  // grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(auto-fit, minmax(2fr, 1fr));
+  position: relative;
+  .single-beer-image-container {
+    background-color: var(--color-2-normal);
+    padding: var(--padding);
+    border-radius: var(--border-radius);
+    grid-column: 1 / -1;
+    grid-row: 1 / 4;
+  }
+  .single-beer-image {
+    @include dropShadow(var(--color-1-dark));
+  }
+  .single-beer-info {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    grid-column: 1 / -1;
+    grid-row: 4 / 8;
+    border-radius: var(--border-radius);
+    z-index: 1;
+  }
+  .single-beer-category {
+    color: var(--color-2-normal);
+  }
+  .single-beer-cloud {
+    position: absolute;
+    bottom: 180px;
+    transform: scale(1.5);
+    z-index: 1;
+  }
+}
+
+.single-beer-counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: var(--border);
+  border-radius: var(--border-radius);
+  padding: 0.5rem;
+  margin: 1rem 0;
+}
