@@ -49,7 +49,8 @@ export default function BeerItemInCart(props) {
                 { ...orderInediting, amount: orderInediting.amount + 1 },
                 indexOfOrder
               )
-            }>
+            }
+          >
             +
           </button>
 
@@ -61,14 +62,16 @@ export default function BeerItemInCart(props) {
                 { ...orderInediting, amount: orderInediting.amount - 1 },
                 indexOfOrder
               )
-            }>
+            }
+          >
             -
           </button>
         </div>
         <button
           onClick={(event) =>
             updateOrder({ ...orderInediting, amount: 0 }, indexOfOrder)
-          }>
+          }
+        >
           x
         </button>
       </div>
