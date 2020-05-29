@@ -4,6 +4,7 @@ import "react-credit-cards/es/styles-compiled.css";
 import Payment from "payment";
 import { Link } from "react-router-dom";
 import { Button } from "./Buttons";
+import gsap from "gsap";
 export default function CardPayment(props) {
   const [cardDetail, setcardDetail] = useState({
     number: "",
@@ -61,6 +62,8 @@ export default function CardPayment(props) {
   function chechCustomValidation(item) {
     ///check the custom validation
     if (!Payment.fns.cardType(cardDetail.number) && item.id === "number") {
+      console.log("dfdsf");
+
       //checks if the card is a visa or mastercard or ...
       showInputErrors(item);
     } else if (
@@ -90,11 +93,14 @@ export default function CardPayment(props) {
   function showInputErrors(cardInput) {
     cardInput.nextSibling.dataset.borderchange = "showError";
     cardInput.dataset.borderchange = "showError";
+
+    gsap.fromTo(cardInput.nextSibling, { y: -23 }, { y: -18, duration: 1 });
   }
 
   function hideInputErrors(cardInput) {
     cardInput.nextSibling.dataset.borderchange = "hideError";
     cardInput.dataset.borderchange = "hideError";
+
     // cardInput.style.borderColor = "black";
   }
 
@@ -157,6 +163,7 @@ export default function CardPayment(props) {
           onFocus={handleInputFocus}
           required
         />
+
         <div className="error">Please insert a name</div>
 
         <input

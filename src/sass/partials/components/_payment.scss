@@ -12,9 +12,12 @@
 
 .optionsForPayment {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 0 1rem;
   gap: 0 1rem;
   width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 label.mobpay {
@@ -100,9 +103,11 @@ label.card {
 }
 
 #PaymentForm {
+  display: flex;
   animation: showPayment 0.5s linear forwards 1;
   opacity: 0;
   transform: translateY(50px);
+  flex-direction: column;
 }
 
 .cardForm {
@@ -111,8 +116,12 @@ label.card {
   justify-content: center;
   align-items: center;
   width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
 
   input {
+    width: 90%;
+    min-width: 250px;
     color: var(--color-3-normal);
     margin: 0.5rem 0;
     border-color: var(--btn-outline);
@@ -134,30 +143,31 @@ label.card {
   }
 
   input:focus + .error {
-    display: none;
+    // display: none;
+    visibility: hidden;
   }
 
   .error {
-    display: none;
+    height: 30px;
+    // display: none;
+    visibility: hidden;
     background-color: var(--color-5-normal);
-    width: 100%;
+    width: 90%;
     color: white;
     padding: 0.5rem;
     border-radius: 0 0 15px 15px;
-    transform: translateY(-25px);
-    animation: showerror 0.3s ease 1 forwards;
     &[data-borderchange="showError"] {
-      display: block;
+      visibility: visible;
     }
     &[data-borderchange="hideError"] {
-      display: none !important;
+      visibility: hidden !important;
     }
   }
 }
 
 @keyframes showerror {
-  0% {
-    transform: translateY(-30px);
+  100% {
+    opacity: 0;
   }
 }
 
