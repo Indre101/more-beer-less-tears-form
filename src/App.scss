@@ -21,100 +21,103 @@
 @import "sass/partials/pages/product";
 
 [data-show="show"] {
-  display: block;
+	display: block;
 }
 
 [data-show="hide"] {
-  display: none;
+	display: none;
 }
 
 .orders {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .single-beer.cartBeerSinlge {
-  opacity: 0;
-  transform: translateY(20px);
-  display: grid;
-  width: 360px;
-  grid-template-columns: repeat(3, 1fr);
-  border: var(--border);
-  border-radius: var(--border-radius);
-  padding: 0.5rem;
-  align-items: center;
-  margin: 1rem 0;
+	opacity: 0;
+	transform: translateY(20px);
+	display: grid;
+	width: 360px;
+	grid-template-columns: repeat(3, 1fr);
+	border: var(--border);
+	border-radius: var(--border-radius);
+	padding: 0.5rem;
+	align-items: center;
+	margin: 1rem 0;
 
-  div.single-beer-image-container {
-    padding: 0;
-    gap: 0;
-    grid-area: 1;
-    background: none;
-  }
-  .cartBeerImg {
-    width: 100px;
-  }
+	div.single-beer-image-container {
+		padding: 0;
+		gap: 0;
+		grid-area: 1;
+		background: none;
+	}
+	.cartBeerImg {
+		width: 100px;
+	}
 
-  .single-beer-counter {
-    display: flex;
-    flex-direction: row;
-    border: none;
-  }
+	.single-beer-counter {
+		display: flex;
+		flex-direction: row;
+		border: none;
+	}
 
-  .actions {
-    height: 150px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-between;
-  }
+	.actions {
+		height: 150px;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: space-between;
+	}
 
-  h2 {
-    color: var(--color-5-normal);
-  }
-  h3 {
-    color: var(--color-3-grey);
+	h2 {
+		color: var(--color-5-normal);
+	}
+	h3 {
+		color: var(--color-3-grey);
 
-    font-family: var(--primary-font);
-    margin-bottom: var(--margin);
-  }
+		font-family: var(--primary-font);
+		margin-bottom: var(--margin);
+	}
 }
 
 .totalToPAy {
-  margin-top: 2rem;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
+	margin-top: 2rem;
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
 
-  h2 {
-    color: var(--text-h2-color);
-  }
+	h2 {
+		color: var(--text-h2-color);
+	}
 }
 
 .cart {
-  a {
-    margin-right: 3rem;
-    margin-top: 2rem;
-    justify-self: flex-end;
-    margin-bottom: 2rem;
-  }
+	// a {
+	// 	margin-right: 3rem;
+	// 	margin-top: 2rem;
+	// 	justify-self: flex-end;
+	// 	margin-bottom: 2rem;
+	// }
 }
 
 .cart-li {
-  display: flex;
-  flex-direction: column;
-  div {
-    display: flex;
-    height: 30px;
-    width: 30px;
-    justify-content: center;
-    border-radius: 50%;
-    transform: translate(27px, -24px);
-    color: white;
-    background-color: var(--color-5-normal);
-  }
-  h4 {
-    @include flexCenter(center, row);
-  }
+	// display: flex;
+	// flex-direction: column;
+	// display: grid;
+	div {
+		font-size: 0.8rem;
+		letter-spacing: normal;
+		display: flex;
+		height: 30px;
+		width: 30px;
+		justify-content: center;
+		border-radius: 50%;
+		transform: translate(27px, -24px);
+		color: white;
+		background-color: var(--color-5-normal);
+	}
+	h4 {
+		@include flexCenter(center, row);
+	}
 }
