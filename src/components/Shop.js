@@ -5,6 +5,12 @@ import BeerCardShop from "./BeerCardShop";
 import gsap from "gsap";
 
 function Shop(props) {
+	useEffect(() => {
+		const tl = gsap.timeline({ delay: 1 });
+		tl.from(".animList", { opacity: 0, x: 50 });
+		tl.to(".animList", { opacity: 1, x: 0, duration: 1 });
+	}, [props.beer]);
+
 	const [beers, setBeers] = useState([]);
 	const [beersOnTap, setBeersOnTap] = useState([]);
 	const [beersAvailableTobuy, setbeersAvailableTobuy] = useState([]);
@@ -56,21 +62,9 @@ function Shop(props) {
 		/>
 	));
 
-	useEffect(() => {
-		gsap.from(".animUp", { duration: 1, y: 50, opacity: 0, stagger: 0.5 });
-	});
-
 	return (
 		<div className="main-wrapper">
-			{/* <div className="cloud-top">
-				<img
-					className="cloud"
-					src={require("../../src/assets/svg/cloud.svg")}
-					alt="cloud"
-				/>
-			</div> */}
-			<h1 className="animUp">Beers</h1>
-			<section className="beer-list">{beersAvailableTobuyElement}</section>
+			<section className="beer-list animList">{beersAvailableTobuyElement}</section>
 			<section className="promo-section">
 				<h1>Happy Hour</h1>
 			</section>

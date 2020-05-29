@@ -21,6 +21,14 @@
 // page specific layout
 @import "sass/partials/pages/product";
 
+[data-show="show"] {
+  display: block;
+}
+
+[data-show="hide"] {
+  display: none;
+}
+
 .orders {
   display: flex;
   flex-direction: column;
@@ -86,18 +94,21 @@
 }
 
 .cart {
-  a {
-    margin-right: 3rem;
-    margin-top: 2rem;
-    justify-self: flex-end;
-    margin-bottom: 2rem;
-  }
+  // a {
+  // 	margin-right: 3rem;
+  // 	margin-top: 2rem;
+  // 	justify-self: flex-end;
+  // 	margin-bottom: 2rem;
+  // }
 }
 
 .cart-li {
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
+  // display: grid;
   div {
+    font-size: 0.8rem;
+    letter-spacing: normal;
     display: flex;
     height: 30px;
     width: 30px;
