@@ -4,6 +4,8 @@ import MobilePay from "./MobilePay";
 import CardPayment from "./CardPayment";
 
 export default function Payment(props) {
+  console.log(props);
+
   const { orders, user, totalAmount } = props;
   const [paymentMethod, setpaymentMethod] = useState();
   const nextBtnPayment = useRef();
@@ -66,6 +68,7 @@ export default function Payment(props) {
           user={user}
           paymentMethod={paymentMethod}
           totalAmount={totalAmount}
+          history={props.history}
         />
       </div>
 

@@ -54,6 +54,7 @@ export default function CardPayment(props) {
           hideInputErrors(item);
         }
       });
+      openConfiramtionPage();
     }
   }
 
