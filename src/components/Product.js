@@ -8,7 +8,7 @@ function Product(props) {
 	//render props
 	// animate gsap elements in
 	useEffect(() => {
-		gsap.from(".animUp", { duration: 1, y: 50, opacity: 1, stagger: 0.5 });
+		gsap.from(".animUp", { duration: 1, y: 50, opacity: 0, stagger: 0.5 });
 	}, [props.beer]);
 
 	return (

@@ -59,7 +59,7 @@ export default function BeerCardShop(props) {
 							</Button>
 						</div>
 						<Link to={{ pathname: `/shop/product`, state: { beer: beer } }}>
-							<Button type="button" buttonStyle="btn--primary--outline">
+							<Button type="button" buttonStyle="btn--secondary--solid">
 								More Info
 							</Button>
 						</Link>

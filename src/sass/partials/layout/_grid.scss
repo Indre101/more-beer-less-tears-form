@@ -21,10 +21,10 @@
 	scroll-snap-type: x proximity;
 	display: grid;
 	gap: 2rem;
-	grid-template-columns: 10px;
+	grid-template-columns: 1rem;
 	grid-auto-flow: column;
-	// grid-auto-columns: calc(50% - var(--gutter) * 2);
 	grid-auto-columns: 60vw;
+	padding-bottom: 2rem;
 }
 
 @media (min-width: 800px) {
@@ -40,7 +40,7 @@
 .beer-list:before,
 .beer-list:after {
 	content: "";
-	width: 10px;
+	width: 1rem;
 }
 
 // .beer-list {
@@ -62,8 +62,6 @@
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 	// grid-template-columns: 1fr 1fr;
-	place-items: center;
-	padding: 2rem;
 }
 
 .product-main-description {
