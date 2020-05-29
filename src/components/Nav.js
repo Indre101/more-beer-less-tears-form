@@ -26,11 +26,10 @@ function Nav(props) {
 					<li className="cart-li">
 						<img
 							className="cart-img"
-							src={require("../assets/graphics/icon-shopping-cart-empty.png")}
+							src={require("../assets/svg/cartAsset.svg")}
 							alt="Cart"
 						/>
 						<div
-							// className="item-count"
 							className={`item-count ${amountOfitems === 0 ? "none" : "cart-item-anim"}`}
 							style={{ display: amountOfitems === 0 ? "none" : "flex" }}
 						>
