@@ -41,9 +41,10 @@ export default function CardPayment(props) {
   function handleSubmit(event) {
     event.preventDefault();
     const formInputs = [...cardFom.current.children];
-
+    let approved = false;
     if (!cardFom.current.checkValidity()) {
       formInputs.forEach((item) => {
+        //check form regulat validation wheather the required fields are filled
         if (item.hasAttribute("value") && !item.checkValidity()) {
           item.nextSibling.style.display = "block";
         } else if (item.hasAttribute("value") && item.checkValidity()) {
@@ -82,7 +83,7 @@ export default function CardPayment(props) {
     cardFom.current.noValidate = true;
   }, []);
 
-  function openConfiramtionPage(params) {
+  function openConfiramtionPage() {
     props.history.push({
       pathname: `/confirmation`,
       state: {

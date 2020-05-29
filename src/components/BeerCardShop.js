@@ -11,7 +11,7 @@ export default function BeerCardShop(props) {
     tl.from(".animBeer", { opacity: 0, y: 50 });
     tl.to(".animBeer", { opacity: 1, y: 0, duration: 1 });
     // gsap.from(".animBeer", { duration: 1, y: -50, opacity: 1, stagger: 0.5 });
-  }, [props.beer]);
+  });
   //render props
   return (
     <OrderControl
