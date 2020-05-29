@@ -7,117 +7,18 @@ form {
   width: 500px;
   padding: 2rem;
 }
-//clear the default input style
-div.t3.flag-dropdown,
-div.t2.react-tel-input,
-input.t4.form-control {
-  background-color: white;
-  border-style: none;
-  outline: none;
-  border: none;
-  color: none;
-}
 
-//the new style
-h2 {
-  margin: 20px 0px 20px 0px;
-}
-
-input.t4.form-control {
-  padding-left: 30px;
-  height: 50px;
-  display: block;
-  outline: none;
-  padding-left: 50px;
-  width: 100%;
-  border: var(--border2);
-  border-radius: var(--border-radius);
-}
-div.t3.flag-dropdown {
-  height: 30px;
-  margin: 10px 10px 10px 10px;
-}
-div.selected-flag {
-  margin: 0px;
-}
-div.arrow {
-  display: none;
-}
-.react-tel-input .form-control {
-  padding: none;
-}
-
-input.t4.form-control:focus {
-  border-color: #504ecc;
-  background-color: none;
-  border-color: none;
-  box-shadow: none;
-}
-input.t4.form-control.open {
-  background-color: none;
-  border-color: none;
-  box-shadow: none;
-}
-
-.nameInput {
+input {
   display: block;
   outline: none;
   padding: 1rem;
   width: 100%;
-  border: var(--border2);
+  border: var(--border);
   border-radius: var(--border-radius);
-}
-
-.nameInput:focus {
-  border-color: #504ecc;
-  background-color: none;
-  border-color: none;
-  box-shadow: none;
-}
-
-.btn {
-  border: 0;
-  font-family: var(--primary-font);
-  padding: var(--padding-button);
-  border-radius: var(--border-radius);
-  // width: 100%;
-  // height: auto;
-  transition: 100ms all;
-  text-transform: uppercase;
-  cursor: pointer;
-  width: 100%;
-}
-
-.btn:active {
-  background-color: transparent;
-  transform: translateY(2px);
-}
-
-.btn--primary--solid {
-  background-color: var(--color-5-normal);
-}
-
-.btn--secondary--solid {
-  background-color: var(--color-4-normal);
-}
-
-.btn--success--solid {
-  background-color: green;
-  transform: scale(2);
-}
-
-.btn--primary--outline {
-  background-color: transparent;
-  border: 2px solid var(--btn-outline);
-  color: var(--outline);
-}
-
-::-webkit-input-placeholder {
-  color: red;
 }
 
 input:invalid:not(:placeholder-shown):not(:focus) {
-  //border-color: red;
+  border-color: red;
   color: red;
   background-image: var(--error);
   animation: shake 0.125s 2 backwards;
@@ -128,6 +29,10 @@ input:invalid {
 }
 input:invalid:not(:placeholder-shown):not(:focus) ~ .instruction {
   opacity: 1;
+}
+
+input:focus {
+  border-color: #504ecc;
 }
 
 input:valid:not(:placeholder-shown):not(:focus) {
