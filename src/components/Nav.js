@@ -26,7 +26,7 @@ function Nav(props) {
 					<li className="cart-li">
 						<img
 							className="cart-img"
-							src={require("../assets/svg/cartAsset.svg")}
+							src={require("../assets/svg/cart.svg")}
 							alt="Cart"
 						/>
 						<div
