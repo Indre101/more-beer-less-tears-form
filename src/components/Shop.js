@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import DataBase from "../modules/DataBase";
+import TopBeer from "./TopBeer";
 import "../App.scss";
 import BeerCardShop from "./BeerCardShop";
 import gsap from "gsap";
@@ -14,6 +15,7 @@ function Shop(props) {
 	const [beers, setBeers] = useState([]);
 	const [beersOnTap, setBeersOnTap] = useState([]);
 	const [beersAvailableTobuy, setbeersAvailableTobuy] = useState([]);
+
 	// get beers on tap
 	useEffect(() => {
 		const getData = async () => {
@@ -62,6 +64,16 @@ function Shop(props) {
 		/>
 	));
 
+	// const topBeerElement = beersAvailableTobuy.map((beerTop) => (
+	// 	<li key={beerTop.id}>
+	// 		<h2>{beerTop.category}</h2>
+	// 	</li>
+	// ));
+
+	// const topBeerDescription = beers.map((beerTop) => (
+	// 	<h4>{beerTop.description.overallImpression}</h4>
+	// ));
+
 	return (
 		<div className="main-wrapper">
 			<section className="beer-list animList">{beersAvailableTobuyElement}</section>
@@ -69,7 +81,7 @@ function Shop(props) {
 				<h1>Happy Hour</h1>
 			</section>
 			<section className="stats-section">
-				<h1>Stats</h1>
+				<TopBeer />
 			</section>
 		</div>
 	);

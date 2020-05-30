@@ -10,8 +10,8 @@ export default function BeerCardShop(props) {
 		const tl = gsap.timeline({ delay: 0 });
 		tl.from(".animBeer", { opacity: 0, y: 50 });
 		tl.from(".animCloud", { opacity: 0, y: 50 });
-		tl.to(".animBeer", { opacity: 1, y: 0, stagger: 0.5 });
-		tl.to(".animCloud", { opacity: 1, y: 0, stagger: 0.5 });
+		tl.to(".animBeer", { opacity: 1, y: 0, stagger: 0.3 });
+		tl.to(".animCloud", { opacity: 1, y: 0, stagger: 0.3 });
 	}, [props.beer]);
 	//render props
 	return (
