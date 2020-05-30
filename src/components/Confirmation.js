@@ -8,9 +8,13 @@ export default function Confirmation(props) {
 	// const [ordderNumber, setordderNumber] = useState(0);
 
 	const orderSummary = orders.map((order) => (
-		<div key={Math.random() * 4000}>
-			name: {order.name}, amount:{order.amount}, sum:
-			{order.amount * order.price}
+		<div className="order-summary" key={Math.random() * 4000}>
+			<h2>Beers</h2>
+			<h2>{order.name}</h2>
+			<h2>amount</h2>
+			<h2>{order.amount}</h2>
+			<h2>sum</h2>
+			<h2>{order.amount * order.price}</h2>
 		</div>
 	));
 
@@ -31,11 +35,11 @@ export default function Confirmation(props) {
 
 	return (
 		<div className="main-wrapper confirmation">
-			<h3>Name:{user.name} </h3>
-			<h3>phone:{user.phone} </h3>
-			<h3>payment method: {paymentMethod}</h3>
+			<h3>Name{user.name} </h3>
+			<h3>phone{user.phone} </h3>
+			<h3>payment method{paymentMethod}</h3>
 			<div className="ordersumary">{orderSummary}</div>
-			<h3>total:{totalAmount}</h3>
+			<h3>total{totalAmount}</h3>
 
 			<div style={{ display: "flex", flexDirection: "column" }}>
 				<Link
