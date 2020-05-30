@@ -31,7 +31,7 @@ function Cart(props) {
 				className="no-order-message"
 				style={{ display: props.orders.length === 0 ? "flex" : "none" }}
 			>
-				Order some beers to see the cart
+				<h2>Please add some beers.</h2>
 			</div>
 
 			<div
@@ -42,7 +42,7 @@ function Cart(props) {
 			</div>
 
 			<div className="totalToPAy">
-				<h2>TOTAL </h2>
+				<h2>TOTAL</h2>
 				<h2>{props.totalAmount}kr </h2>
 			</div>
 

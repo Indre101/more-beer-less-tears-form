@@ -94,12 +94,12 @@
 }
 
 .cart {
-	// a {
-	// 	margin-right: 3rem;
-	// 	margin-top: 2rem;
-	// 	justify-self: flex-end;
-	// 	margin-bottom: 2rem;
-	// }
+	a {
+		display: flex;
+		margin-top: 2rem;
+		justify-self: center;
+		margin-bottom: 2rem;
+	}
 }
 
 .cart-li {
