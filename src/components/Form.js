@@ -5,12 +5,13 @@ import "../App.scss";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import "react-phone-input-2/lib/bootstrap.css";
+import { Redirect } from "react-router";
 
 function Form(props) {
   const { orders, setuserInfo, userInfo, totalAmount } = props;
 
   const nextBtn = useRef();
-
+  const detailsForm = useRef();
   function handleChange(event) {
     const { name, value } = event.target;
     setuserInfo((prevInputData) => ({ ...prevInputData, [name]: value }));
@@ -19,15 +20,29 @@ function Form(props) {
     setuserInfo((prevInputData) => ({ ...prevInputData, phone: event }));
   }
   function handleSubmit(event) {
-    event.prevetnDefault();
+    event.preventDefault();
+    console.log("submit");
+    if (!detailsForm.current.checkValidity()) {
+      console.log("not valid");
+    } else {
+      console.log("valid");
+      openPaymentPage();
+    }
   }
-  useEffect(() => {
-    nextBtn.current.disabled = userInfo.name && userInfo.phone ? false : true;
-  }, [userInfo.name]);
+
+  function openPaymentPage() {
+    console.log("openPayment");
+    this.context.router.push("/payment");
+  }
 
   return (
     <>
-      <form onSubmit={(event) => handleSubmit(event)}>
+      <form
+        autoComplete="on"
+        className="detailsForm"
+        onSubmit={handleSubmit}
+        ref={detailsForm}
+      >
         <label>
           <h2>Name</h2>
           <input
@@ -45,7 +60,7 @@ function Form(props) {
           <h2>Phone</h2>
 
           <PhoneInput
-            placeholder=" +45 00 00 00 00"
+            placeholder=" "
             autoFormat="false"
             dropdownClass="t1"
             containerClass="t2"
@@ -55,6 +70,7 @@ function Form(props) {
             country={"dk"}
             value={props.userInfo.phone}
             onChange={handlePhoneInput}
+            aria-describedby="hint-user"
             required
           />
         </label>
@@ -70,14 +86,7 @@ function Form(props) {
           >
             <input className="btn" type="submit" value="go back" />
           </Link>
-          <Link
-            to={{
-              pathname: `/payment`,
-              state: { totalAmount: totalAmount },
-            }}
-          >
-            <input className="btn" type="submit" value="Next" ref={nextBtn} />
-          </Link>
+          <input className="btn" type="submit" value="Next" ref={nextBtn} />
         </div>
       </form>
     </>
@@ -100,3 +109,7 @@ export default Form;
 /*useEffect(() => {
     nextBtn.current.disabled = userInfo.name && userInfo.email ? false : true;
   }, [userInfo.email, userInfo.name]); */
+
+/*useEffect(() => {
+    nextBtn.current.disabled = userInfo.name && userInfo.phone ? false : true;
+  }, [userInfo.name]); */

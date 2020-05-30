@@ -109,7 +109,8 @@ export default function CardPayment(props) {
         autoComplete="on"
         className="cardForm"
         onSubmit={handleSubmit}
-        ref={cardFom}>
+        ref={cardFom}
+      >
         <input
           id="number"
           className="cardNumber"
@@ -168,7 +169,8 @@ export default function CardPayment(props) {
                 orders: props.orders,
                 user: props.user,
               },
-            }}>
+            }}
+          >
             <input type="button" value="go back" />
           </Link>
           <input type="submit" value="Next" />
