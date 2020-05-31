@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../App.scss";
+import { Button } from "./Buttons";
 import gsap from "gsap";
 
 function Header() {

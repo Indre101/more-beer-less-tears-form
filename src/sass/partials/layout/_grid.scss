@@ -115,6 +115,10 @@
 
 .stats-section {
 	display: grid;
+	background-color: var(--color-4-normal);
+	h1 {
+		color: white;
+	}
 }
 
 .top-beer {

@@ -67,13 +67,14 @@ function Shop(props) {
 	return (
 		<div className="main-wrapper">
 			<section className="beer-list-container">
+				<h1>Beers</h1>
 				<div className="beer-list animList">{beersAvailableTobuyElement}</div>
 			</section>
-			<section className="promo-section">
+			{/* <section className="promo-section">
 				<h1>Happy Hour</h1>
-			</section>
+			</section> */}
 			<section className="stats-section">
-				<h1>Our Picks</h1>
+				<h1>Our Pick</h1>
 				<TopBeer />
 			</section>
 		</div>

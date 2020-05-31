@@ -17,8 +17,8 @@
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	background-color: orangered;
-	opacity: 0.5;
+	// background-color: orangered;
+	// opacity: 0.5;
 }
 
 .cloud-top {
@@ -38,6 +38,7 @@
 .logo-container {
 	width: 200px;
 	padding: 2rem;
+	z-index: 100;
 }
 
 .title > h1 {

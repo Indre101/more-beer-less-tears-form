@@ -95,6 +95,9 @@ function App() {
 						render={(routeProps) => <Confirmation {...routeProps} setorder={setorder} />}
 					/>
 				</Switch>
+				<footer>
+					<h4>© More Beers Less Tears MMXX</h4>
+				</footer>
 			</div>
 		</Router>
 	);
