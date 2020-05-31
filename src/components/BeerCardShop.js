@@ -10,8 +10,10 @@ export default function BeerCardShop(props) {
 		const tl = gsap.timeline({ delay: 0 });
 		tl.from(".animBeer", { opacity: 0, y: 50 });
 		tl.from(".animCloud", { opacity: 0, y: 50 });
+		tl.from(".animBubble", { opacity: 0, y: 150 });
 		tl.to(".animBeer", { opacity: 1, y: 0, stagger: 0.3 });
 		tl.to(".animCloud", { opacity: 1, y: 0, stagger: 0.3 });
+		tl.to(".animBubble", { duration: 2, opacity: 1, y: 0, stagger: 1 });
 	}, [props.beer]);
 	//render props
 	return (
@@ -32,6 +34,13 @@ export default function BeerCardShop(props) {
 							className="cloud animCloud"
 							src={require("../../src/assets/svg/cloud.svg")}
 							alt="cloud"
+						/>
+					</div>
+					<div className="single-beer-bubble">
+						<img
+							className="bubble animBubble"
+							src={require("../../src/assets/svg/bubble.svg")}
+							alt="bubble"
 						/>
 					</div>
 					<div className="single-beer-info">
