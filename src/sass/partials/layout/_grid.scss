@@ -115,20 +115,26 @@
 
 .stats-section {
 	display: grid;
-	background-color: var(--color-4-normal);
-	h1 {
-		color: white;
-	}
+	// background-color: var(--color-4-normal);
 }
 
 .top-beer {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+	position: relative;
+	overflow: hidden;
 	.top-beer-info {
 		@include flexCenter(center, column);
+		padding: 3rem;
 	}
 	.top-beer-image {
-		padding: 3rem;
+		z-index: 1;
+	}
+	.banner {
+		position: absolute;
+		width: 100vw;
+		justify-self: center;
+		z-index: 0;
 	}
 }
 

@@ -9,7 +9,9 @@ function Shop(props) {
 	useEffect(() => {
 		const tl = gsap.timeline({ delay: 1 });
 		tl.from(".animList", { opacity: 0, x: 50 });
+		tl.from("h1", { opacity: 0, x: 50 });
 		tl.to(".animList", { opacity: 1, x: 0, duration: 1 });
+		tl.to("h1", { opacity: 1, x: 0, duration: 1 });
 	}, [props.beer]);
 
 	const [beers, setBeers] = useState([]);

@@ -26,8 +26,11 @@ export default function TopBeer() {
 			<div className="top-beer-info">
 				<h2>{beerTop.name}</h2>
 				<h2>{beerTop.category}</h2>
-				<p>{beerTop.description.overallImpression}</p>
+				<blockquote>
+					<p>{beerTop.description.overallImpression}</p>
+				</blockquote>
 			</div>
+			<img className="banner" src={require(`../assets/svg/banner.svg`)}></img>
 		</div>
 	));
 
