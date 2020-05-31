@@ -3,11 +3,11 @@
 // --------------------------------------------
 
 nav {
-	// height: 20vh;
 	max-width: 1200px;
 	margin: 0 auto;
 	display: grid;
 	grid-template-columns: 1rem 1fr 1rem;
+	margin-top: 2rem;
 }
 
 nav ul {
@@ -15,15 +15,17 @@ nav ul {
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
-	background-color: skyblue;
 }
 
 nav li {
-	// padding: var(--padding);
+	padding: 0 1rem;
 	list-style: none;
 }
 
 nav a {
 	letter-spacing: var(--letter-spacing);
-	z-index: 3;
+	text-transform: uppercase;
+	&:hover {
+		opacity: 0.3;
+	}
 }
