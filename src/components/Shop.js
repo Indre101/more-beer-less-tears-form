@@ -64,23 +64,16 @@ function Shop(props) {
 		/>
 	));
 
-	// const topBeerElement = beersAvailableTobuy.map((beerTop) => (
-	// 	<li key={beerTop.id}>
-	// 		<h2>{beerTop.category}</h2>
-	// 	</li>
-	// ));
-
-	// const topBeerDescription = beers.map((beerTop) => (
-	// 	<h4>{beerTop.description.overallImpression}</h4>
-	// ));
-
 	return (
 		<div className="main-wrapper">
-			<section className="beer-list animList">{beersAvailableTobuyElement}</section>
+			<section className="beer-list-container">
+				<div className="beer-list animList">{beersAvailableTobuyElement}</div>
+			</section>
 			<section className="promo-section">
 				<h1>Happy Hour</h1>
 			</section>
 			<section className="stats-section">
+				<h1>Our Picks</h1>
 				<TopBeer />
 			</section>
 		</div>

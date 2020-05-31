@@ -2,6 +2,8 @@
 // This file contains main grid styles
 // --------------------------------------------
 
+@import "sass/partials/abstracts/mixins";
+
 .App {
 	margin: 0 auto;
 }
@@ -50,6 +52,11 @@
 	.order-number {
 		color: var(--color-5-normal);
 	}
+}
+
+.beer-list-container {
+	display: grid;
+	position: relative;
 }
 
 .beer-list {
@@ -107,8 +114,18 @@
 }
 
 .stats-section {
-	height: 400px;
-	background: lightseagreen;
+	display: grid;
+}
+
+.top-beer {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+	.top-beer-info {
+		@include flexCenter(center, column);
+	}
+	.top-beer-image {
+		padding: 3rem;
+	}
 }
 
 // media query for desktop

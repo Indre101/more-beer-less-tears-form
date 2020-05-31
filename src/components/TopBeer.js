@@ -9,28 +9,33 @@ export default function TopBeer() {
 		const getData = async () => {
 			const Beers = await DataBase.GetBeerTypes();
 			setBeers(Beers);
-			console.log(Beers[0]);
 		};
-		// console.log(getData(beers));
-		getData(beers.name);
+		getData(beers);
 		return;
 	}, []); // eslint-disable-line
 
-	// const topBeerElement = beersAvailableTobuy.map((beerTop) => (
-	// 	<li key={beerTop.id}>
-	// 		<h2>{beerTop.category}</h2>
-	// 	</li>
-	// ));
+	const topBeerElement = beers.map((beerTop) => (
+		<div className="top-beer" key={beerTop.id}>
+			<div className="top-beer-image">
+				<img
+					className="product-image"
+					src={require(`../assets/images/${beerTop.label}`)}
+					alt="beer"
+				></img>
+			</div>
+			<div className="top-beer-info">
+				<h2>{beerTop.name}</h2>
+				<h2>{beerTop.category}</h2>
+				<p>{beerTop.description.overallImpression}</p>
+			</div>
+		</div>
+	));
 
-	// const topBeerDescription = beers.map((beerTop) => (
-	// 	<h4>{beerTop.description.overallImpression}</h4>
-	// ));
+	const pickBeer = topBeerElement[2];
 
 	return (
 		<div>
-			<h1>Test Thingssss</h1>
-			<h2>Hello</h2>
-			{/* <h2>{beers}</h2> */}
+			<div>{pickBeer}</div>
 		</div>
 	);
 }
