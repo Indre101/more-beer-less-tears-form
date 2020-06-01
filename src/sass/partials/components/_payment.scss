@@ -7,6 +7,11 @@
 	width: 100%;
 	justify-content: center;
 }
+
+.payment-buttons {
+	justify-content: center;
+}
+
 .optionsForPayment {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
@@ -49,13 +54,13 @@ label.card {
 .mobilePay {
 	@include flexCenter(center, column);
 	background: #fff;
-	box-shadow:
-    /* The top layer shadow */ 0 1px 1px rgba(0, 0, 0, 0.15),
-		/* The second layer */ 0 10px 0 -5px #eee,
-		/* The second layer shadow */ 0 10px 1px -4px rgba(0, 0, 0, 0.15),
-		/* The third layer */ 0 20px 0 -10px #eee,
-		/* The third layer shadow */ 0 20px 1px -9px rgba(0, 0, 0, 0.15);
-	/* Padding for demo purposes */
+	// box-shadow:
+	// /* The top layer shadow */ 0 1px 1px rgba(0, 0, 0, 0.15),
+	// 	/* The second layer */ 0 10px 0 -5px #eee,
+	// 	/* The second layer shadow */ 0 10px 1px -4px rgba(0, 0, 0, 0.15),
+	// 	/* The third layer */ 0 20px 0 -10px #eee,
+	// 	/* The third layer shadow */ 0 20px 1px -9px rgba(0, 0, 0, 0.15);
+	// /* Padding for demo purposes */
 	padding: 30px;
 	border: 1px solid rgba(0, 0, 0, 0.15);
 	margin: 1.5rem;
