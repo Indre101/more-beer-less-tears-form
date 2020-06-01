@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ca3475922d0e7e2af8c877efe2623579",
+    "revision": "6604699d5ae220e5ca53b906fafbd92b",
     "url": "/more-beer-less-tears-form/index.html"
   },
   {
-    "revision": "d4dd66765f958b360e27",
+    "revision": "736b752c07b517d649bc",
     "url": "/more-beer-less-tears-form/static/css/2.3712154f.chunk.css"
   },
   {
-    "revision": "edf0bb2b2addbd1b8d3e",
+    "revision": "91b7f19810089260a08f",
     "url": "/more-beer-less-tears-form/static/css/main.c8dbc703.chunk.css"
   },
   {
-    "revision": "d4dd66765f958b360e27",
-    "url": "/more-beer-less-tears-form/static/js/2.502d5c00.chunk.js"
+    "revision": "736b752c07b517d649bc",
+    "url": "/more-beer-less-tears-form/static/js/2.69e9950a.chunk.js"
   },
   {
     "revision": "764c50aac37d1847b78e6a3945cc7fc1",
-    "url": "/more-beer-less-tears-form/static/js/2.502d5c00.chunk.js.LICENSE.txt"
+    "url": "/more-beer-less-tears-form/static/js/2.69e9950a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "edf0bb2b2addbd1b8d3e",
-    "url": "/more-beer-less-tears-form/static/js/main.c9bdd417.chunk.js"
+    "revision": "91b7f19810089260a08f",
+    "url": "/more-beer-less-tears-form/static/js/main.aaee0272.chunk.js"
   },
   {
     "revision": "8baf4a83dbea4e391dce",
