@@ -133,7 +133,6 @@ function Details(props) {
               }}>
               <Button
                 className="btn btn--primary--solid"
-                type="submit"
                 value="GO BACK"
                 //id="detailsBackBtn"
                 children={"Go back"}
@@ -143,7 +142,6 @@ function Details(props) {
             </Link>
             <Button
               className="btn btn--secondary--solid"
-              type="submit"
               value="NEXT"
               //id="detailsNextBtn"
               children={"Next"}
