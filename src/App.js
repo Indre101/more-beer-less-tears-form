@@ -16,6 +16,7 @@ import Preloader from "./components/Preloader";
 function App() {
   const [orders, setorder] = useState([]);
   const [totalAmount, settotalAmount] = useState(0);
+  const [preloaderPlayed, setpreloaderPlayed] = useState(false);
 
   const [userInfo, setuserInfo] = useState({
     name: "",
@@ -34,12 +35,11 @@ function App() {
   //sets the beer to pass to the Product page
   return (
     <Router>
-      <Preloader />
       <div className="App">
+        <Preloader setpreloaderPlayed={setpreloaderPlayed} />
         <Header />
         <Nav orders={orders} />
         <Switch>
-          <Route path="/" exact component={Home} />
           <Route
             path="/cart"
             exact
@@ -52,13 +52,7 @@ function App() {
               />
             )}
           />
-          <Route
-            path="/shop"
-            exact
-            render={(routeProps) => (
-              <Shop {...routeProps} setorder={setorder} orders={orders} />
-            )}
-          />
+
           <Route
             path="/details"
             exact
@@ -85,7 +79,6 @@ function App() {
           />
 
           <Route path="/orderMessage" component={OrderMessage} />
-          {/* <Route path="/confirmation" component={Confirmation} /> */}
           <Route
             path="/shop/:id"
             render={(routeProps) => (
@@ -98,6 +91,18 @@ function App() {
               <Confirmation {...routeProps} setorder={setorder} />
             )}
           />
+          <Route
+            path="*"
+            exact
+            render={(routeProps) => (
+              <Shop
+                {...routeProps}
+                setorder={setorder}
+                orders={orders}
+                preloaderPlayed={preloaderPlayed}
+              />
+            )}
+          />
         </Switch>
         <footer>
           <h4>© More Beers Less Tears MMXX</h4>
@@ -106,11 +111,5 @@ function App() {
     </Router>
   );
 }
-
-const Home = () => (
-  <div>
-    <h1>Home</h1>
-  </div>
-);
 
 export default App;
