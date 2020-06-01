@@ -4,8 +4,6 @@ import MobilePay from "./MobilePay";
 import CardPayment from "./CardPayment";
 
 export default function Payment(props) {
-  console.log(props);
-
   const { orders, user, totalAmount } = props;
   const [paymentMethod, setpaymentMethod] = useState();
   const nextBtnPayment = useRef();
@@ -56,13 +54,15 @@ export default function Payment(props) {
       </form>
       <div
         className={"mobile"}
-        data-show={setPaymentOptionDisplay("Mobile Pay")}>
+        data-show={setPaymentOptionDisplay("Mobile Pay")}
+      >
         <MobilePay totalAmount={totalAmount} />
       </div>
 
       <div
         className="carPayment"
-        data-show={setPaymentOptionDisplay("Card payment")}>
+        data-show={setPaymentOptionDisplay("Card payment")}
+      >
         <CardPayment
           orders={orders}
           user={user}
@@ -73,7 +73,8 @@ export default function Payment(props) {
       </div>
 
       <div
-        style={{ display: paymentMethod === "Card payment" ? "none" : "flex" }}>
+        style={{ display: paymentMethod === "Card payment" ? "none" : "flex" }}
+      >
         <Link
           to={{
             pathname: `/details`,
@@ -81,7 +82,8 @@ export default function Payment(props) {
               orders: orders,
               user: user,
             },
-          }}>
+          }}
+        >
           <input type="button" value="go back" />
         </Link>
 
@@ -94,7 +96,8 @@ export default function Payment(props) {
               paymentMethod: paymentMethod,
               totalAmount: totalAmount,
             },
-          }}>
+          }}
+        >
           <input
             type="button"
             value="Next"

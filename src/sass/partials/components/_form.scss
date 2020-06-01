@@ -1,13 +1,11 @@
 // --------------------------------------------
 // This file contains form styles
 // --------------------------------------------
-
 form {
   //background: yellow;
   width: 500px;
   padding: 2rem;
 }
-
 input {
   display: block;
   outline: none;
@@ -16,29 +14,24 @@ input {
   border: var(--border);
   border-radius: var(--border-radius);
 }
-
 input:invalid:not(:placeholder-shown):not(:focus) {
   border-color: red;
   color: red;
   background-image: var(--error);
   animation: shake 0.125s 2 backwards;
 }
-
 input:invalid {
   animation: shake 0.125s 2 backwards;
 }
 input:invalid:not(:placeholder-shown):not(:focus) ~ .instruction {
   opacity: 1;
 }
-
 input:focus {
   border-color: #504ecc;
 }
-
 input:valid:not(:placeholder-shown):not(:focus) {
   border-color: #5c665a;
 }
-
 @keyframes shake {
   25% {
     transform: translateX(-6px);
@@ -47,14 +40,12 @@ input:valid:not(:placeholder-shown):not(:focus) {
     transform: translateX(6px);
   }
 }
-
 /*
 form {
 	background: yellow;
 	width: 500px;
 	padding: 2rem;
 }
-
 input {
 	padding: 1rem;
 	width: 100%;

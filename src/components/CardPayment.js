@@ -137,7 +137,8 @@ export default function CardPayment(props) {
           console.log("called");
           handleSubmit(event);
         }}
-        ref={cardFom}>
+        ref={cardFom}
+      >
         <input
           id="number"
           className="cardNumber cc-number"
@@ -209,7 +210,8 @@ export default function CardPayment(props) {
                 orders: props.orders,
                 user: props.user,
               },
-            }}>
+            }}
+          >
             <Button
               children={"Go back"}
               type={"button"}
