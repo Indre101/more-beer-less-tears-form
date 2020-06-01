@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "./Buttons";
 
@@ -86,11 +86,9 @@ function Details(props) {
           autoComplete="on"
           className="cardForm"
           onSubmit={(event) => {
-            console.log("called");
             handleSubmit(event);
           }}
-          ref={cardForm}
-        >
+          ref={cardForm}>
           <label>
             <h2>Name</h2>
           </label>
@@ -132,8 +130,7 @@ function Details(props) {
                   orders: orders,
                   user: userInfo,
                 },
-              }}
-            >
+              }}>
               <Button
                 className="btn btn--primary--solid"
                 type="submit"

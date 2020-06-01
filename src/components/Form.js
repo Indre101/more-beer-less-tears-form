@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 import "../App.scss";
@@ -54,16 +54,14 @@ function Form(props) {
                 orders: orders,
                 user: userInfo,
               },
-            }}
-          >
+            }}>
             <input type="submit" value="go back" />
           </Link>
           <Link
             to={{
               pathname: `/payment`,
               state: { totalAmount: totalAmount },
-            }}
-          >
+            }}>
             <input type="submit" value="Next" ref={nextBtn} />
           </Link>
         </div>

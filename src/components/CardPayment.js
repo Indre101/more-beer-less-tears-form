@@ -62,8 +62,6 @@ export default function CardPayment(props) {
   function chechCustomValidation(item) {
     ///check the custom validation
     if (!Payment.fns.cardType(cardDetail.number) && item.id === "number") {
-      console.log("dfdsf");
-
       //checks if the card is a visa or mastercard or ...
       showInputErrors(item);
     } else if (
@@ -83,6 +81,8 @@ export default function CardPayment(props) {
       !Payment.fns.validateCardExpiry(cardDetail.expiry) &&
       item.id === "expiry"
     ) {
+      console.log("valid date");
+
       //checks the expiration date
       showInputErrors(item);
     } else {
@@ -134,11 +134,9 @@ export default function CardPayment(props) {
         autoComplete="on"
         className="cardForm"
         onSubmit={(event) => {
-          console.log("called");
           handleSubmit(event);
         }}
-        ref={cardFom}
-      >
+        ref={cardFom}>
         <input
           id="number"
           className="cardNumber cc-number"
@@ -210,8 +208,7 @@ export default function CardPayment(props) {
                 orders: props.orders,
                 user: props.user,
               },
-            }}
-          >
+            }}>
             <Button
               children={"Go back"}
               type={"button"}
