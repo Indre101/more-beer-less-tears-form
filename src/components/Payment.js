@@ -17,7 +17,7 @@ export default function Payment(props) {
 	}
 	return (
 		<div>
-			<h2>Payment method</h2>
+			<h2 className="page-title">Payment method</h2>
 			<form className="optionsForPayment">
 				<input
 					id="mobpay"
