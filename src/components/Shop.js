@@ -7,12 +7,14 @@ import gsap from "gsap";
 
 function Shop(props) {
 	useEffect(() => {
-		const tl = gsap.timeline({ delay: 1 });
-		tl.from(".animList", { opacity: 0, x: 50 });
-		tl.from("h1", { opacity: 0, x: 50 });
-		tl.to(".animList", { opacity: 1, x: 0, duration: 1 });
-		tl.to("h1", { opacity: 1, x: 0, duration: 1 });
-	}, [props.beer]);
+		if (props.preloaderPlayed) {
+			const tl = gsap.timeline({ delay: 1 });
+			tl.from(".animList", { opacity: 0, x: 50 });
+			tl.from("h1", { opacity: 0, x: 50 });
+			tl.to(".animList", { opacity: 1, x: 0, duration: 1 });
+			tl.to("h1", { opacity: 1, x: 0, duration: 1 });
+		}
+	}, [props.beer, props.preloaderPlayed]);
 
 	const [beers, setBeers] = useState([]);
 	const [beersOnTap, setBeersOnTap] = useState([]);
@@ -63,6 +65,7 @@ function Shop(props) {
 			beer={beer}
 			setorder={props.setorder}
 			orders={props.orders}
+			preloaderPlayed={props.preloaderPlayed}
 		/>
 	));
 

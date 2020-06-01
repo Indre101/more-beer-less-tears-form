@@ -15,6 +15,7 @@ function Cart(props) {
 				orders={props.orders}
 			/>
 		));
+
 	useEffect(() => {
 		gsap.to(".cartBeerSinlge", {
 			duration: 1,
@@ -31,12 +32,14 @@ function Cart(props) {
 			>
 				<h2>Please add some beers.</h2>
 			</div>
+
 			<div
 				className="orders"
 				style={{ display: props.orders.length !== 0 ? "flex" : "none" }}
 			>
 				{beerOrders}
 			</div>
+
 			<div
 				className="totalToPAy"
 				style={{ display: props.orders.length !== 0 ? "flex" : "none" }}
@@ -44,6 +47,7 @@ function Cart(props) {
 				<h2>TOTAL</h2>
 				<h2>{props.totalAmount}kr </h2>
 			</div>
+
 			<Link
 				to={{
 					pathname: `/details`,
