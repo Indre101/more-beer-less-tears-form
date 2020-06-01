@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import MobilePay from "./MobilePay";
 import CardPayment from "./CardPayment";
@@ -7,7 +7,7 @@ import { Button } from "./Buttons";
 export default function Payment(props) {
   const { orders, user, totalAmount } = props;
   const [paymentMethod, setpaymentMethod] = useState();
-  const nextBtnPayment = useRef();
+
   function handleChange(event) {
     const { value } = event.target;
     setpaymentMethod(value);
@@ -99,7 +99,6 @@ export default function Payment(props) {
             type="button"
             buttonStyle="btn--primary--solid"
             value="Next"
-            ref={nextBtnPayment}
             style={{
               display: paymentMethod === "Mobile Pay" ? "block" : "none",
             }}>

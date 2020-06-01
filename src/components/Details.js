@@ -11,7 +11,6 @@ import gsap from "gsap";
 function Details(props) {
   const { orders, setuserInfo, userInfo } = props;
   const { totalAmount } = props.location.state;
-  const nextBtn = useRef();
   const cardForm = useRef();
   function handleChange(event) {
     const { name, value } = event.target;
@@ -133,7 +132,6 @@ function Details(props) {
               }}>
               <Button
                 className="btn btn--primary--solid"
-                type="submit"
                 value="GO BACK"
                 //id="detailsBackBtn"
                 children={"Go back"}
@@ -143,13 +141,11 @@ function Details(props) {
             </Link>
             <Button
               className="btn btn--secondary--solid"
-              type="submit"
               value="NEXT"
               //id="detailsNextBtn"
               children={"Next"}
               type={"submit"}
               buttonStyle={"btn--secondary--solid"}
-              ref={nextBtn}
             />
           </div>
         </form>
