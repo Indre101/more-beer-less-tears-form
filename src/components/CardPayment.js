@@ -16,21 +16,39 @@ export default function CardPayment(props) {
     formData: null,
   });
 
+  const [isFormValid, setisFormValid] = useState({
+    number: false,
+    name: false,
+    expiry: false,
+    cvc: false,
+  });
+
+  // function setCustomValidationValues(nameOfthefield) {
+  //   console.log(nameOfthefield);
+
+  //   setisFormValid((prevInputData) => ({
+  //     ...prevInputData,
+  //     [nameOfthefield]: true,
+  //   }));
+  //   console.log(isFormValid);
+  // }
+
   const cardFom = useRef();
   function handleInputFocus(event) {
     const { name } = event.target;
-
     setcardDetail((prevInputData) => ({
       ...prevInputData,
       focus: name,
     }));
   }
+
   //sets the form fields and formats the values in the input to look properly
   function handleChange(event) {
     const { name, value } = event.target;
     if (name === "number") {
       Payment.formatCardNumber(document.querySelector(".cardNumber"));
     } else if (name === "cvc") {
+      //limits to 4 characters
       Payment.formatCardCVC(document.querySelector(".cvc"));
     }
     setcardDetail((prevInputData) => ({ ...prevInputData, [name]: value }));
@@ -40,24 +58,44 @@ export default function CardPayment(props) {
     event.preventDefault();
     const formInputs = [...cardFom.current.children];
 
-    if (!cardFom.current.checkValidity()) {
-      formInputs.forEach((item) => {
-        //check form regulat validation wheather the required fields are filled
-        if (item.hasAttribute("value") && item.checkValidity()) {
-          chechCustomValidation(item);
-        } else if (item.hasAttribute("value") && !item.checkValidity()) {
-          showInputErrors(item);
-        }
-      });
-    } else {
-      formInputs.forEach((item) => {
-        if (item.hasAttribute("value") && item.checkValidity()) {
-          hideInputErrors(item);
-        }
-      });
-      openConfiramtionPage();
-    }
+    formInputs.forEach((item) => {
+      //check form regulat validation wheather the required fields are filled
+      if (item.hasAttribute("value") && item.checkValidity()) {
+        console.log("valid all");
+
+        chechCustomValidation(item);
+      } else if (item.hasAttribute("value") && !item.checkValidity()) {
+        console.log("not valid");
+
+        showInputErrors(item);
+      }
+    });
   }
+
+  useEffect(() => {
+    const sth = Object.values(isFormValid).every(
+      (validationField) => validationField
+    );
+
+    if (sth) {
+      props.history.push({
+        pathname: `/confirmation`,
+        state: {
+          orders: props.orders,
+          user: props.user,
+          paymentMethod: props.paymentMethod,
+          totalAmount: props.totalAmount,
+        },
+      });
+    }
+  }, [
+    isFormValid,
+    props.history,
+    props.orders,
+    props.paymentMethod,
+    props.totalAmount,
+    props.user,
+  ]);
 
   function chechCustomValidation(item) {
     ///check the custom validation
@@ -81,11 +119,14 @@ export default function CardPayment(props) {
       !Payment.fns.validateCardExpiry(cardDetail.expiry) &&
       item.id === "expiry"
     ) {
-      console.log("valid date");
-
       //checks the expiration date
       showInputErrors(item);
     } else {
+      setisFormValid((prevInputData) => ({
+        ...prevInputData,
+        [item.name]: true,
+      }));
+
       hideInputErrors(item);
     }
   }
@@ -107,18 +148,6 @@ export default function CardPayment(props) {
   useEffect(() => {
     cardFom.current.noValidate = true;
   }, []);
-
-  function openConfiramtionPage() {
-    props.history.push({
-      pathname: `/confirmation`,
-      state: {
-        orders: props.orders,
-        user: props.user,
-        paymentMethod: props.paymentMethod,
-        totalAmount: props.totalAmount,
-      },
-    });
-  }
 
   return (
     <div id="PaymentForm">
@@ -173,7 +202,6 @@ export default function CardPayment(props) {
           placeholder="MM/YY"
           value={cardDetail.expiry}
           required
-          // maxLength="6"
           onChange={(event) => {
             const { value } = event.target;
             Payment.formatCardExpiry(document.querySelector(".expiry"));
@@ -193,7 +221,7 @@ export default function CardPayment(props) {
           className="cvc"
           placeholder="CVC"
           value={cardDetail.cvc}
-          pattern="\d{3}"
+          pattern="\d{4}"
           onChange={handleChange}
           required
           onFocus={handleInputFocus}
