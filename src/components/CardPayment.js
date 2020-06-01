@@ -221,7 +221,6 @@ export default function CardPayment(props) {
           className="cvc"
           placeholder="CVC"
           value={cardDetail.cvc}
-          pattern="\d{4}"
           onChange={handleChange}
           required
           onFocus={handleInputFocus}
