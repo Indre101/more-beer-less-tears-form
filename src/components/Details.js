@@ -11,7 +11,6 @@ import gsap from "gsap";
 function Details(props) {
   const { orders, setuserInfo, userInfo } = props;
   const { totalAmount } = props.location.state;
-  const nextBtn = useRef();
   const cardForm = useRef();
   function handleChange(event) {
     const { name, value } = event.target;
@@ -147,7 +146,6 @@ function Details(props) {
               children={"Next"}
               type={"submit"}
               buttonStyle={"btn--secondary--solid"}
-              ref={nextBtn}
             />
           </div>
         </form>

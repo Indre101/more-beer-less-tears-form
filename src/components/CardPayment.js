@@ -23,17 +23,8 @@ export default function CardPayment(props) {
     cvc: false,
   });
 
-  // function setCustomValidationValues(nameOfthefield) {
-  //   console.log(nameOfthefield);
-
-  //   setisFormValid((prevInputData) => ({
-  //     ...prevInputData,
-  //     [nameOfthefield]: true,
-  //   }));
-  //   console.log(isFormValid);
-  // }
-
   const cardFom = useRef();
+
   function handleInputFocus(event) {
     const { name } = event.target;
     setcardDetail((prevInputData) => ({
@@ -147,7 +138,7 @@ export default function CardPayment(props) {
 
   useEffect(() => {
     cardFom.current.noValidate = true;
-  }, []);
+  }, [cardFom]);
 
   return (
     <div id="PaymentForm">
