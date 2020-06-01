@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import MobilePay from "./MobilePay";
 import CardPayment from "./CardPayment";
+import { Button } from "./Buttons";
+
 export default function Payment(props) {
 	console.log(props);
 	const { orders, user, totalAmount } = props;
@@ -68,7 +70,11 @@ export default function Payment(props) {
 						},
 					}}
 				>
-					<input type="button" value="go back" />
+					<Button type="button" buttonStyle="btn--secondary--solid" value="go back">
+						Go Back
+					</Button>
+
+					{/* <input type="button" value="go back" /> */}
 				</Link>
 				<Link
 					to={{
@@ -81,14 +87,26 @@ export default function Payment(props) {
 						},
 					}}
 				>
-					<input
+					<Button
+						type="button"
+						buttonStyle="btn--primary--solid"
+						value="Next"
+						ref={nextBtnPayment}
+						style={{
+							display: paymentMethod === "Mobile Pay" ? "block" : "none",
+						}}
+					>
+						Next
+					</Button>
+
+					{/* <input
 						type="button"
 						value="Next"
 						ref={nextBtnPayment}
 						style={{
 							display: paymentMethod === "Mobile Pay" ? "block" : "none",
 						}}
-					/>
+					/> */}
 				</Link>
 			</div>
 		</div>

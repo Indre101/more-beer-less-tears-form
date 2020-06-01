@@ -76,7 +76,7 @@ function Shop(props) {
 				<h1>Happy Hour</h1>
 			</section> */}
 			<section className="stats-section">
-				<h1>Our Pick</h1>
+				<h1>Staff Choice</h1>
 				<TopBeer />
 			</section>
 		</div>
