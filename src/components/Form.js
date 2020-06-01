@@ -2,9 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 import "../App.scss";
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
-import "react-phone-input-2/lib/bootstrap.css";
 
 function Form(props) {
   const { orders, setuserInfo, userInfo, totalAmount } = props;
@@ -15,14 +12,12 @@ function Form(props) {
     const { name, value } = event.target;
     setuserInfo((prevInputData) => ({ ...prevInputData, [name]: value }));
   }
-  function handlePhoneInput(event) {
-    setuserInfo((prevInputData) => ({ ...prevInputData, phone: event }));
-  }
+
   function handleSubmit(event) {
     event.prevetnDefault();
   }
   useEffect(() => {
-    nextBtn.current.disabled = userInfo.name && userInfo.phone ? false : true;
+    nextBtn.current.disabled = userInfo.name ? false : true;
   }, [userInfo.name]);
 
   return (
@@ -31,8 +26,6 @@ function Form(props) {
         <label>
           <h2>Name</h2>
           <input
-            className="nameInput"
-            placeholder="John Smith"
             type="text"
             onChange={handleChange}
             autoComplete="name"
@@ -41,21 +34,16 @@ function Form(props) {
             required
           />
         </label>
-        <label>
-          <h2>Phone</h2>
 
-          <PhoneInput
-            placeholder=" +45 00 00 00 00"
-            autoFormat="false"
-            dropdownClass="t1"
-            containerClass="t2"
-            buttonClass="t3"
-            inputClass="t4"
+        <label>
+          <h2>Telephone</h2>
+
+          <input
+            type="number"
+            onChange={handleChange}
+            autoComplete="tel"
             name="phone"
-            country={"dk"}
             value={props.userInfo.phone}
-            onChange={handlePhoneInput}
-            required
           />
         </label>
         <div style={{ display: "flex" }}>
@@ -68,7 +56,7 @@ function Form(props) {
               },
             }}
           >
-            <input className="btn" type="submit" value="go back" />
+            <input type="submit" value="go back" />
           </Link>
           <Link
             to={{
@@ -76,13 +64,14 @@ function Form(props) {
               state: { totalAmount: totalAmount },
             }}
           >
-            <input className="btn" type="submit" value="Next" ref={nextBtn} />
+            <input type="submit" value="Next" ref={nextBtn} />
           </Link>
         </div>
       </form>
     </>
   );
 }
+
 export default Form;
 
 /*<label>
@@ -98,5 +87,5 @@ export default Form;
         </label> */
 
 /*useEffect(() => {
-    nextBtn.current.disabled = userInfo.name && userInfo.email ? false : true;
-  }, [userInfo.email, userInfo.name]); */
+          nextBtn.current.disabled = userInfo.name && userInfo.email ? false : true;
+        }, [userInfo.email, userInfo.name]);*/

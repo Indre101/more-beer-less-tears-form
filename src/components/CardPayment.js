@@ -3,7 +3,8 @@ import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
 import Payment from "payment";
 import { Link } from "react-router-dom";
-
+import { Button } from "./Buttons";
+import gsap from "gsap";
 export default function CardPayment(props) {
   const [cardDetail, setcardDetail] = useState({
     number: "",
@@ -24,14 +25,11 @@ export default function CardPayment(props) {
       focus: name,
     }));
   }
-
   //sets the form fields and formats the values in the input to look properly
   function handleChange(event) {
     const { name, value } = event.target;
     if (name === "number") {
       Payment.formatCardNumber(document.querySelector(".cardNumber"));
-    } else if (name === "expiry") {
-      Payment.formatCardExpiry(document.querySelector(".expiry"));
     } else if (name === "cvc") {
       Payment.formatCardCVC(document.querySelector(".cvc"));
     }
@@ -41,42 +39,69 @@ export default function CardPayment(props) {
   function handleSubmit(event) {
     event.preventDefault();
     const formInputs = [...cardFom.current.children];
-    let approved = false;
+
     if (!cardFom.current.checkValidity()) {
       formInputs.forEach((item) => {
         //check form regulat validation wheather the required fields are filled
-        if (item.hasAttribute("value") && !item.checkValidity()) {
-          item.nextSibling.style.display = "block";
-        } else if (item.hasAttribute("value") && item.checkValidity()) {
-          item.nextSibling.style.display = "none";
-        } else {
-          return false;
-        }
-        ///check the custom validation
-        if (!Payment.fns.cardType(cardDetail.number) && item.id === "number") {
-          //checks if the card is a visa or mastercard or ...
-          item.nextSibling.style.display = "block";
-        } else if (
-          cardDetail.number.split(" ").join("").length < 16 &&
-          item.id === "number"
-        ) {
-          //checks the length of the card number
-          item.nextSibling.style.display = "block";
-        } else if (
-          !Payment.fns.validateCardCVC(cardDetail.cvc) &&
-          item.id === "cvc"
-        ) {
-          //checks the CVC validation
-          item.nextSibling.style.display = "block";
-        } else if (
-          !Payment.fns.validateCardExpiry(cardDetail.expiry) &&
-          item.id === "expiry"
-        ) {
-          //checks the expiration date
-          item.nextSibling.style.display = "block";
+        if (item.hasAttribute("value") && item.checkValidity()) {
+          chechCustomValidation(item);
+        } else if (item.hasAttribute("value") && !item.checkValidity()) {
+          showInputErrors(item);
         }
       });
+    } else {
+      formInputs.forEach((item) => {
+        if (item.hasAttribute("value") && item.checkValidity()) {
+          hideInputErrors(item);
+        }
+      });
+      openConfiramtionPage();
     }
+  }
+
+  function chechCustomValidation(item) {
+    ///check the custom validation
+    if (!Payment.fns.cardType(cardDetail.number) && item.id === "number") {
+      console.log("dfdsf");
+
+      //checks if the card is a visa or mastercard or ...
+      showInputErrors(item);
+    } else if (
+      cardDetail.number.split(" ").join("").length < 16 &&
+      item.id === "number"
+    ) {
+      showInputErrors(item);
+
+      //checks the length of the card number
+    } else if (
+      !Payment.fns.validateCardCVC(cardDetail.cvc) &&
+      item.id === "cvc"
+    ) {
+      //checks the CVC validation
+      showInputErrors(item);
+    } else if (
+      !Payment.fns.validateCardExpiry(cardDetail.expiry) &&
+      item.id === "expiry"
+    ) {
+      //checks the expiration date
+      showInputErrors(item);
+    } else {
+      hideInputErrors(item);
+    }
+  }
+
+  function showInputErrors(cardInput) {
+    cardInput.nextSibling.dataset.borderchange = "showError";
+    cardInput.dataset.borderchange = "showError";
+
+    gsap.fromTo(cardInput.nextSibling, { y: -23 }, { y: -18, duration: 1 });
+  }
+
+  function hideInputErrors(cardInput) {
+    cardInput.nextSibling.dataset.borderchange = "hideError";
+    cardInput.dataset.borderchange = "hideError";
+
+    // cardInput.style.borderColor = "black";
   }
 
   useEffect(() => {
@@ -108,11 +133,15 @@ export default function CardPayment(props) {
       <form
         autoComplete="on"
         className="cardForm"
-        onSubmit={handleSubmit}
-        ref={cardFom}>
+        onSubmit={(event) => {
+          console.log("called");
+          handleSubmit(event);
+        }}
+        ref={cardFom}
+      >
         <input
           id="number"
-          className="cardNumber"
+          className="cardNumber cc-number"
           type="tel"
           name="number"
           placeholder="Card Number"
@@ -121,44 +150,57 @@ export default function CardPayment(props) {
           onChange={handleChange}
           onFocus={handleInputFocus}
         />
-        <label htmlFor="number">Please insert a valid Card number</label>
+
+        <div className="error">Please insert a valid Card number</div>
 
         <input
           id="name"
           type="text"
           name="name"
-          placeholder="Name"
+          placeholder="Full Name"
+          pattern="^[a-zA-Z]+( [a-zA-Z]+)*$"
           value={cardDetail.name}
           onChange={handleChange}
-          required
           onFocus={handleInputFocus}
+          required
         />
-        <label htmlFor="name">Please insert a name</label>
+
+        <div className="error">Please insert a name</div>
 
         <input
+          id="expiry"
           className="expiry"
           type="text"
           name="expiry"
           placeholder="MM/YY"
           value={cardDetail.expiry}
           required
-          onChange={handleChange}
+          // maxLength="6"
+          onChange={(event) => {
+            const { value } = event.target;
+            Payment.formatCardExpiry(document.querySelector(".expiry"));
+            setcardDetail((prevInputData) => ({
+              ...prevInputData,
+              expiry: value.split("").join("").replace(/ /g, ""),
+            }));
+          }}
           onFocus={handleInputFocus}
         />
-        <label htmlFor="expiry">Please insert valid date</label>
+        <div className="error">Please insert valid date</div>
 
         <input
+          id="cvc"
           type="tel"
           name="cvc"
           className="cvc"
           placeholder="CVC"
           value={cardDetail.cvc}
-          pattern="\d{3,4}"
+          pattern="\d{3}"
           onChange={handleChange}
           required
           onFocus={handleInputFocus}
         />
-        <label htmlFor="cvc">Please insert valid CVC</label>
+        <div className="error">Please insert valid CVC</div>
 
         <div style={{ display: "flex" }}>
           <Link
@@ -168,10 +210,21 @@ export default function CardPayment(props) {
                 orders: props.orders,
                 user: props.user,
               },
-            }}>
-            <input type="button" value="go back" />
+            }}
+          >
+            <Button
+              children={"Go back"}
+              type={"button"}
+              buttonStyle={"btn--primary--solid"}
+            />
           </Link>
-          <input type="submit" value="Next" />
+
+          <Button
+            children={"Next"}
+            type={"submit"}
+            buttonStyle={"btn--secondary--solid"}
+            // onClick={handleSubmit}
+          />
         </div>
       </form>
     </div>
