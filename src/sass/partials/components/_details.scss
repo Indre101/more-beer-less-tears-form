@@ -1,68 +1,16 @@
 // --------------------------------------------
 // This file contains form styles
 // --------------------------------------------
+@import "sass/partials/abstracts/mixins";
+@import "sass/partials/abstracts/variables";
+
 form {
   width: 500px;
   padding: 2rem;
 }
-//CLEAR the default input style
-div.t3.flag-dropdown,
-div.t2.react-tel-input,
-input.t4.form-control {
-  background-color: white;
-  border-style: none;
-  outline: none;
-  border: none;
-  color: none;
+h2 {
+  justify-content: flex-start;
 }
-input.t4.form-control.open {
-  background-color: none;
-  border-color: none;
-  box-shadow: none;
-}
-//style of the phone input
-input.t4.form-control {
-  padding-left: 30px;
-  height: 50px;
-  display: block;
-  outline: none;
-  padding-left: 50px;
-  width: 100%;
-  border: var(--border);
-  border-radius: var(--border-radius);
-}
-//FLAG
-//flag - the whole container
-div.t3.flag-dropdown {
-  height: 30px;
-  margin: 10px 10px 10px 10px;
-}
-//only the flag div
-div.selected-flag {
-  margin: 0px;
-}
-//flag arrow - hidden
-div.arrow {
-  display: none;
-}
-
-//ON FOCUS
-//phone input on focus
-input.t4.form-control:focus {
-  border-color: var(--color-2-normal);
-  cursor: text;
-  background-color: none;
-  border-color: none;
-  box-shadow: none;
-}
-//phone input on focus
-.nameInput:focus {
-  border-color: var(--color-2-normal);
-  background-color: none;
-  border-color: none;
-  box-shadow: none;
-}
-
 input {
   display: block;
   outline: none;
@@ -71,49 +19,3 @@ input {
   border: var(--border);
   border-radius: var(--border-radius);
 }
-
-/*
-input:invalid:not(:placeholder-shown):not(:focus) {
-  border-color: red;
-  color: red;
-  background-image: var(--error);
-  //animation: shake 0.125s 2 backwards;
-}
-input:invalid {
-  animation: shake 0.125s 2 backwards;
-}
-input:invalid:not(:placeholder-shown):not(:focus) ~ .instruction {
-  opacity: 1;
-}
-input:focus {
-  border-color: #504ecc;
-}
-input:valid:not(:placeholder-shown):not(:focus) {
-  border-color: #5c665a;
-}
-/*@keyframes shake {
-  25% {
-    transform: translateX(-6px);
-  }
-  75% {
-    transform: translateX(6px);
-  }
-}*/
-/*
-  form {
-      background: yellow;
-      width: 500px;
-      padding: 2rem;
-  }
-  input {
-      padding: 1rem;
-      width: 100%;
-      border: var(--border);
-      border-radius: var(--border-radius);
-      &:valid {
-          border: 5px solid green;
-      }
-      &:invalid {
-          border: 5px solid red;
-      }
-  }*/
