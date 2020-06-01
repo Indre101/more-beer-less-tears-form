@@ -3,23 +3,21 @@ import "../App.scss";
 import gsap from "gsap";
 
 const styles = [
-  "btn--primary--solid",
-  "btn--primary--outline",
-  "btn--secondary--solid",
-  "btn--success--solid",
-  "btn--counter--outline",
+	"btn--primary--solid",
+	"btn--primary--outline",
+	"btn--secondary--solid",
+	"btn--success--solid",
+	"btn--counter--outline",
 ];
 
 export const Button = ({ children, type, onClick, buttonStyle }) => {
-  const checkButtonStyle = styles.includes(buttonStyle)
-    ? buttonStyle
-    : styles[0];
+	const checkButtonStyle = styles.includes(buttonStyle) ? buttonStyle : styles[0];
 
-  return (
-    <div onClick={onClick}>
-      <button className={`btn ${checkButtonStyle}`} type={type}>
-        {children}
-      </button>
-    </div>
-  );
+	return (
+		<div>
+			<button onClick={onClick} className={`btn ${checkButtonStyle}`} type={type}>
+				{children}
+			</button>
+		</div>
+	);
 };
