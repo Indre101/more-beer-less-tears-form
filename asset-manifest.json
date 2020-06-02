@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/more-beer-less-tears-form/static/css/main.c8dbc703.chunk.css",
-    "main.js": "/more-beer-less-tears-form/static/js/main.aaee0272.chunk.js",
-    "main.js.map": "/more-beer-less-tears-form/static/js/main.aaee0272.chunk.js.map",
+    "main.css": "/more-beer-less-tears-form/static/css/main.17aa88c0.chunk.css",
+    "main.js": "/more-beer-less-tears-form/static/js/main.c244cc0f.chunk.js",
+    "main.js.map": "/more-beer-less-tears-form/static/js/main.c244cc0f.chunk.js.map",
     "runtime-main.js": "/more-beer-less-tears-form/static/js/runtime-main.20a1457c.js",
     "runtime-main.js.map": "/more-beer-less-tears-form/static/js/runtime-main.20a1457c.js.map",
     "static/css/2.3712154f.chunk.css": "/more-beer-less-tears-form/static/css/2.3712154f.chunk.css",
     "static/js/2.69e9950a.chunk.js": "/more-beer-less-tears-form/static/js/2.69e9950a.chunk.js",
     "static/js/2.69e9950a.chunk.js.map": "/more-beer-less-tears-form/static/js/2.69e9950a.chunk.js.map",
     "index.html": "/more-beer-less-tears-form/index.html",
-    "precache-manifest.0b3a42d37635b22c8aceed796fc900f7.js": "/more-beer-less-tears-form/precache-manifest.0b3a42d37635b22c8aceed796fc900f7.js",
+    "precache-manifest.8aaefbfbf9d65ce497ef9e01c0c5f709.js": "/more-beer-less-tears-form/precache-manifest.8aaefbfbf9d65ce497ef9e01c0c5f709.js",
     "service-worker.js": "/more-beer-less-tears-form/service-worker.js",
     "static/css/2.3712154f.chunk.css.map": "/more-beer-less-tears-form/static/css/2.3712154f.chunk.css.map",
-    "static/css/main.c8dbc703.chunk.css.map": "/more-beer-less-tears-form/static/css/main.c8dbc703.chunk.css.map",
+    "static/css/main.17aa88c0.chunk.css.map": "/more-beer-less-tears-form/static/css/main.17aa88c0.chunk.css.map",
     "static/js/2.69e9950a.chunk.js.LICENSE.txt": "/more-beer-less-tears-form/static/js/2.69e9950a.chunk.js.LICENSE.txt",
     "static/media/banner.svg": "/more-beer-less-tears-form/static/media/banner.3aef1aca.svg",
     "static/media/bubble.svg": "/more-beer-less-tears-form/static/media/bubble.ae85458a.svg",
@@ -39,7 +39,7 @@
     "static/js/runtime-main.20a1457c.js",
     "static/css/2.3712154f.chunk.css",
     "static/js/2.69e9950a.chunk.js",
-    "static/css/main.c8dbc703.chunk.css",
-    "static/js/main.aaee0272.chunk.js"
+    "static/css/main.17aa88c0.chunk.css",
+    "static/js/main.c244cc0f.chunk.js"
   ]
 }
