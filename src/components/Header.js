@@ -4,9 +4,6 @@ import gsap from "gsap";
 
 function Header() {
   useEffect(() => {
-    // var tl = gsap.timeline({ delay: 0 });
-    // tl.from(".animFoam", { opacity: 0, y: 40, duration: 3 });
-    // tl.to(".animFoam", { opacity: 1, y: 0 });
     gsap.from(".animFoam", { duration: 1, y: 30, opacity: 0, stagger: 0.8 });
   }, []);
   return (

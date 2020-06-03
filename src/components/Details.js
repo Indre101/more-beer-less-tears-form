@@ -3,22 +3,16 @@ import { Link } from "react-router-dom";
 import { Button } from "./Buttons";
 
 import "../App.scss";
-//import PhoneInput from "react-phone-input-2";
-//import "react-phone-input-2/lib/style.css";
-//import "react-phone-input-2/lib/bootstrap.css";
 import gsap from "gsap";
 
 function Details(props) {
   const { orders, setuserInfo, userInfo } = props;
-  const { totalAmount } = props.location.state;
   const cardForm = useRef();
   function handleChange(event) {
     const { name, value } = event.target;
     setuserInfo((prevInputData) => ({ ...prevInputData, [name]: value }));
   }
-  function handlePhoneInput(event) {
-    setuserInfo((prevInputData) => ({ ...prevInputData, phone: event }));
-  }
+
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -51,8 +45,6 @@ function Details(props) {
   function hideInputErrors(detailsInput) {
     detailsInput.nextSibling.dataset.borderchange = "hideError";
     detailsInput.dataset.borderchange = "hideError";
-
-    // detailsInput.style.borderColor = "black";
   }
 
   useEffect(() => {
@@ -72,14 +64,6 @@ function Details(props) {
 
   return (
     <div className="main-wrapper">
-      <div className="page-title">{/*<h1>Details</h1>*/}</div>
-      {/*
-      <Form
-        orders={orders}
-        setuserInfo={setuserInfo}
-        userInfo={userInfo}
-        totalAmount={totalAmount}
-      />*/}
       <>
         <form
           autoComplete="on"
@@ -133,7 +117,6 @@ function Details(props) {
               <Button
                 className="btn btn--primary--solid"
                 value="GO BACK"
-                //id="detailsBackBtn"
                 children={"Go back"}
                 type={"button"}
                 buttonStyle={"btn--primary--solid"}
@@ -142,7 +125,6 @@ function Details(props) {
             <Button
               className="btn btn--secondary--solid"
               value="NEXT"
-              //id="detailsNextBtn"
               children={"Next"}
               type={"submit"}
               buttonStyle={"btn--secondary--solid"}
@@ -155,19 +137,3 @@ function Details(props) {
 }
 
 export default Details;
-
-/*
-          <PhoneInput
-            placeholder=" "
-            autoFormat="false"
-            dropdownClass="t1"
-            containerClass="t2"
-            buttonClass="t3"
-            inputClass="t4"
-            name="phone"
-            country={"dk"}
-            value={props.userInfo.phone}
-            onChange={handlePhoneInput}
-            aria-describedby="hint-user"
-          />
-           */
