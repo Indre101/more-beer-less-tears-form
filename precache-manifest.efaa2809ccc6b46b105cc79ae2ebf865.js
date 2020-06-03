@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9b6959804a2228b49484c3c0268e062c",
+    "revision": "a8cef6adbe11c060e8f6dc794cf67b5e",
     "url": "/more-beer-less-tears-form/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/more-beer-less-tears-form/static/css/2.3712154f.chunk.css"
   },
   {
-    "revision": "5205623e727b4149fb36",
+    "revision": "19203bf78bfc41b5aefb",
     "url": "/more-beer-less-tears-form/static/css/main.17aa88c0.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/more-beer-less-tears-form/static/js/2.69e9950a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "5205623e727b4149fb36",
-    "url": "/more-beer-less-tears-form/static/js/main.c244cc0f.chunk.js"
+    "revision": "19203bf78bfc41b5aefb",
+    "url": "/more-beer-less-tears-form/static/js/main.bc45d508.chunk.js"
   },
   {
     "revision": "8baf4a83dbea4e391dce",

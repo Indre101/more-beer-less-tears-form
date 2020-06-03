@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/more-beer-less-tears-form/static/css/main.17aa88c0.chunk.css",
-    "main.js": "/more-beer-less-tears-form/static/js/main.c244cc0f.chunk.js",
-    "main.js.map": "/more-beer-less-tears-form/static/js/main.c244cc0f.chunk.js.map",
+    "main.js": "/more-beer-less-tears-form/static/js/main.bc45d508.chunk.js",
+    "main.js.map": "/more-beer-less-tears-form/static/js/main.bc45d508.chunk.js.map",
     "runtime-main.js": "/more-beer-less-tears-form/static/js/runtime-main.20a1457c.js",
     "runtime-main.js.map": "/more-beer-less-tears-form/static/js/runtime-main.20a1457c.js.map",
     "static/css/2.3712154f.chunk.css": "/more-beer-less-tears-form/static/css/2.3712154f.chunk.css",
     "static/js/2.69e9950a.chunk.js": "/more-beer-less-tears-form/static/js/2.69e9950a.chunk.js",
     "static/js/2.69e9950a.chunk.js.map": "/more-beer-less-tears-form/static/js/2.69e9950a.chunk.js.map",
     "index.html": "/more-beer-less-tears-form/index.html",
-    "precache-manifest.8aaefbfbf9d65ce497ef9e01c0c5f709.js": "/more-beer-less-tears-form/precache-manifest.8aaefbfbf9d65ce497ef9e01c0c5f709.js",
+    "precache-manifest.efaa2809ccc6b46b105cc79ae2ebf865.js": "/more-beer-less-tears-form/precache-manifest.efaa2809ccc6b46b105cc79ae2ebf865.js",
     "service-worker.js": "/more-beer-less-tears-form/service-worker.js",
     "static/css/2.3712154f.chunk.css.map": "/more-beer-less-tears-form/static/css/2.3712154f.chunk.css.map",
     "static/css/main.17aa88c0.chunk.css.map": "/more-beer-less-tears-form/static/css/main.17aa88c0.chunk.css.map",
@@ -40,6 +40,6 @@
     "static/css/2.3712154f.chunk.css",
     "static/js/2.69e9950a.chunk.js",
     "static/css/main.17aa88c0.chunk.css",
-    "static/js/main.c244cc0f.chunk.js"
+    "static/js/main.bc45d508.chunk.js"
   ]
 }
