@@ -1,5 +1,5 @@
 {
-  "homepage": "https://Indre101.github.io/more-beer-less-tears-form",
+  "homepage": "https://Indre101.github.io/more-beer-less-tears-form/",
   "name": "more-beer-less-tears-form",
   "version": "0.1.0",
   "private": true,
@@ -15,7 +15,6 @@
     "react-credit-cards": "^0.8.2",
     "react-dom": "^16.13.1",
     "react-lottie": "^1.2.3",
-    "react-phone-input-2": "^2.13.5",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-svg-buttons": "^0.4.0",
