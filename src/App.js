@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+  HashRouter,
+} from "react-router-dom";
 import "./App.scss";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
@@ -33,7 +39,7 @@ function App() {
 
   //sets the beer to pass to the Product page
   return (
-    <Router>
+    <HashRouter basename="/">
       <div className="App">
         <Preloader setpreloaderPlayed={setpreloaderPlayed} />
         <Header />
@@ -91,7 +97,7 @@ function App() {
             )}
           />
           <Route
-            path="/*"
+            path="*"
             exact
             render={(routeProps) => (
               <Shop
@@ -107,7 +113,7 @@ function App() {
           <h4>© More Beers Less Tears MMXX</h4>
         </footer>
       </div>
-    </Router>
+    </HashRouter>
   );
 }
 
