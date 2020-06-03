@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/more-beer-less-tears-form/precache-manifest.efaa2809ccc6b46b105cc79ae2ebf865.js"
+  "/more-beer-less-tears-form/precache-manifest.7fa9604840ec4ffb75e2947c3391527b.js"
 );
 
 self.addEventListener('message', (event) => {
