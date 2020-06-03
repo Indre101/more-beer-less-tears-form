@@ -9,7 +9,7 @@ function Nav(props) {
 
   function wibble() {
     if (amountOfitems === 0) {
-      console.log("IT's 0");
+      return;
     } else {
     }
   }

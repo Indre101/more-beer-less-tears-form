@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-// import CardDetails from "./components/CardDetails";
 import "./App.scss";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
@@ -92,7 +91,7 @@ function App() {
             )}
           />
           <Route
-            path="*"
+            path="/*"
             exact
             render={(routeProps) => (
               <Shop

@@ -5,9 +5,6 @@ import gsap from "gsap";
 
 const OrderMessage = (props) => {
   useEffect(() => {
-    // const tl = gsap.timeline({ delay: 2 });
-    // tl.from(".animBeer", { opacity: 0, y: 50 });
-    // tl.to(".animBeer", { opacity: 1, y: 0, duration: 1 });
     gsap.from(".animMessage", { duration: 1, y: 50, opacity: 0, stagger: 0.2 });
   }, [props.beer]);
   return (

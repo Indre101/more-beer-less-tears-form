@@ -52,12 +52,8 @@ export default function CardPayment(props) {
     formInputs.forEach((item) => {
       //check form regulat validation wheather the required fields are filled
       if (item.hasAttribute("value") && item.checkValidity()) {
-        console.log("valid all");
-
         chechCustomValidation(item);
       } else if (item.hasAttribute("value") && !item.checkValidity()) {
-        console.log("not valid");
-
         showInputErrors(item);
       }
     });

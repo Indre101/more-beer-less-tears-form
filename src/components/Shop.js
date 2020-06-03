@@ -75,9 +75,7 @@ function Shop(props) {
         <h1>Beers</h1>
         <div className="beer-list animList">{beersAvailableTobuyElement}</div>
       </section>
-      {/* <section className="promo-section">
-				<h1>Happy Hour</h1>
-			</section> */}
+
       <section className="stats-section">
         <h1>Staff Choice</h1>
         <TopBeer />
