@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-  HashRouter,
-} from "react-router-dom";
+import { Switch, Route, HashRouter } from "react-router-dom";
 import "./App.scss";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
